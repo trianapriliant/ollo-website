@@ -1,0 +1,162 @@
+.footer {
+    background: var(--color-text-primary);
+    color: var(--color-text-inverse);
+    padding: var(--space-16) 0 var(--space-8);
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+}
+
+.brandColumn {
+    max-width: 300px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-3);
+}
+
+.logoIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.logoText {
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary-light);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-3);
+}
+
+.description {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.socialLinks {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: var(--radius-lg);
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    color: white;
+}
+
+/* Instagram Brand Color */
+.socialLink:nth-child(1):hover {
+    color: #E4405F;
+}
+
+/* TikTok Brand Color */
+.socialLink:nth-child(2):hover {
+    color: #00f2ea;
+}
+
+/* X/Twitter Brand Color */
+.socialLink:nth-child(3):hover {
+    color: #ffffff;
+}
+
+.linksColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.columnTitle {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    margin-bottom: var(--space-2);
+}
+
+.linksList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.link {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-fast);
+}
+
+.link:hover {
+    color: var(--color-primary-light);
+}
+
+.bottomBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+    .bottomBar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.copyright {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.version {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.3);
+}

@@ -1,66 +1,459 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { FaGooglePlay } from "react-icons/fa6";
+import {
+  Wallet,
+  CreditCard,
+  GraphUp,
+  PiggyBank,
+  Camera,
+  Calendar,
+  Microphone,
+  Language,
+  OffTag,
+  Lock,
+  Cpu,
+  Spark,
+  Gift,
+  Star,
+  Coins,
+  DataTransferBoth,
+} from "iconoir-react";
+
+const features = [
+  {
+    icon: Wallet,
+    title: "Smart Transactions",
+    description: "Track income, expenses, and transfers with powerful categorization and search.",
+    image: "/feature-smart-transactions.jpg",
+  },
+  {
+    icon: CreditCard,
+    title: "Multi-Wallet",
+    description: "Manage cash, bank accounts, e-wallets, and crypto all in one place.",
+    image: "/feature-multi-wallet.jpg",
+  },
+  {
+    icon: GraphUp,
+    title: "Rich Analytics",
+    description: "Beautiful charts and insights to understand your spending patterns.",
+    image: "/feature-rich-analytics.png",
+  },
+  {
+    icon: PiggyBank,
+    title: "Savings Goals",
+    description: "Set goals, track progress, and celebrate when you reach your targets.",
+    image: "/feature-savings-goals.jpg",
+  },
+  {
+    icon: Camera,
+    title: "Receipt Scanner",
+    description: "Snap a receipt and let AI extract the amount and category for you.",
+    image: "/feature-receipt-scanner.png",
+  },
+  {
+    icon: Calendar,
+    title: "Bills & Reminders",
+    description: "Never miss a payment with smart bill tracking and timely reminders.",
+    image: "/feature-bills-reminders.jpg",
+  },
+];
+
+const voiceLanguages = [
+  { flag: "🇺🇸", name: "English" },
+  { flag: "🇮🇩", name: "Indonesian" },
+  { flag: "🇪🇸", name: "Spanish" },
+  { flag: "🇮🇳", name: "Hindi" },
+  { flag: "🇯🇵", name: "Japanese" },
+  { flag: "🇨🇳", name: "Mandarin" },
+  { flag: "🇰🇷", name: "Korean" },
+];
+
+const voiceFormats = {
+  expense: {
+    label: "Expense",
+    Icon: Wallet,
+    format: "[description] [amount] paid with [wallet]",
+    examples: [
+      { flag: "🇺🇸", text: "Lunch $20 paid with Chase", result: { title: "Lunch", category: "Food & Drinks", amount: "-$20.00", wallet: "Chase" } },
+      { flag: "🇮🇩", text: "Makan siang 20rb bayar BCA", result: { title: "Makan siang", category: "Makanan", amount: "-Rp 20.000", wallet: "BCA" } },
+      { flag: "🇯🇵", text: "ランチ 2000円 現金で", result: { title: "ランチ", category: "食費", amount: "-¥2,000", wallet: "現金" } },
+      { flag: "🇪🇸", text: "Almuerzo €15 con Santander", result: { title: "Almuerzo", category: "Comida", amount: "-€15.00", wallet: "Santander" } },
+    ]
+  },
+  income: {
+    label: "Income",
+    Icon: Coins,
+    format: "[source] [amount] to [wallet]",
+    examples: [
+      { flag: "🇺🇸", text: "Monthly salary $4000 to Savings", result: { title: "Monthly salary", category: "Salary", amount: "+$4,000.00", wallet: "Savings" } },
+      { flag: "🇮🇩", text: "Gaji bulanan 4jt masuk BCA", result: { title: "Gaji bulanan", category: "Gaji", amount: "+Rp 4.000.000", wallet: "BCA" } },
+      { flag: "🇯🇵", text: "給料 30万円 三菱UFJへ", result: { title: "給料", category: "給与", amount: "+¥300,000", wallet: "三菱UFJ" } },
+      { flag: "🇪🇸", text: "Sueldo €2500 a BBVA", result: { title: "Sueldo", category: "Salario", amount: "+€2,500.00", wallet: "BBVA" } },
+    ]
+  },
+  transfer: {
+    label: "Transfer",
+    Icon: DataTransferBoth,
+    format: "transfer [amount] from [wallet A] to [wallet B] fee [amount]",
+    examples: [
+      { flag: "🇺🇸", text: "Transfer $500 from Checking to Savings", result: { from: "Checking", to: "Savings", amount: "$500.00", fee: "$0" } },
+      { flag: "🇮🇩", text: "Transfer 100rb dari BCA ke Mandiri admin 2500", result: { from: "BCA", to: "Mandiri", amount: "Rp 100.000", fee: "Rp 2.500" } },
+      { flag: "🇯🇵", text: "振込 5万円 三菱UFJからみずほへ 手数料220円", result: { from: "三菱UFJ", to: "みずほ", amount: "¥50,000", fee: "¥220" } },
+      { flag: "🇪🇸", text: "Transferir €200 de BBVA a Santander", result: { from: "BBVA", to: "Santander", amount: "€200.00", fee: "€0" } },
+    ]
+  }
+};
+
+const benefits = [
+  {
+    title: "Privacy First",
+    description: "Your data stays on your device. No cloud uploads, no tracking.",
+    icon: Lock,
+  },
+  {
+    title: "Works Offline",
+    description: "No internet? No problem. Ollo works completely offline.",
+    icon: OffTag,
+  },
+  {
+    title: "Beautiful Design",
+    description: "Modern, clean interface that makes finance tracking a joy.",
+    icon: Spark,
+  },
+  {
+    title: "Free Forever Core",
+    description: "Essential features are free. Premium unlocks the full experience.",
+    icon: Gift,
+  },
+];
+
+const screenshots = [
+  "/app-screen-1.jpg",
+  "/app-screen-2.jpg",
+  "/app-screen-3.jpg",
+];
 
 export default function Home() {
+  const [currentScreenshot, setCurrentScreenshot] = useState(0);
+  const [activeVoiceTab, setActiveVoiceTab] = useState<'expense' | 'income' | 'transfer'>('expense');
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentScreenshot((prev) => (prev + 1) % screenshots.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroContainer}>
+          <div className={styles.heroContent}>
+            <span className={styles.badge}>
+              <Microphone className={styles.badgeIcon} />
+              Voice-First Finance Tracking
+            </span>
+            <h1 className={styles.heroTitle}>
+              Record expenses<br />
+              <span className={styles.gradient}>in 3 seconds</span><br />
+              with your voice
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Just speak naturally, <span className={styles.voiceExample}>&quot;spent 50k for lunch at cafe&quot;</span>, and Ollo
+              instantly creates your transaction. The fastest way to track money.
+            </p>
+            <div className={styles.heroCta}>
+              <Link href="/download" className={styles.primaryButton}>
+                <span className={styles.playIcon}>
+                  <FaGooglePlay size={16} />
+                </span>
+                Download on Play Store
+              </Link>
+              <Link href="/features" className={styles.secondaryButton}>
+                See All Features
+              </Link>
+            </div>
+            <div className={styles.trustSignals}>
+              <div className={styles.trustItem}>
+                <Spark className={styles.trustIcon} />
+                <span>3-second recording</span>
+              </div>
+              <div className={styles.trustItem}>
+                <Language className={styles.trustIcon} />
+                <span>7 languages</span>
+              </div>
+              <div className={styles.trustItem}>
+                <Cpu className={styles.trustIcon} />
+                <span>Smart AI parsing</span>
+              </div>
+            </div>
+          </div>
+          <div className={styles.heroVisual}>
+            <div className={styles.phoneMockup}>
+              <div className={styles.phoneFrame}>
+                <div className={styles.phoneScreen}>
+                  {/* App Screenshot Carousel */}
+                  <div className={styles.appScreenWrapper}>
+                    {screenshots.map((src, index) => (
+                      <div
+                        key={src}
+                        className={styles.screenshotSlide}
+                        style={{ opacity: currentScreenshot === index ? 1 : 0 }}
+                      >
+                        <Image
+                          src={src}
+                          alt={`Ollo App Screen ${index + 1}`}
+                          fill
+                          style={{ objectFit: 'cover' }}
+                          priority
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className={styles.phoneGlow}></div>
+            </div>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className={styles.heroWave}>
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white" />
+          </svg>
         </div>
-      </main>
+      </section>
+
+      {/* Voice Quick Record Spotlight */}
+      <section className={styles.voiceSpotlight}>
+        <div className={styles.container}>
+          <div className={styles.spotlightGrid}>
+            <div className={styles.spotlightContent}>
+              <span className={styles.spotlightBadge}>
+                <Star className={styles.spotlightBadgeIcon} />
+                Featured
+              </span>
+              <h2 className={styles.spotlightTitle}>
+                Voice Quick Record
+              </h2>
+              <p className={styles.spotlightSubtitle}>
+                The fastest way to track expenses. Just speak naturally in your language,
+                and Ollo&apos;s AI instantly understands amount, category, and details.
+              </p>
+
+              {/* Interactive Voice Format Tabs */}
+              <div className={styles.voiceFormatSection}>
+                <div className={styles.voiceFormatTabs}>
+                  {(Object.keys(voiceFormats) as Array<keyof typeof voiceFormats>).map((key) => {
+                    const TabIcon = voiceFormats[key].Icon;
+                    return (
+                      <button
+                        key={key}
+                        className={`${styles.voiceFormatTab} ${activeVoiceTab === key ? styles.voiceFormatTabActive : ''}`}
+                        onMouseEnter={() => setActiveVoiceTab(key)}
+                        onClick={() => setActiveVoiceTab(key)}
+                      >
+                        <TabIcon className={styles.tabIcon} />
+                        <span className={styles.tabLabel}>{voiceFormats[key].label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className={styles.voiceFormatContent}>
+                  <div className={styles.formatPattern}>
+                    <span className={styles.formatLabel}>Voice Format:</span>
+                    <code className={styles.formatCode}>{voiceFormats[activeVoiceTab].format}</code>
+                  </div>
+
+                  <div className={styles.formatExamples}>
+                    {voiceFormats[activeVoiceTab].examples.map((example, index) => (
+                      <div key={index} className={styles.formatExampleCard}>
+                        <div className={styles.exampleVoice}>
+                          <span className={styles.exampleFlag}>{example.flag}</span>
+                          <span className={styles.exampleVoiceText}>&quot;{example.text}&quot;</span>
+                        </div>
+                        <div className={styles.exampleArrow}>→</div>
+                        <div className={styles.exampleResult}>
+                          {'title' in example.result ? (
+                            <>
+                              <span className={styles.exampleResultTitle}>{example.result.title}</span>
+                              <span className={styles.exampleResultAmount}>{example.result.amount}</span>
+                            </>
+                          ) : (
+                            <>
+                              <span className={styles.exampleResultTitle}>{example.result.from} → {example.result.to}</span>
+                              <span className={styles.exampleResultAmount}>{example.result.amount}</span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.voiceStats}>
+                <div className={styles.statItem}>
+                  <span className={styles.statNumber}>3s</span>
+                  <span className={styles.statLabel}>Average record time</span>
+                </div>
+                <div className={styles.statItem}>
+                  <span className={styles.statNumber}>95%</span>
+                  <span className={styles.statLabel}>Accuracy rate</span>
+                </div>
+                <div className={styles.statItem}>
+                  <span className={styles.statNumber}>7</span>
+                  <span className={styles.statLabel}>Languages supported</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.spotlightLanguages}>
+              <h3 className={styles.languagesTitle}>
+                <Language className={styles.langTitleIcon} />
+                Speak in your language
+              </h3>
+              <div className={styles.languagesList}>
+                {voiceLanguages.map((lang) => (
+                  <div key={lang.name} className={styles.languageItem}>
+                    <span className={styles.langFlag}>{lang.flag}</span>
+                    <span className={styles.langName}>{lang.name}</span>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.voiceExamples}>
+                <div className={styles.exampleItem}>
+                  <span className={styles.exampleFlag}>🇮🇩</span>
+                  <span className={styles.exampleText}>&quot;Bayar grab 25 ribu&quot;</span>
+                </div>
+                <div className={styles.exampleItem}>
+                  <span className={styles.exampleFlag}>🇺🇸</span>
+                  <span className={styles.exampleText}>&quot;Coffee at Starbucks $5&quot;</span>
+                </div>
+                <div className={styles.exampleItem}>
+                  <span className={styles.exampleFlag}>🇯🇵</span>
+                  <span className={styles.exampleText}>&quot;ランチ 1000円&quot;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Preview */}
+      <section className={styles.features}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>Features</span>
+            <h2 className={styles.sectionTitle}>
+              Everything you need to<br />
+              <span className={styles.gradient}>master your finances</span>
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              Powerful features designed with simplicity in mind.
+              Track, analyze, and optimize your spending effortlessly.
+            </p>
+          </div>
+          <div className={styles.featuresGrid}>
+            {features.map((feature, index) => (
+              <div
+                key={feature.title}
+                className={styles.featureCard}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {feature.image && (
+                  <div className={styles.featureImageWrapper}>
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </div>
+                )}
+                <div className={styles.featureContent}>
+                  <div className={styles.featureIconWrapper}>
+                    <feature.icon className={styles.featureSvgIcon} />
+                  </div>
+                  <h3 className={styles.featureTitle}>{feature.title}</h3>
+                  <p className={styles.featureDescription}>{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.featuresCta}>
+            <Link href="/features" className={styles.outlineButton}>
+              View All Features →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Ollo */}
+      <section className={styles.whyOllo}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>Why Ollo?</span>
+            <h2 className={styles.sectionTitle}>
+              Designed for<br />
+              <span className={styles.gradient}>daily money clarity</span>
+            </h2>
+          </div>
+          <div className={styles.benefitsGrid}>
+            {benefits.map((benefit, index) => (
+              <div
+                key={benefit.title}
+                className={styles.benefitCard}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className={styles.benefitIconWrapper}>
+                  <benefit.icon className={styles.benefitSvgIcon} />
+                </div>
+                <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+                <p className={styles.benefitDescription}>{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className={styles.cta}>
+        <div className={styles.container}>
+          <div className={styles.ctaCard}>
+            <div className={styles.ctaContent}>
+              <h2 className={styles.ctaTitle}>
+                Ready to take control of your finances?
+              </h2>
+              <p className={styles.ctaSubtitle}>
+                Join thousands of users who are building better money habits with Ollo.
+                Free to download, powerful to use.
+              </p>
+              <div className={styles.ctaButtons}>
+                <Link href="/download" className={styles.primaryButton}>
+                  <span className={styles.playIcon}><FaGooglePlay size={16} /></span>
+                  Get Ollo Free
+                </Link>
+                <Link href="/pricing" className={styles.ghostButton}>
+                  View Pricing
+                </Link>
+              </div>
+            </div>
+            <div className={styles.ctaDecor}>
+              <Wallet className={styles.ctaDecoIcon} />
+              <GraphUp className={styles.ctaDecoIcon} />
+              <PiggyBank className={styles.ctaDecoIcon} />
+              <Spark className={styles.ctaDecoIcon} />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
