@@ -23,45 +23,8 @@ import {
   Coins,
   DataTransferBoth,
 } from "iconoir-react";
-
-const features = [
-  {
-    icon: Wallet,
-    title: "Smart Transactions",
-    description: "Track income, expenses, and transfers with powerful categorization and search.",
-    image: "/feature-smart-transactions.jpg",
-  },
-  {
-    icon: CreditCard,
-    title: "Multi-Wallet",
-    description: "Manage cash, bank accounts, e-wallets, and crypto all in one place.",
-    image: "/feature-multi-wallet.jpg",
-  },
-  {
-    icon: GraphUp,
-    title: "Rich Analytics",
-    description: "Beautiful charts and insights to understand your spending patterns.",
-    image: "/feature-rich-analytics.png",
-  },
-  {
-    icon: PiggyBank,
-    title: "Savings Goals",
-    description: "Set goals, track progress, and celebrate when you reach your targets.",
-    image: "/feature-savings-goals.jpg",
-  },
-  {
-    icon: Camera,
-    title: "Receipt Scanner",
-    description: "Snap a receipt and let AI extract the amount and category for you.",
-    image: "/feature-receipt-scanner.png",
-  },
-  {
-    icon: Calendar,
-    title: "Bills & Reminders",
-    description: "Never miss a payment with smart bill tracking and timely reminders.",
-    image: "/feature-bills-reminders.jpg",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 const voiceLanguages = [
   { flag: "🇺🇸", name: "English" },
@@ -75,7 +38,6 @@ const voiceLanguages = [
 
 const voiceFormats = {
   expense: {
-    label: "Expense",
     Icon: Wallet,
     format: "[description] [amount] paid with [wallet]",
     examples: [
@@ -86,7 +48,6 @@ const voiceFormats = {
     ]
   },
   income: {
-    label: "Income",
     Icon: Coins,
     format: "[source] [amount] to [wallet]",
     examples: [
@@ -97,7 +58,6 @@ const voiceFormats = {
     ]
   },
   transfer: {
-    label: "Transfer",
     Icon: DataTransferBoth,
     format: "transfer [amount] from [wallet A] to [wallet B] fee [amount]",
     examples: [
@@ -109,29 +69,6 @@ const voiceFormats = {
   }
 };
 
-const benefits = [
-  {
-    title: "Privacy First",
-    description: "Your data stays on your device. No cloud uploads, no tracking.",
-    icon: Lock,
-  },
-  {
-    title: "Works Offline",
-    description: "No internet? No problem. Ollo works completely offline.",
-    icon: OffTag,
-  },
-  {
-    title: "Beautiful Design",
-    description: "Modern, clean interface that makes finance tracking a joy.",
-    icon: Spark,
-  },
-  {
-    title: "Free Forever Core",
-    description: "Essential features are free. Premium unlocks the full experience.",
-    icon: Gift,
-  },
-];
-
 const screenshots = [
   "/app-screen-1.jpg",
   "/app-screen-2.jpg",
@@ -141,6 +78,79 @@ const screenshots = [
 export default function Home() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const [activeVoiceTab, setActiveVoiceTab] = useState<'expense' | 'income' | 'transfer'>('expense');
+  const { language } = useLanguage();
+  const t = getTranslations(language);
+
+  // Features with translations
+  const features = [
+    {
+      icon: Wallet,
+      title: t.home.smartTransactionsTitle,
+      description: t.home.smartTransactionsDesc,
+      image: "/feature-smart-transactions.jpg",
+    },
+    {
+      icon: CreditCard,
+      title: t.home.multiWalletTitle,
+      description: t.home.multiWalletDesc,
+      image: "/feature-multi-wallet.jpg",
+    },
+    {
+      icon: GraphUp,
+      title: t.home.richAnalyticsTitle,
+      description: t.home.richAnalyticsDesc,
+      image: "/feature-rich-analytics.png",
+    },
+    {
+      icon: PiggyBank,
+      title: t.home.savingsGoalsTitle,
+      description: t.home.savingsGoalsDesc,
+      image: "/feature-savings-goals.jpg",
+    },
+    {
+      icon: Camera,
+      title: t.home.receiptScannerTitle,
+      description: t.home.receiptScannerDesc,
+      image: "/feature-receipt-scanner.png",
+    },
+    {
+      icon: Calendar,
+      title: t.home.billsRemindersTitle,
+      description: t.home.billsRemindersDesc,
+      image: "/feature-bills-reminders.jpg",
+    },
+  ];
+
+  // Benefits with translations
+  const benefits = [
+    {
+      title: t.home.privacyFirstTitle,
+      description: t.home.privacyFirstDesc,
+      icon: Lock,
+    },
+    {
+      title: t.home.worksOfflineTitle,
+      description: t.home.worksOfflineDesc,
+      icon: OffTag,
+    },
+    {
+      title: t.home.beautifulDesignTitle,
+      description: t.home.beautifulDesignDesc,
+      icon: Spark,
+    },
+    {
+      title: t.home.freeForeverTitle,
+      description: t.home.freeForeverDesc,
+      icon: Gift,
+    },
+  ];
+
+  // Voice tab labels
+  const voiceTabLabels = {
+    expense: t.home.expense,
+    income: t.home.income,
+    transfer: t.home.transfer,
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -157,40 +167,39 @@ export default function Home() {
           <div className={styles.heroContent}>
             <span className={styles.badge}>
               <Microphone className={styles.badgeIcon} />
-              Voice-First Finance Tracking
+              {t.home.heroBadge}
             </span>
             <h1 className={styles.heroTitle}>
-              Record expenses<br />
-              <span className={styles.gradient}>in 3 seconds</span><br />
-              with your voice
+              {t.home.heroTitle1}<br />
+              <span className={styles.gradient}>{t.home.heroTitle2}</span><br />
+              {t.home.heroTitle3}
             </h1>
             <p className={styles.heroSubtitle}>
-              Just speak naturally, <span className={styles.voiceExample}>&quot;spent 50k for lunch at cafe&quot;</span>, and Ollo
-              instantly creates your transaction. The fastest way to track money.
+              {t.home.heroSubtitle.split(',')[0]}, <span className={styles.voiceExample}>&quot;{t.home.heroVoiceExample}&quot;</span>, {t.home.heroSubtitle.split(',').slice(1).join(',')}
             </p>
             <div className={styles.heroCta}>
               <Link href="/download" className={styles.primaryButton}>
                 <span className={styles.playIcon}>
                   <FaGooglePlay size={16} />
                 </span>
-                Download on Play Store
+                {t.home.downloadPlayStore}
               </Link>
               <Link href="/features" className={styles.secondaryButton}>
-                See All Features
+                {t.home.seeAllFeatures}
               </Link>
             </div>
             <div className={styles.trustSignals}>
               <div className={styles.trustItem}>
                 <Spark className={styles.trustIcon} />
-                <span>3-second recording</span>
+                <span>{t.home.trustRecording}</span>
               </div>
               <div className={styles.trustItem}>
                 <Language className={styles.trustIcon} />
-                <span>7 languages</span>
+                <span>{t.home.trustLanguages}</span>
               </div>
               <div className={styles.trustItem}>
                 <Cpu className={styles.trustIcon} />
-                <span>Smart AI parsing</span>
+                <span>{t.home.trustAI}</span>
               </div>
             </div>
           </div>
@@ -236,14 +245,13 @@ export default function Home() {
             <div className={styles.spotlightContent}>
               <span className={styles.spotlightBadge}>
                 <Star className={styles.spotlightBadgeIcon} />
-                Featured
+                {t.home.spotlightBadge}
               </span>
               <h2 className={styles.spotlightTitle}>
-                Voice Quick Record
+                {t.home.spotlightTitle}
               </h2>
               <p className={styles.spotlightSubtitle}>
-                The fastest way to track expenses. Just speak naturally in your language,
-                and Ollo&apos;s AI instantly understands amount, category, and details.
+                {t.home.spotlightSubtitle}
               </p>
 
               {/* Interactive Voice Format Tabs */}
@@ -259,7 +267,7 @@ export default function Home() {
                         onClick={() => setActiveVoiceTab(key)}
                       >
                         <TabIcon className={styles.tabIcon} />
-                        <span className={styles.tabLabel}>{voiceFormats[key].label}</span>
+                        <span className={styles.tabLabel}>{voiceTabLabels[key]}</span>
                       </button>
                     );
                   })}
@@ -267,7 +275,7 @@ export default function Home() {
 
                 <div className={styles.voiceFormatContent}>
                   <div className={styles.formatPattern}>
-                    <span className={styles.formatLabel}>Voice Format:</span>
+                    <span className={styles.formatLabel}>{t.home.voiceFormatLabel}</span>
                     <code className={styles.formatCode}>{voiceFormats[activeVoiceTab].format}</code>
                   </div>
 
@@ -301,15 +309,15 @@ export default function Home() {
               <div className={styles.voiceStats}>
                 <div className={styles.statItem}>
                   <span className={styles.statNumber}>3s</span>
-                  <span className={styles.statLabel}>Average record time</span>
+                  <span className={styles.statLabel}>{t.home.avgRecordTime}</span>
                 </div>
                 <div className={styles.statItem}>
                   <span className={styles.statNumber}>95%</span>
-                  <span className={styles.statLabel}>Accuracy rate</span>
+                  <span className={styles.statLabel}>{t.home.accuracyRate}</span>
                 </div>
                 <div className={styles.statItem}>
                   <span className={styles.statNumber}>7</span>
-                  <span className={styles.statLabel}>Languages supported</span>
+                  <span className={styles.statLabel}>{t.home.languagesSupported}</span>
                 </div>
               </div>
             </div>
@@ -317,7 +325,7 @@ export default function Home() {
             <div className={styles.spotlightLanguages}>
               <h3 className={styles.languagesTitle}>
                 <Language className={styles.langTitleIcon} />
-                Speak in your language
+                {t.home.speakInYourLanguage}
               </h3>
               <div className={styles.languagesList}>
                 {voiceLanguages.map((lang) => (
@@ -350,14 +358,13 @@ export default function Home() {
       <section className={styles.features}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Features</span>
+            <span className={styles.sectionLabel}>{t.home.featuresLabel}</span>
             <h2 className={styles.sectionTitle}>
-              Everything you need to<br />
-              <span className={styles.gradient}>master your finances</span>
+              {t.home.featuresTitle1}<br />
+              <span className={styles.gradient}>{t.home.featuresTitle2}</span>
             </h2>
             <p className={styles.sectionSubtitle}>
-              Powerful features designed with simplicity in mind.
-              Track, analyze, and optimize your spending effortlessly.
+              {t.home.featuresSubtitle}
             </p>
           </div>
           <div className={styles.featuresGrid}>
@@ -389,7 +396,7 @@ export default function Home() {
           </div>
           <div className={styles.featuresCta}>
             <Link href="/features" className={styles.outlineButton}>
-              View All Features →
+              {t.home.viewAllFeatures}
             </Link>
           </div>
         </div>
@@ -399,10 +406,10 @@ export default function Home() {
       <section className={styles.whyOllo}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Why Ollo?</span>
+            <span className={styles.sectionLabel}>{t.home.whyOlloLabel}</span>
             <h2 className={styles.sectionTitle}>
-              Designed for<br />
-              <span className={styles.gradient}>daily money clarity</span>
+              {t.home.whyOlloTitle1}<br />
+              <span className={styles.gradient}>{t.home.whyOlloTitle2}</span>
             </h2>
           </div>
           <div className={styles.benefitsGrid}>
@@ -429,19 +436,18 @@ export default function Home() {
           <div className={styles.ctaCard}>
             <div className={styles.ctaContent}>
               <h2 className={styles.ctaTitle}>
-                Ready to take control of your finances?
+                {t.home.ctaTitle}
               </h2>
               <p className={styles.ctaSubtitle}>
-                Join thousands of users who are building better money habits with Ollo.
-                Free to download, powerful to use.
+                {t.home.ctaSubtitle}
               </p>
               <div className={styles.ctaButtons}>
                 <Link href="/download" className={styles.primaryButton}>
                   <span className={styles.playIcon}><FaGooglePlay size={16} /></span>
-                  Get Ollo Free
+                  {t.home.getOlloFree}
                 </Link>
                 <Link href="/pricing" className={styles.ghostButton}>
-                  View Pricing
+                  {t.home.viewPricing}
                 </Link>
               </div>
             </div>

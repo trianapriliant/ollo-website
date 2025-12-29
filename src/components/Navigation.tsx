@@ -4,18 +4,22 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navigation.module.css";
-
-const navLinks = [
-    { href: "/features", label: "Features" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/download", label: "Download" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/about", label: "About" },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { language, currentLanguageOption, languages, setLanguage } = useLanguage();
+    const t = getTranslations(language);
+
+    const navLinks = [
+        { href: "/features", label: t.nav.features },
+        { href: "/pricing", label: t.nav.pricing },
+        { href: "/download", label: t.nav.download },
+        { href: "/faq", label: t.nav.faq },
+        { href: "/about", label: t.nav.about },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,9 +51,23 @@ export default function Navigation() {
                     ))}
                 </ul>
 
+                {/* Language Toggle */}
+                <div className={styles.langToggle}>
+                    {languages.map((lang) => (
+                        <button
+                            key={lang.code}
+                            onClick={() => setLanguage(lang.code)}
+                            className={`${styles.langBtn} ${language === lang.code ? styles.langBtnActive : ""}`}
+                            aria-label={`Switch to ${lang.label}`}
+                        >
+                            {lang.shortLabel}
+                        </button>
+                    ))}
+                </div>
+
                 {/* CTA Button */}
                 <Link href="/download" className={styles.ctaButton}>
-                    Download App
+                    {t.nav.downloadApp}
                 </Link>
 
                 {/* Mobile Menu Button */}
@@ -79,13 +97,27 @@ export default function Navigation() {
                                 </Link>
                             </li>
                         ))}
+
+                        {/* Mobile Language Toggle */}
+                        <li className={styles.mobileLangToggle}>
+                            {languages.map((lang) => (
+                                <button
+                                    key={lang.code}
+                                    onClick={() => setLanguage(lang.code)}
+                                    className={`${styles.mobileLangBtn} ${language === lang.code ? styles.mobileLangBtnActive : ""}`}
+                                >
+                                    {lang.flag} {lang.shortLabel}
+                                </button>
+                            ))}
+                        </li>
+
                         <li>
                             <Link
                                 href="/download"
                                 className={styles.mobileCta}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                Download App
+                                {t.nav.downloadApp}
                             </Link>
                         </li>
                     </ul>

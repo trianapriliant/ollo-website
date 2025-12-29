@@ -1,14 +1,21 @@
+"use client";
+
 import styles from "./page.module.css";
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 export default function PrivacyPage() {
+    const { language } = useLanguage();
+    const t = getTranslations(language);
+
     return (
         <main className={styles.page}>
             {/* Hero */}
             <section className={styles.hero}>
                 <div className={styles.container}>
-                    <h1 className={styles.title}>Privacy Policy</h1>
+                    <h1 className={styles.title}>{t.privacy.title}</h1>
                     <p className={styles.subtitle}>
-                        Last updated: December 28, 2025
+                        {t.privacy.lastUpdated}
                     </p>
                 </div>
             </section>
@@ -18,7 +25,7 @@ export default function PrivacyPage() {
                 <div className={styles.container}>
                     <div className={styles.document}>
                         <section className={styles.section}>
-                            <h2>Introduction</h2>
+                            <h2>{t.privacy.introduction}</h2>
                             <p>
                                 Ollo (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy.
                                 This Privacy Policy explains how we collect, use, and safeguard your information
@@ -31,7 +38,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Data Storage</h2>
+                            <h2>{t.privacy.dataStorage}</h2>
                             <p>
                                 <strong>Your data stays on your device.</strong> Ollo stores all your financial
                                 data locally on your device using the Isar database. We do not upload, transmit,
@@ -49,7 +56,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Information We Do Not Collect</h2>
+                            <h2>{t.privacy.notCollect}</h2>
                             <p>
                                 We want to be clear about what we do NOT collect:
                             </p>
@@ -63,7 +70,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Optional Analytics</h2>
+                            <h2>{t.privacy.analytics}</h2>
                             <p>
                                 We may collect anonymous, non-personal analytics data to improve the app experience.
                                 This may include:
@@ -80,7 +87,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Camera Permission</h2>
+                            <h2>{t.privacy.camera}</h2>
                             <p>
                                 Ollo may request camera access for the <strong>Receipt Scanner</strong> feature.
                                 This permission is used solely to:
@@ -96,7 +103,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Microphone Permission</h2>
+                            <h2>{t.privacy.microphone}</h2>
                             <p>
                                 Ollo may request microphone access for the <strong>Voice Quick Record</strong> feature.
                                 This permission is used solely to:
@@ -112,7 +119,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>In-App Purchases</h2>
+                            <h2>{t.privacy.inAppPurchases}</h2>
                             <p>
                                 Premium subscriptions are processed through the Google Play Store. We do not
                                 have access to your payment information. All billing is handled by Google
@@ -121,7 +128,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Data Backup</h2>
+                            <h2>{t.privacy.dataBackup}</h2>
                             <p>
                                 Ollo provides a backup feature that exports your data as a JSON file. This
                                 file is saved to a location of your choice (local storage, cloud drive, etc.).
@@ -130,7 +137,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Third-Party Services</h2>
+                            <h2>{t.privacy.thirdParty}</h2>
                             <p>
                                 Ollo may use the following third-party services:
                             </p>
@@ -145,7 +152,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Children&apos;s Privacy</h2>
+                            <h2>{t.privacy.children}</h2>
                             <p>
                                 Ollo is not intended for use by children under the age of 13. We do not knowingly
                                 collect personal information from children under 13.
@@ -153,7 +160,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Changes to This Policy</h2>
+                            <h2>{t.privacy.changes}</h2>
                             <p>
                                 We may update our Privacy Policy from time to time. We will notify you of any
                                 changes by posting the new Privacy Policy on this page and updating the
@@ -162,7 +169,7 @@ export default function PrivacyPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>Contact Us</h2>
+                            <h2>{t.privacy.contactUs}</h2>
                             <p>
                                 If you have any questions about this Privacy Policy, please contact us at:
                             </p>

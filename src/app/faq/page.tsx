@@ -3,60 +3,28 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import { HelpCircle, Plus, Minus } from "iconoir-react";
-
-const faqs = [
-    {
-        question: "Is Ollo free to use?",
-        answer: "Yes! Ollo&apos;s core features are completely free. You can track transactions, manage up to 3 wallets, set savings goals, track debts, and more at no cost. Premium unlocks advanced features like unlimited wallets, receipt scanning, voice input, and data export.",
-    },
-    {
-        question: "Is my financial data safe?",
-        answer: "Absolutely. Your data is stored locally on your device using Isar database. We don&apos;t upload your financial information to any cloud server. You have complete control over your data. The only time data leaves your device is if you choose to export it yourself.",
-    },
-    {
-        question: "Does Ollo work offline?",
-        answer: "Yes! Ollo works completely offline. You don&apos;t need an internet connection to track expenses, view statistics, or use any core features. The app is designed to work anywhere, anytime.",
-    },
-    {
-        question: "What happens if I change my phone?",
-        answer: "You can backup your data using the built-in backup feature. Export your data as a JSON file and save it to your preferred location (Google Drive, local storage, etc.). Then import it on your new device. We&apos;re also working on cloud backup for easier migration.",
-    },
-    {
-        question: "How does Premium subscription work?",
-        answer: "Premium is available as Monthly, 6-Month, Annual, or Lifetime plans. Subscriptions are processed through Google Play Store. Monthly plans include a 7-day free trial. You can cancel anytime, and your premium features remain active until the end of your billing period.",
-    },
-    {
-        question: "Does Ollo support multiple currencies?",
-        answer: "Currently, Ollo supports setting your preferred currency for display purposes. Full multi-currency support with automatic conversion is on our roadmap and coming soon.",
-    },
-    {
-        question: "Is cloud backup available?",
-        answer: "Cloud backup (Google Drive sync) is currently in development. For now, you can manually backup your data as a JSON file and store it in your preferred cloud storage.",
-    },
-    {
-        question: "Can I use voice input in my language?",
-        answer: "Yes! Voice Quick Record supports 7 languages: English, Indonesian, Spanish, Hindi, Japanese, Mandarin Chinese, and Korean. The app uses natural language processing to understand your spoken transactions.",
-    },
-    {
-        question: "How accurate is the receipt scanner?",
-        answer: "Our OCR-based receipt scanner works well with clear, well-lit receipts. It extracts the total amount and suggests categories based on merchant keywords. Results may vary depending on receipt quality and lighting conditions.",
-    },
-    {
-        question: "Can I export my data?",
-        answer: "Yes! Premium users can export transactions to CSV format with filters for date range, wallet, and category. You can also do a full backup as JSON which includes all your data (transactions, wallets, budgets, goals, etc.).",
-    },
-    {
-        question: "What if I need help or have feedback?",
-        answer: "We&apos;d love to hear from you! You can reach us at contact@ollowithyou.com or through our social media channels @ollowithyou. Premium users get priority support.",
-    },
-    {
-        question: "Is there a web or desktop version?",
-        answer: "Currently, Ollo is available only for Android. iOS is in development. A web version may come in the future based on user demand.",
-    },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 export default function FAQPage() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const { language } = useLanguage();
+    const t = getTranslations(language);
+
+    const faqs = [
+        { question: t.faq.q1, answer: t.faq.a1 },
+        { question: t.faq.q2, answer: t.faq.a2 },
+        { question: t.faq.q3, answer: t.faq.a3 },
+        { question: t.faq.q4, answer: t.faq.a4 },
+        { question: t.faq.q5, answer: t.faq.a5 },
+        { question: t.faq.q6, answer: t.faq.a6 },
+        { question: t.faq.q7, answer: t.faq.a7 },
+        { question: t.faq.q8, answer: t.faq.a8 },
+        { question: t.faq.q9, answer: t.faq.a9 },
+        { question: t.faq.q10, answer: t.faq.a10 },
+        { question: t.faq.q11, answer: t.faq.a11 },
+        { question: t.faq.q12, answer: t.faq.a12 },
+    ];
 
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -69,15 +37,14 @@ export default function FAQPage() {
                 <div className={styles.container}>
                     <span className={styles.badge}>
                         <HelpCircle className={styles.badgeIcon} />
-                        FAQ
+                        {t.faq.badge}
                     </span>
                     <h1 className={styles.title}>
-                        Frequently Asked<br />
-                        <span className={styles.gradient}>Questions</span>
+                        {t.faq.title1}<br />
+                        <span className={styles.gradient}>{t.faq.title2}</span>
                     </h1>
                     <p className={styles.subtitle}>
-                        Find answers to common questions about Ollo.
-                        Can&apos;t find what you&apos;re looking for? Contact us!
+                        {t.faq.subtitle}
                     </p>
                 </div>
             </section>
@@ -114,12 +81,12 @@ export default function FAQPage() {
             <section className={styles.contact}>
                 <div className={styles.container}>
                     <div className={styles.contactCard}>
-                        <h2 className={styles.contactTitle}>Still have questions?</h2>
+                        <h2 className={styles.contactTitle}>{t.faq.stillHaveQuestions}</h2>
                         <p className={styles.contactText}>
-                            We&apos;re here to help. Reach out to us and we&apos;ll get back to you as soon as possible.
+                            {t.faq.hereToHelp}
                         </p>
                         <a href="mailto:contact@ollowithyou.com" className={styles.contactButton}>
-                            Contact Us →
+                            {t.faq.contactUs}
                         </a>
                     </div>
                 </div>

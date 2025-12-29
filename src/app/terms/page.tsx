@@ -1,14 +1,21 @@
+"use client";
+
 import styles from "./page.module.css";
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 export default function TermsPage() {
+    const { language } = useLanguage();
+    const t = getTranslations(language);
+
     return (
         <main className={styles.page}>
             {/* Hero */}
             <section className={styles.hero}>
                 <div className={styles.container}>
-                    <h1 className={styles.title}>Terms of Service</h1>
+                    <h1 className={styles.title}>{t.terms.title}</h1>
                     <p className={styles.subtitle}>
-                        Last updated: December 28, 2025
+                        {t.terms.lastUpdated}
                     </p>
                 </div>
             </section>
@@ -18,7 +25,7 @@ export default function TermsPage() {
                 <div className={styles.container}>
                     <div className={styles.document}>
                         <section className={styles.section}>
-                            <h2>1. Acceptance of Terms</h2>
+                            <h2>{t.terms.acceptance}</h2>
                             <p>
                                 By downloading, installing, or using Ollo (&quot;the App&quot;), you agree to be bound
                                 by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms,
@@ -27,7 +34,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>2. Description of Service</h2>
+                            <h2>{t.terms.description}</h2>
                             <p>
                                 Ollo is a personal finance management application that helps users track expenses,
                                 manage budgets, set savings goals, and analyze spending patterns. The App is
@@ -36,7 +43,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>3. User Responsibilities</h2>
+                            <h2>{t.terms.responsibilities}</h2>
                             <p>
                                 As a user of Ollo, you are responsible for:
                             </p>
@@ -49,7 +56,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>4. Premium Subscription</h2>
+                            <h2>{t.terms.premium}</h2>
                             <p>
                                 Ollo offers premium features through subscription plans. By subscribing to Premium:
                             </p>
@@ -67,7 +74,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>5. Free Trial</h2>
+                            <h2>{t.terms.trial}</h2>
                             <p>
                                 The monthly subscription may include a 7-day free trial. At the end of the
                                 trial period, your subscription will automatically convert to a paid subscription
@@ -76,7 +83,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>6. Refund Policy</h2>
+                            <h2>{t.terms.refund}</h2>
                             <p>
                                 All purchases are processed through Google Play Store and are subject to
                                 Google&apos;s refund policies. We do not have direct control over refunds.
@@ -86,7 +93,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>7. Data and Privacy</h2>
+                            <h2>{t.terms.dataPrivacy}</h2>
                             <p>
                                 Your use of the App is also governed by our Privacy Policy. By using Ollo,
                                 you acknowledge that:
@@ -100,7 +107,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>8. Intellectual Property</h2>
+                            <h2>{t.terms.intellectual}</h2>
                             <p>
                                 The App, including its code, design, graphics, and content, is the intellectual
                                 property of Trian Aprilianto. You may not:
@@ -114,7 +121,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>9. Disclaimer of Warranties</h2>
+                            <h2>{t.terms.disclaimer}</h2>
                             <p>
                                 The App is provided &quot;as is&quot; and &quot;as available&quot; without warranties of any
                                 kind, either express or implied. We do not warrant that:
@@ -128,7 +135,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>10. Limitation of Liability</h2>
+                            <h2>{t.terms.liability}</h2>
                             <p>
                                 To the maximum extent permitted by law, we shall not be liable for any
                                 indirect, incidental, special, consequential, or punitive damages, including
@@ -147,7 +154,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>11. Changes to Terms</h2>
+                            <h2>{t.terms.changes}</h2>
                             <p>
                                 We reserve the right to modify these Terms at any time. Changes will be
                                 effective when posted. Continued use of the App after changes constitutes
@@ -156,7 +163,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>12. Termination</h2>
+                            <h2>{t.terms.termination}</h2>
                             <p>
                                 We may terminate or suspend your access to the App at any time, without
                                 prior notice, for conduct that we believe violates these Terms or is
@@ -165,7 +172,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>13. Governing Law</h2>
+                            <h2>{t.terms.governing}</h2>
                             <p>
                                 These Terms shall be governed by and construed in accordance with the
                                 laws of Indonesia, without regard to its conflict of law provisions.
@@ -173,7 +180,7 @@ export default function TermsPage() {
                         </section>
 
                         <section className={styles.section}>
-                            <h2>14. Contact Information</h2>
+                            <h2>{t.terms.contact}</h2>
                             <p>
                                 For any questions about these Terms, please contact us at:
                             </p>

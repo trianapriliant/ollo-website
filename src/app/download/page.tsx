@@ -4,6 +4,8 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { Lock, OffTag, Database, Flash, Apple, Download, Globe } from "iconoir-react";
 import { FaGooglePlay } from "react-icons/fa6";
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 const appInfo = {
     version: "Beta 0.6.6",
@@ -13,30 +15,33 @@ const appInfo = {
     size: "~25 MB",
 };
 
-const trustSignals = [
-    {
-        icon: Lock,
-        title: "Privacy First",
-        description: "Your financial data stays on your device. No cloud uploads unless you choose to backup.",
-    },
-    {
-        icon: OffTag,
-        title: "Works Offline",
-        description: "No internet required. Track expenses anywhere, anytime, even without connection.",
-    },
-    {
-        icon: Database,
-        title: "Local Storage",
-        description: "All data is stored locally using Isar database. You own your data completely.",
-    },
-    {
-        icon: Flash,
-        title: "Fast & Light",
-        description: "Optimized for performance. Quick startup and smooth animations on any device.",
-    },
-];
-
 export default function DownloadPage() {
+    const { language } = useLanguage();
+    const t = getTranslations(language);
+
+    const trustSignals = [
+        {
+            icon: Lock,
+            title: t.download.privacyFirst,
+            description: t.download.privacyFirstDesc,
+        },
+        {
+            icon: OffTag,
+            title: t.download.worksOffline,
+            description: t.download.worksOfflineDesc,
+        },
+        {
+            icon: Database,
+            title: t.download.localStorage,
+            description: t.download.localStorageDesc,
+        },
+        {
+            icon: Flash,
+            title: t.download.fastLight,
+            description: t.download.fastLightDesc,
+        },
+    ];
+
     return (
         <main className={styles.page}>
             {/* Hero */}
@@ -44,15 +49,14 @@ export default function DownloadPage() {
                 <div className={styles.container}>
                     <span className={styles.badge}>
                         <Download className={styles.badgeIcon} />
-                        Download
+                        {t.download.badge}
                     </span>
                     <h1 className={styles.title}>
-                        Get Ollo for<br />
-                        <span className={styles.gradient}>Android</span>
+                        {t.download.title1}<br />
+                        <span className={styles.gradient}>{t.download.title2}</span>
                     </h1>
                     <p className={styles.subtitle}>
-                        Start tracking your finances today. Free to download,
-                        easy to use, powerful features.
+                        {t.download.subtitle}
                     </p>
 
                     {/* Play Store Button */}
@@ -67,8 +71,8 @@ export default function DownloadPage() {
                                 <FaGooglePlay size={32} />
                             </div>
                             <div className={styles.playText}>
-                                <span className={styles.playLabel}>GET IT ON</span>
-                                <span className={styles.playStore}>Google Play</span>
+                                <span className={styles.playLabel}>{t.download.getItOn}</span>
+                                <span className={styles.playStore}>{t.download.googlePlay}</span>
                             </div>
                         </a>
                     </div>
@@ -76,17 +80,17 @@ export default function DownloadPage() {
                     {/* App Info */}
                     <div className={styles.appInfo}>
                         <div className={styles.infoItem}>
-                            <span className={styles.infoLabel}>Version</span>
+                            <span className={styles.infoLabel}>{t.download.version}</span>
                             <span className={styles.infoValue}>{appInfo.version}</span>
                         </div>
                         <div className={styles.infoDivider}></div>
                         <div className={styles.infoItem}>
-                            <span className={styles.infoLabel}>Size</span>
+                            <span className={styles.infoLabel}>{t.download.size}</span>
                             <span className={styles.infoValue}>{appInfo.size}</span>
                         </div>
                         <div className={styles.infoDivider}></div>
                         <div className={styles.infoItem}>
-                            <span className={styles.infoLabel}>Requires</span>
+                            <span className={styles.infoLabel}>{t.download.requires}</span>
                             <span className={styles.infoValue}>{appInfo.minAndroid}+</span>
                         </div>
                     </div>
@@ -97,9 +101,9 @@ export default function DownloadPage() {
             <section className={styles.trust}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Built with trust in mind</h2>
+                        <h2 className={styles.sectionTitle}>{t.download.trustTitle}</h2>
                         <p className={styles.sectionSubtitle}>
-                            Your privacy and security are our top priorities
+                            {t.download.trustSubtitle}
                         </p>
                     </div>
                     <div className={styles.trustGrid}>
@@ -120,31 +124,31 @@ export default function DownloadPage() {
             <section className={styles.gettingStarted}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Getting Started</h2>
+                        <h2 className={styles.sectionTitle}>{t.download.gettingStarted}</h2>
                         <p className={styles.sectionSubtitle}>
-                            Start managing your money in 3 simple steps
+                            {t.download.gettingStartedSubtitle}
                         </p>
                     </div>
                     <div className={styles.stepsGrid}>
                         <div className={styles.step}>
                             <span className={styles.stepNumber}>1</span>
-                            <h3 className={styles.stepTitle}>Download & Install</h3>
+                            <h3 className={styles.stepTitle}>{t.download.step1Title}</h3>
                             <p className={styles.stepDescription}>
-                                Get Ollo from the Google Play Store. It&apos;s free and takes less than a minute.
+                                {t.download.step1Desc}
                             </p>
                         </div>
                         <div className={styles.step}>
                             <span className={styles.stepNumber}>2</span>
-                            <h3 className={styles.stepTitle}>Create Your Wallets</h3>
+                            <h3 className={styles.stepTitle}>{t.download.step2Title}</h3>
                             <p className={styles.stepDescription}>
-                                Set up your wallets for cash, bank accounts, or e-wallets. Use templates for quick setup.
+                                {t.download.step2Desc}
                             </p>
                         </div>
                         <div className={styles.step}>
                             <span className={styles.stepNumber}>3</span>
-                            <h3 className={styles.stepTitle}>Start Tracking</h3>
+                            <h3 className={styles.stepTitle}>{t.download.step3Title}</h3>
                             <p className={styles.stepDescription}>
-                                Add your first transaction. Use voice input for quick recording or manual entry.
+                                {t.download.step3Desc}
                             </p>
                         </div>
                     </div>
@@ -160,13 +164,12 @@ export default function DownloadPage() {
                             <div className={styles.comingSoonIconWrapper}>
                                 <Apple className={styles.comingSoonSvgIcon} />
                             </div>
-                            <h3 className={styles.comingSoonTitle}>iOS Coming Soon</h3>
+                            <h3 className={styles.comingSoonTitle}>{t.download.iosComingSoon}</h3>
                             <p className={styles.comingSoonText}>
-                                We&apos;re working on bringing Ollo to iPhone.
-                                Follow us on social media for updates.
+                                {t.download.iosComingSoonDesc}
                             </p>
                             <Link href="/about" className={styles.followLink}>
-                                Follow @ollowithyou →
+                                {t.download.followUs}
                             </Link>
                         </div>
 
@@ -175,13 +178,12 @@ export default function DownloadPage() {
                             <div className={styles.comingSoonIconWrapper}>
                                 <Globe className={styles.comingSoonSvgIcon} />
                             </div>
-                            <h3 className={styles.comingSoonTitle}>Ollo Web Coming Soon</h3>
+                            <h3 className={styles.comingSoonTitle}>{t.download.webComingSoon}</h3>
                             <p className={styles.comingSoonText}>
-                                Access your finances from any browser.
-                                We&apos;re building a web version for seamless sync.
+                                {t.download.webComingSoonDesc}
                             </p>
                             <Link href="/about" className={styles.followLink}>
-                                Follow @ollowithyou →
+                                {t.download.followUs}
                             </Link>
                         </div>
                     </div>

@@ -2,92 +2,94 @@
 
 import styles from "./page.module.css";
 import {
-    Code,
     Database,
     Atom,
     Page,
-    Type,
     Heart,
 } from "iconoir-react";
 import { FaFlutter, FaReact, FaGoogle } from "react-icons/fa6";
 import { SiNextdotjs, SiDart } from "react-icons/si";
-
-const techStack = {
-    mobile: [
-        {
-            name: "Flutter",
-            desc: "Hybrid App Framework",
-            icon: FaFlutter,
-            colorClass: "blueAlpha"
-        },
-        {
-            name: "Dart",
-            desc: "Programming Language",
-            icon: SiDart,
-            colorClass: "cyanAlpha"
-        },
-        {
-            name: "Isar Database",
-            desc: "High-performance Local DB",
-            icon: Database,
-            colorClass: "purpleAlpha"
-        },
-        {
-            name: "Riverpod",
-            desc: "State Management",
-            icon: Atom,
-            colorClass: "tealAlpha"
-        }
-    ],
-    web: [
-        {
-            name: "Next.js",
-            desc: "React Framework",
-            icon: SiNextdotjs,
-            colorClass: "darkAlpha"
-        },
-        {
-            name: "React",
-            desc: "UI Library",
-            icon: FaReact,
-            colorClass: "blueAlpha"
-        },
-        {
-            name: "Iconoir",
-            desc: "Open Source Icons",
-            icon: Page,
-            colorClass: "orangeAlpha"
-        }
-    ],
-    design: [
-        {
-            name: "Google Fonts",
-            desc: "Typography (Poppins)",
-            icon: FaGoogle,
-            colorClass: "redAlpha"
-        },
-        {
-            name: "Material Icons",
-            desc: "App Icon Set",
-            icon: FaGoogle,
-            colorClass: "blueAlpha"
-        }
-    ]
-};
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 export default function CreditsPage() {
+    const { language } = useLanguage();
+    const t = getTranslations(language);
+
+    const techStack = {
+        mobile: [
+            {
+                name: "Flutter",
+                desc: t.credits.flutterDesc,
+                icon: FaFlutter,
+                colorClass: "blueAlpha"
+            },
+            {
+                name: "Dart",
+                desc: t.credits.dartDesc,
+                icon: SiDart,
+                colorClass: "cyanAlpha"
+            },
+            {
+                name: "Isar Database",
+                desc: t.credits.isarDesc,
+                icon: Database,
+                colorClass: "purpleAlpha"
+            },
+            {
+                name: "Riverpod",
+                desc: t.credits.riverpodDesc,
+                icon: Atom,
+                colorClass: "tealAlpha"
+            }
+        ],
+        web: [
+            {
+                name: "Next.js",
+                desc: t.credits.nextjsDesc,
+                icon: SiNextdotjs,
+                colorClass: "darkAlpha"
+            },
+            {
+                name: "React",
+                desc: t.credits.reactDesc,
+                icon: FaReact,
+                colorClass: "blueAlpha"
+            },
+            {
+                name: "Iconoir",
+                desc: t.credits.iconoirDesc,
+                icon: Page,
+                colorClass: "orangeAlpha"
+            }
+        ],
+        design: [
+            {
+                name: "Google Fonts",
+                desc: t.credits.googleFontsDesc,
+                icon: FaGoogle,
+                colorClass: "redAlpha"
+            },
+            {
+                name: "Material Icons",
+                desc: t.credits.materialIconsDesc,
+                icon: FaGoogle,
+                colorClass: "blueAlpha"
+            }
+        ]
+    };
+
     return (
         <main className={styles.page}>
             <section className={styles.header}>
                 <div className={styles.container}>
-                    <span className={styles.badge}>Built With</span>
+                    <span className={styles.badge}>{t.credits.badge}</span>
                     <h1 className={styles.title}>
-                        Powered by<br />
-                        <span className={styles.gradient}>Open Source</span>
+                        {t.credits.title1}<br />
+                        <span className={styles.gradient}>{t.credits.title2}</span>
                     </h1>
                     <p className={styles.subtitle}>
-                        Ollo is built on the shoulders of giants. We gratefully acknowledge
-                        the incredible tools and libraries that make this project possible.
+                        {t.credits.subtitle}
                     </p>
                 </div>
             </section>
@@ -95,7 +97,7 @@ export default function CreditsPage() {
             <div className={styles.container}>
                 {/* Mobile App */}
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>Mobile App Core</h2>
+                    <h2 className={styles.sectionTitle}>{t.credits.mobileCore}</h2>
                     <div className={styles.grid}>
                         {techStack.mobile.map((item) => (
                             <div key={item.name} className={styles.card}>
@@ -113,7 +115,7 @@ export default function CreditsPage() {
 
                 {/* Website */}
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>Website & Web App</h2>
+                    <h2 className={styles.sectionTitle}>{t.credits.webApp}</h2>
                     <div className={styles.grid}>
                         {techStack.web.map((item) => (
                             <div key={item.name} className={styles.card}>
@@ -131,7 +133,7 @@ export default function CreditsPage() {
 
                 {/* Design */}
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>Design & Assets</h2>
+                    <h2 className={styles.sectionTitle}>{t.credits.designAssets}</h2>
                     <div className={styles.grid}>
                         {techStack.design.map((item) => (
                             <div key={item.name} className={styles.card}>
@@ -149,7 +151,7 @@ export default function CreditsPage() {
 
                 <div className={styles.thanks}>
                     <p className={styles.thanksText}>
-                        And a special thanks to all the contributors of these projects. <Heart style={{ color: 'red', display: 'inline', verticalAlign: 'middle' }} width={20} />
+                        {t.credits.thanks} <Heart style={{ color: 'red', display: 'inline', verticalAlign: 'middle' }} width={20} />
                     </p>
                 </div>
             </div>

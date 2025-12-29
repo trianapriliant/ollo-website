@@ -3,119 +3,124 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import { Check, Xmark } from "iconoir-react";
-
-const pricingPlans = [
-    {
-        name: "Free",
-        price: "IDR 0",
-        period: "forever",
-        description: "Essential features to get started",
-        features: [
-            "Up to 3 wallets",
-            "Basic transaction tracking",
-            "Monthly statistics",
-            "Bill reminders",
-            "Savings goals",
-            "Debt tracker",
-        ],
-        limitations: [
-            "Limited budgets",
-            "No receipt scanner",
-            "No data export",
-        ],
-        cta: "Get Started",
-        ctaLink: "/download",
-        popular: false,
-    },
-    {
-        name: "Monthly",
-        price: "IDR 15,000",
-        period: "/month",
-        description: "Full access, pay as you go",
-        features: [
-            "Everything in Free, plus:",
-            "Unlimited wallets",
-            "Unlimited budgets",
-            "Advanced statistics",
-            "Receipt scanner (OCR)",
-            "Data export/import",
-            "Voice Quick Record",
-            "Priority support",
-        ],
-        limitations: [],
-        cta: "Start Free Trial",
-        ctaLink: "/download",
-        popular: false,
-        trial: "7-day free trial",
-    },
-    {
-        name: "6-Month",
-        price: "IDR 75,000",
-        period: "/6 months",
-        description: "Save 17% with semi-annual",
-        features: [
-            "All Premium features",
-            "6 months access",
-            "All future updates",
-        ],
-        limitations: [],
-        cta: "Get 6-Month",
-        ctaLink: "/download",
-        popular: false,
-        savings: "Save 17%",
-    },
-    {
-        name: "Annual",
-        price: "IDR 120,000",
-        period: "/year",
-        description: "Best monthly value",
-        features: [
-            "All Premium features",
-            "12 months access",
-            "All future updates",
-        ],
-        limitations: [],
-        cta: "Get Annual",
-        ctaLink: "/download",
-        popular: false,
-        savings: "Save 33%",
-    },
-    {
-        name: "Lifetime",
-        price: "IDR 199,000",
-        period: "one-time",
-        description: "Pay once, use forever",
-        features: [
-            "All Premium features",
-            "Lifetime access",
-            "All future updates",
-            "No recurring payments",
-            "Support the developer",
-        ],
-        limitations: [],
-        cta: "Get Lifetime",
-        ctaLink: "/download",
-        popular: true,
-        badge: "Best Value",
-    },
-];
-
-const comparisonFeatures = [
-    { name: "Wallets", free: "Up to 3", premium: "Unlimited" },
-    { name: "Budgets", free: "Limited", premium: "Unlimited" },
-    { name: "Transaction Tracking", free: true, premium: true },
-    { name: "Statistics & Analytics", free: "Basic", premium: "Advanced" },
-    { name: "Bill Reminders", free: true, premium: true },
-    { name: "Savings Goals", free: true, premium: true },
-    { name: "Debt Tracker", free: true, premium: true },
-    { name: "Receipt Scanner (OCR)", free: false, premium: true },
-    { name: "Voice Quick Record", free: false, premium: true },
-    { name: "Data Export/Import", free: false, premium: true },
-    { name: "Home Screen Widgets", free: true, premium: true },
-    { name: "Priority Support", free: false, premium: true },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import { getTranslations } from "@/lib/translations";
 
 export default function PricingPage() {
+    const { language } = useLanguage();
+    const t = getTranslations(language);
+
+    const pricingPlans = [
+        {
+            name: t.pricing.free,
+            price: "IDR 0",
+            period: t.pricing.forever,
+            description: t.pricing.freeDesc,
+            features: [
+                t.pricing.upTo3Wallets,
+                t.pricing.basicTracking,
+                t.pricing.monthlyStats,
+                t.pricing.billReminders,
+                t.pricing.savingsGoals,
+                t.pricing.debtTracker,
+            ],
+            limitations: [
+                t.pricing.limitedBudgets,
+                t.pricing.noReceiptScanner,
+                t.pricing.noDataExport,
+            ],
+            cta: t.pricing.getStarted,
+            ctaLink: "/download",
+            popular: false,
+        },
+        {
+            name: t.pricing.monthly,
+            price: "IDR 15,000",
+            period: t.pricing.perMonth,
+            description: t.pricing.monthlyDesc,
+            features: [
+                t.pricing.everythingInFree,
+                t.pricing.unlimitedWallets,
+                t.pricing.unlimitedBudgets,
+                t.pricing.advancedStats,
+                t.pricing.receiptScanner,
+                t.pricing.dataExportImport,
+                t.pricing.voiceQuickRecord,
+                t.pricing.prioritySupport,
+            ],
+            limitations: [],
+            cta: t.pricing.startFreeTrial,
+            ctaLink: "/download",
+            popular: false,
+            trial: t.pricing.sevenDayTrial,
+        },
+        {
+            name: t.pricing.sixMonth,
+            price: "IDR 75,000",
+            period: t.pricing.perSixMonths,
+            description: t.pricing.sixMonthDesc,
+            features: [
+                t.pricing.allPremiumFeatures,
+                t.pricing.sixMonthsAccess,
+                t.pricing.allFutureUpdates,
+            ],
+            limitations: [],
+            cta: t.pricing.getSixMonth,
+            ctaLink: "/download",
+            popular: false,
+            savings: t.pricing.save17,
+        },
+        {
+            name: t.pricing.annual,
+            price: "IDR 120,000",
+            period: t.pricing.perYear,
+            description: t.pricing.annualDesc,
+            features: [
+                t.pricing.allPremiumFeatures,
+                t.pricing.twelveMonthsAccess,
+                t.pricing.allFutureUpdates,
+            ],
+            limitations: [],
+            cta: t.pricing.getAnnual,
+            ctaLink: "/download",
+            popular: false,
+            savings: t.pricing.save33,
+        },
+        {
+            name: t.pricing.lifetime,
+            price: "IDR 199,000",
+            period: t.pricing.oneTime,
+            description: t.pricing.lifetimeDesc,
+            features: [
+                t.pricing.allPremiumFeatures,
+                t.pricing.lifetimeAccess,
+                t.pricing.allFutureUpdates,
+                t.pricing.noRecurringPayments,
+                t.pricing.supportDeveloper,
+            ],
+            limitations: [],
+            cta: t.pricing.getLifetime,
+            ctaLink: "/download",
+            popular: true,
+            badge: t.pricing.bestValue,
+        },
+    ];
+
+    const comparisonFeatures = [
+        { name: t.features.multiWalletSystem.split(" ")[0], free: t.pricing.upTo3, premium: t.pricing.unlimited },
+        { name: t.features.budgetManagement, free: t.pricing.limited, premium: t.pricing.unlimited },
+        { name: t.features.transactionManagement, free: true, premium: true },
+        { name: t.features.statisticsAnalytics, free: t.pricing.basic, premium: t.pricing.advanced },
+        { name: t.pricing.billReminders, free: true, premium: true },
+        { name: t.pricing.savingsGoals, free: true, premium: true },
+        { name: t.pricing.debtTracker, free: true, premium: true },
+        { name: t.pricing.receiptScanner, free: false, premium: true },
+        { name: t.pricing.voiceQuickRecord, free: false, premium: true },
+        { name: t.pricing.dataExportImport, free: false, premium: true },
+        { name: t.features.homeScreenWidgets, free: true, premium: true },
+        { name: t.pricing.prioritySupport, free: false, premium: true },
+    ];
+
     const renderCheckOrX = (value: boolean | string) => {
         if (value === true) return <Check className={styles.checkIcon} />;
         if (value === false) return <Xmark className={styles.xIcon} />;
@@ -127,14 +132,13 @@ export default function PricingPage() {
             {/* Hero */}
             <section className={styles.hero}>
                 <div className={styles.container}>
-                    <span className={styles.badge}>Pricing</span>
+                    <span className={styles.badge}>{t.pricing.badge}</span>
                     <h1 className={styles.title}>
-                        Simple pricing,<br />
-                        <span className={styles.gradient}>no surprises</span>
+                        {t.pricing.title1}<br />
+                        <span className={styles.gradient}>{t.pricing.title2}</span>
                     </h1>
                     <p className={styles.subtitle}>
-                        Start free, upgrade when you need more.
-                        All plans include core features to manage your money better.
+                        {t.pricing.subtitle}
                     </p>
                 </div>
             </section>
@@ -193,18 +197,18 @@ export default function PricingPage() {
             <section className={styles.comparison}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Compare Plans</h2>
+                        <h2 className={styles.sectionTitle}>{t.pricing.comparePlans}</h2>
                         <p className={styles.sectionSubtitle}>
-                            See what you get with Free vs Premium
+                            {t.pricing.compareSubtitle}
                         </p>
                     </div>
                     <div className={styles.tableWrapper}>
                         <table className={styles.comparisonTable}>
                             <thead>
                                 <tr>
-                                    <th>Feature</th>
-                                    <th>Free</th>
-                                    <th>Premium</th>
+                                    <th>{t.pricing.feature}</th>
+                                    <th>{t.pricing.free}</th>
+                                    <th>{t.pricing.premium}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -229,9 +233,7 @@ export default function PricingPage() {
             <section className={styles.disclaimer}>
                 <div className={styles.container}>
                     <p className={styles.disclaimerText}>
-                        * Prices shown are in Indonesian Rupiah (IDR). Actual prices may vary slightly
-                        based on your region and Google Play Store policies. All subscriptions are
-                        processed through Google Play and subject to their billing terms.
+                        {t.pricing.disclaimer}
                     </p>
                 </div>
             </section>
