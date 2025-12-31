@@ -10,6 +10,7 @@ export const translations: Record<Language, {
         download: string;
         faq: string;
         about: string;
+        beta: string;
         downloadApp: string;
     };
     // Footer
@@ -25,6 +26,8 @@ export const translations: Record<Language, {
         about: string;
         faq: string;
         credits: string;
+        roadmap: string;
+        joinBeta: string;
         privacyPolicy: string;
         termsOfService: string;
         copyright: string;
@@ -296,6 +299,7 @@ export const translations: Record<Language, {
         sustainable: string;
         sustainableDesc: string;
         createdBy: string;
+        at: string;
         developerBio: string;
         getInTouch: string;
         email: string;
@@ -359,6 +363,80 @@ export const translations: Record<Language, {
         googleFontsDesc: string;
         materialIconsDesc: string;
     };
+    // Roadmap Page
+    roadmap: {
+        badge: string;
+        title1: string;
+        title2: string;
+        subtitle: string;
+        lastUpdated: string;
+        // Completed section
+        completedBadge: string;
+        completedTitle: string;
+        completedSubtitle: string;
+        completed: string;
+        // Upcoming section
+        upcomingBadge: string;
+        upcomingTitle: string;
+        upcomingSubtitle: string;
+        inDevelopment: string;
+        planned: string;
+        // Completed features
+        vipCodeSystem: string;
+        vipCodeSystemDesc: string;
+        freemiumQuickRecord: string;
+        freemiumQuickRecordDesc: string;
+        premiumColorThemes: string;
+        premiumColorThemesDesc: string;
+        keyboardAutoCapitalization: string;
+        keyboardAutoCapitalizationDesc: string;
+        appRestartBackupRestore: string;
+        appRestartBackupRestoreDesc: string;
+        // Upcoming features
+        cloudBackup: string;
+        cloudBackupDesc: string;
+        multiCurrency: string;
+        multiCurrencyDesc: string;
+        iosVersion: string;
+        iosVersionDesc: string;
+        // Suggestions
+        suggestionsTitle: string;
+        suggestionsText: string;
+        suggestFeature: string;
+    };
+    // Beta Page
+    beta: {
+        badge: string;
+        title1: string;
+        title2: string;
+        subtitle: string;
+        benefitsTitle: string;
+        benefit1Title: string;
+        benefit1Desc: string;
+        benefit2Title: string;
+        benefit2Desc: string;
+        benefit3Title: string;
+        benefit3Desc: string;
+        requirementsTitle: string;
+        req1: string;
+        req2: string;
+        req3: string;
+        noticeTitle: string;
+        noticeText: string;
+        formTitle: string;
+        formSubtitle: string;
+        formAlt: string;
+        openFormButton: string;
+        nextStepsTitle: string;
+        step1Title: string;
+        step1Desc: string;
+        step2Title: string;
+        step2Desc: string;
+        step3Title: string;
+        step3Desc: string;
+        step4Title: string;
+        step4Desc: string;
+    };
     // Common
     common: {
         learnMore: string;
@@ -373,6 +451,7 @@ export const translations: Record<Language, {
             download: "Download",
             faq: "FAQ",
             about: "About",
+            beta: "Beta",
             downloadApp: "Download App",
         },
         footer: {
@@ -387,9 +466,11 @@ export const translations: Record<Language, {
             about: "About",
             faq: "FAQ",
             credits: "Credits",
+            roadmap: "Roadmap",
+            joinBeta: "Join Beta",
             privacyPolicy: "Privacy Policy",
             termsOfService: "Terms of Service",
-            copyright: "Ollo. Made with ❤️ by Trian Aprilianto",
+            copyright: "Ollo. Made with ❤️ by Low Orbit Labs - Trian Aprilianto",
             madeWith: "Made with",
             language: "Language",
         },
@@ -517,7 +598,7 @@ export const translations: Record<Language, {
             sixMonthDesc: "Save 17% with semi-annual",
             annualDesc: "Best monthly value",
             lifetimeDesc: "Pay once, use forever",
-            upTo3Wallets: "Up to 3 wallets",
+            upTo3Wallets: "Up to 7 wallets",
             basicTracking: "Basic transaction tracking",
             monthlyStats: "Monthly statistics",
             billReminders: "Bill reminders",
@@ -554,7 +635,7 @@ export const translations: Record<Language, {
             compareSubtitle: "See what you get with Free vs Premium",
             feature: "Feature",
             premium: "Premium",
-            upTo3: "Up to 3",
+            upTo3: "Up to 7",
             unlimited: "Unlimited",
             basic: "Basic",
             advanced: "Advanced",
@@ -601,7 +682,7 @@ export const translations: Record<Language, {
             title2: "Questions",
             subtitle: "Find answers to common questions about Ollo. Can't find what you're looking for? Contact us!",
             q1: "Is Ollo free to use?",
-            a1: "Yes! Ollo's core features are completely free. You can track transactions, manage up to 3 wallets, set savings goals, track debts, and more at no cost. Premium unlocks advanced features like unlimited wallets, receipt scanning, voice input, and data export.",
+            a1: "Yes! Ollo's core features are completely free. You can track transactions, manage up to 7 wallets, set savings goals, track debts, and more at no cost. Premium unlocks advanced features like unlimited wallets, receipt scanning, voice input, and data export.",
             q2: "Is my financial data safe?",
             a2: "Absolutely. Your data is stored locally on your device using Isar database. We don't upload your financial information to any cloud server. You have complete control over your data. The only time data leaves your device is if you choose to export it yourself.",
             q3: "Does Ollo work offline?",
@@ -646,6 +727,7 @@ export const translations: Record<Language, {
             sustainable: "Sustainable",
             sustainableDesc: "We offer a generous free tier and fair pricing. Building something that lasts means building something sustainable.",
             createdBy: "Created by",
+            at: "at",
             developerBio: "Indie developer and maker passionate about building useful tools that help people in their daily lives. Ollo is a labor of love, crafted with attention to detail and a commitment to quality.",
             getInTouch: "Get in Touch",
             email: "Email",
@@ -654,7 +736,7 @@ export const translations: Record<Language, {
         },
         privacy: {
             title: "Privacy Policy",
-            lastUpdated: "Last updated: December 28, 2025",
+            lastUpdated: "Last updated: December 30, 2025",
             introduction: "Introduction",
             dataStorage: "Data Storage",
             notCollect: "Information We Do Not Collect",
@@ -670,7 +752,7 @@ export const translations: Record<Language, {
         },
         terms: {
             title: "Terms of Service",
-            lastUpdated: "Last updated: December 28, 2025",
+            lastUpdated: "Last updated: December 30, 2025",
             acceptance: "1. Acceptance of Terms",
             description: "2. Description of Service",
             responsibilities: "3. User Responsibilities",
@@ -705,6 +787,73 @@ export const translations: Record<Language, {
             googleFontsDesc: "Typography (Poppins)",
             materialIconsDesc: "App Icon Set",
         },
+        roadmap: {
+            badge: "Roadmap",
+            title1: "What's next for",
+            title2: "Ollo",
+            subtitle: "Follow our journey as we build the future of personal finance tracking. See what's done and what's coming next.",
+            lastUpdated: "Last updated: December 30, 2025",
+            completedBadge: "Recently Shipped",
+            completedTitle: "Completed Features",
+            completedSubtitle: "Features we've recently added to Ollo",
+            completed: "Completed",
+            upcomingBadge: "Coming Soon",
+            upcomingTitle: "Upcoming Features",
+            upcomingSubtitle: "What we're working on next",
+            inDevelopment: "In Development",
+            planned: "Planned",
+            vipCodeSystem: "VIP Code System",
+            vipCodeSystemDesc: "Exclusive badges and premium access for special users. Redeem VIP codes for unique perks and recognition.",
+            freemiumQuickRecord: "Freemium Quick Record",
+            freemiumQuickRecordDesc: "Free users now get 15 free uses each for Voice and Scan Quick Record features.",
+            premiumColorThemes: "Premium Color Themes",
+            premiumColorThemesDesc: "6 exclusive color themes for premium users to customize their app experience.",
+            keyboardAutoCapitalization: "Keyboard Auto-Capitalization",
+            keyboardAutoCapitalizationDesc: "Smart text capitalization for names and sentences in input fields.",
+            appRestartBackupRestore: "App Restart on Backup Restore",
+            appRestartBackupRestoreDesc: "Automatic app restart after restoring backup for seamless data recovery.",
+            cloudBackup: "Cloud Backup",
+            cloudBackupDesc: "Sync your data securely across devices with Google Drive integration.",
+            multiCurrency: "Multi-Currency Support",
+            multiCurrencyDesc: "Track expenses in multiple currencies with automatic conversion rates.",
+            iosVersion: "iOS Version",
+            iosVersionDesc: "Bringing Ollo to iPhone users with the same great features.",
+            suggestionsTitle: "Have a Feature Request?",
+            suggestionsText: "We love hearing from our users! Share your ideas and help shape the future of Ollo.",
+            suggestFeature: "Suggest a Feature →",
+        },
+        beta: {
+            badge: "Beta Program",
+            title1: "Join the",
+            title2: "Beta Testing",
+            subtitle: "Be among the first to experience Ollo and help shape the future of personal finance tracking. Get full premium access for free!",
+            benefitsTitle: "Why Join the Beta?",
+            benefit1Title: "Full Premium Access",
+            benefit1Desc: "Get access to all premium features completely free as a thank you for being an early tester.",
+            benefit2Title: "Exclusive Beta Badge",
+            benefit2Desc: "Receive a special badge in the app that shows you're an early supporter of Ollo.",
+            benefit3Title: "Direct Feedback Channel",
+            benefit3Desc: "Share your thoughts directly with the developer. Your suggestions help improve the app.",
+            requirementsTitle: "Requirements",
+            req1: "Google account (same as Play Store)",
+            req2: "Android phone or tablet",
+            req3: "Willing to give feedback",
+            noticeTitle: "Important!",
+            noticeText: "Make sure to use the same Google email that you use on Google Play Store. Without this, you won't be able to install the beta app.",
+            formTitle: "Register as Beta Tester",
+            formSubtitle: "Fill out the form below to join our beta testing program.",
+            formAlt: "Having trouble with the embedded form?",
+            openFormButton: "Open Form in New Tab",
+            nextStepsTitle: "What Happens Next?",
+            step1Title: "Submit the Form",
+            step1Desc: "Fill out the registration form with your Google Play email and preferences.",
+            step2Title: "Get Added to Beta",
+            step2Desc: "We'll add your email to the closed testing group on Google Play (usually within 24-48 hours).",
+            step3Title: "Receive Invitation",
+            step3Desc: "You'll get an Whatsapp invitation with a link to download Ollo from Play Store.",
+            step4Title: "Start Testing!",
+            step4Desc: "Download the app, explore all features, and share your feedback with us.",
+        },
         common: {
             learnMore: "Learn More",
             getStarted: "Get Started",
@@ -718,6 +867,7 @@ export const translations: Record<Language, {
             download: "Unduh",
             faq: "FAQ",
             about: "Tentang",
+            beta: "Beta",
             downloadApp: "Unduh Aplikasi",
         },
         footer: {
@@ -732,9 +882,11 @@ export const translations: Record<Language, {
             about: "Tentang",
             faq: "FAQ",
             credits: "Kredit",
+            roadmap: "Roadmap",
+            joinBeta: "Gabung Beta",
             privacyPolicy: "Kebijakan Privasi",
             termsOfService: "Ketentuan Layanan",
-            copyright: "Ollo. Dibuat dengan ❤️ oleh Trian Aprilianto",
+            copyright: "Ollo. Dibuat dengan ❤️ oleh Low Orbit Labs - Trian Aprilianto",
             madeWith: "Dibuat dengan",
             language: "Bahasa",
         },
@@ -862,7 +1014,7 @@ export const translations: Record<Language, {
             sixMonthDesc: "Hemat 17% dengan semi-tahunan",
             annualDesc: "Nilai bulanan terbaik",
             lifetimeDesc: "Bayar sekali, gunakan selamanya",
-            upTo3Wallets: "Hingga 3 dompet",
+            upTo3Wallets: "Hingga 7 dompet",
             basicTracking: "Pelacakan transaksi dasar",
             monthlyStats: "Statistik bulanan",
             billReminders: "Pengingat tagihan",
@@ -899,7 +1051,7 @@ export const translations: Record<Language, {
             compareSubtitle: "Lihat apa yang kamu dapat di Gratis vs Premium",
             feature: "Fitur",
             premium: "Premium",
-            upTo3: "Hingga 3",
+            upTo3: "Hingga 7",
             unlimited: "Tak Terbatas",
             basic: "Dasar",
             advanced: "Lanjutan",
@@ -946,7 +1098,7 @@ export const translations: Record<Language, {
             title2: "Sering Diajukan",
             subtitle: "Temukan jawaban untuk pertanyaan umum tentang Ollo. Tidak menemukan yang kamu cari? Hubungi kami!",
             q1: "Apakah Ollo gratis?",
-            a1: "Ya! Fitur inti Ollo benar-benar gratis. Kamu bisa melacak transaksi, mengelola hingga 3 dompet, menetapkan target tabungan, melacak hutang, dan lainnya tanpa biaya. Premium membuka fitur lanjutan seperti dompet tak terbatas, pemindai struk, input suara, dan ekspor data.",
+            a1: "Ya! Fitur inti Ollo benar-benar gratis. Kamu bisa melacak transaksi, mengelola hingga 7 dompet, menetapkan target tabungan, melacak hutang, dan lainnya tanpa biaya. Premium membuka fitur lanjutan seperti dompet tak terbatas, pemindai struk, input suara, dan ekspor data.",
             q2: "Apakah data keuangan saya aman?",
             a2: "Tentu saja. Datamu disimpan secara lokal di perangkatmu menggunakan database Isar. Kami tidak mengunggah informasi keuanganmu ke server cloud mana pun. Kamu memiliki kendali penuh atas datamu.",
             q3: "Apakah Ollo bekerja offline?",
@@ -991,6 +1143,7 @@ export const translations: Record<Language, {
             sustainable: "Berkelanjutan",
             sustainableDesc: "Kami menawarkan tier gratis yang murah hati dan harga yang adil. Membangun sesuatu yang bertahan berarti membangun sesuatu yang berkelanjutan.",
             createdBy: "Dibuat oleh",
+            at: "di",
             developerBio: "Developer indie dan maker yang passionate dalam membangun tools berguna yang membantu orang dalam kehidupan sehari-hari. Ollo adalah karya cinta, dibuat dengan perhatian terhadap detail dan komitmen terhadap kualitas.",
             getInTouch: "Hubungi Kami",
             email: "Email",
@@ -999,7 +1152,7 @@ export const translations: Record<Language, {
         },
         privacy: {
             title: "Kebijakan Privasi",
-            lastUpdated: "Terakhir diperbarui: 28 Desember 2025",
+            lastUpdated: "Terakhir diperbarui: 30 Desember 2025",
             introduction: "Pendahuluan",
             dataStorage: "Penyimpanan Data",
             notCollect: "Informasi yang Tidak Kami Kumpulkan",
@@ -1015,7 +1168,7 @@ export const translations: Record<Language, {
         },
         terms: {
             title: "Syarat Layanan",
-            lastUpdated: "Terakhir diperbarui: 28 Desember 2025",
+            lastUpdated: "Terakhir diperbarui: 30 Desember 2025",
             acceptance: "1. Penerimaan Syarat",
             description: "2. Deskripsi Layanan",
             responsibilities: "3. Tanggung Jawab Pengguna",
@@ -1049,6 +1202,73 @@ export const translations: Record<Language, {
             iconoirDesc: "Ikon Open Source",
             googleFontsDesc: "Tipografi (Poppins)",
             materialIconsDesc: "Set Ikon Aplikasi",
+        },
+        roadmap: {
+            badge: "Roadmap",
+            title1: "Apa selanjutnya untuk",
+            title2: "Ollo",
+            subtitle: "Ikuti perjalanan kami membangun masa depan pelacakan keuangan pribadi. Lihat apa yang sudah selesai dan apa yang akan datang.",
+            lastUpdated: "Terakhir diperbarui: 30 Desember 2025",
+            completedBadge: "Baru Dirilis",
+            completedTitle: "Fitur Selesai",
+            completedSubtitle: "Fitur yang baru kami tambahkan ke Ollo",
+            completed: "Selesai",
+            upcomingBadge: "Segera Hadir",
+            upcomingTitle: "Fitur Mendatang",
+            upcomingSubtitle: "Apa yang sedang kami kerjakan",
+            inDevelopment: "Dalam Pengembangan",
+            planned: "Direncanakan",
+            vipCodeSystem: "Sistem Kode VIP",
+            vipCodeSystemDesc: "Badge eksklusif dan akses premium untuk pengguna spesial. Tukarkan kode VIP untuk keuntungan dan pengakuan unik.",
+            freemiumQuickRecord: "Freemium Rekam Cepat",
+            freemiumQuickRecordDesc: "Pengguna gratis sekarang dapat menggunakan 15 kali gratis untuk fitur Rekam Cepat Suara dan Scan.",
+            premiumColorThemes: "Tema Warna Premium",
+            premiumColorThemesDesc: "6 tema warna eksklusif untuk pengguna premium untuk mengkustomisasi pengalaman aplikasi.",
+            keyboardAutoCapitalization: "Auto-Kapitalisasi Keyboard",
+            keyboardAutoCapitalizationDesc: "Kapitalisasi teks cerdas untuk nama dan kalimat di kolom input.",
+            appRestartBackupRestore: "Restart Aplikasi saat Restore",
+            appRestartBackupRestoreDesc: "Restart aplikasi otomatis setelah memulihkan backup untuk pemulihan data yang mulus.",
+            cloudBackup: "Backup Cloud",
+            cloudBackupDesc: "Sinkronkan data Anda dengan aman di berbagai perangkat dengan integrasi Google Drive.",
+            multiCurrency: "Dukungan Multi-Mata Uang",
+            multiCurrencyDesc: "Lacak pengeluaran dalam berbagai mata uang dengan konversi otomatis.",
+            iosVersion: "Versi iOS",
+            iosVersionDesc: "Membawa Ollo ke pengguna iPhone dengan fitur yang sama.",
+            suggestionsTitle: "Punya Permintaan Fitur?",
+            suggestionsText: "Kami senang mendengar dari pengguna! Bagikan ide Anda dan bantu bentuk masa depan Ollo.",
+            suggestFeature: "Sarankan Fitur →",
+        },
+        beta: {
+            badge: "🚀 Program Beta",
+            title1: "Gabung",
+            title2: "Beta Testing",
+            subtitle: "Jadilah yang pertama merasakan Ollo dan bantu bentuk masa depan pelacakan keuangan pribadi. Dapatkan akses premium penuh gratis!",
+            benefitsTitle: "Kenapa Gabung Beta?",
+            benefit1Title: "Akses Premium Penuh",
+            benefit1Desc: "Dapatkan akses ke semua fitur premium secara gratis sebagai terima kasih karena menjadi tester awal.",
+            benefit2Title: "Badge Beta Eksklusif",
+            benefit2Desc: "Terima badge khusus di aplikasi yang menunjukkan kamu adalah pendukung awal Ollo.",
+            benefit3Title: "Jalur Feedback Langsung",
+            benefit3Desc: "Sampaikan pendapatmu langsung ke developer. Saranmu membantu memperbaiki aplikasi.",
+            requirementsTitle: "Persyaratan",
+            req1: "Akun Google (sama dengan Play Store)",
+            req2: "HP atau tablet Android",
+            req3: "Bersedia memberikan feedback",
+            noticeTitle: "Penting!",
+            noticeText: "Pastikan menggunakan email Google yang sama dengan yang kamu gunakan di Google Play Store. Tanpa ini, kamu tidak akan bisa menginstall aplikasi beta.",
+            formTitle: "Daftar sebagai Beta Tester",
+            formSubtitle: "Isi formulir di bawah untuk bergabung dengan program beta testing kami.",
+            formAlt: "Kesulitan dengan formulir embed?",
+            openFormButton: "Buka Form di Tab Baru",
+            nextStepsTitle: "Apa yang Terjadi Selanjutnya?",
+            step1Title: "Kirim Formulir",
+            step1Desc: "Isi formulir pendaftaran dengan email Google Play dan preferensimu.",
+            step2Title: "Ditambahkan ke Beta",
+            step2Desc: "Kami akan menambahkan emailmu ke grup closed testing di Google Play (biasanya 24-48 jam).",
+            step3Title: "Terima Undangan",
+            step3Desc: "Kamu akan menerima Whatsapp undangan dengan link untuk download Ollo dari Play Store.",
+            step4Title: "Mulai Testing!",
+            step4Desc: "Download aplikasi, jelajahi semua fitur, dan bagikan feedback denganmu.",
         },
         common: {
             learnMore: "Pelajari Lebih",

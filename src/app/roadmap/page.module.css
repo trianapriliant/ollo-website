@@ -1,0 +1,295 @@
+.page {
+    padding-top: 80px;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Hero */
+.hero {
+    padding: var(--space-20) 0;
+    text-align: center;
+    background: var(--gradient-hero);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-primary-alpha);
+    color: var(--color-primary-dark);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+}
+
+.badgeIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+.gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-4);
+}
+
+.lastUpdated {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+/* Sections */
+.completed,
+.upcoming {
+    padding: var(--space-20) 0;
+}
+
+.completed {
+    background: white;
+}
+
+.upcoming {
+    background: var(--color-background);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.sectionBadge,
+.sectionBadgeUpcoming {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+}
+
+.sectionBadge {
+    background: rgba(16, 185, 129, 0.1);
+    color: rgb(16, 185, 129);
+}
+
+.sectionBadgeUpcoming {
+    background: rgba(245, 158, 11, 0.1);
+    color: rgb(245, 158, 11);
+}
+
+.sectionBadgeIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.sectionTitle {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-3);
+}
+
+.sectionSubtitle {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Features Grid */
+.featuresGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .featuresGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .featuresGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Feature Card */
+.featureCard {
+    padding: var(--space-6);
+    background: white;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition-base);
+}
+
+.featureCard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.upcomingCard {
+    background: linear-gradient(135deg, #fefce8 0%, #fff7ed 100%);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.featureHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.featureIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: var(--radius-xl);
+}
+
+.featureIconWrapperUpcoming {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--radius-xl);
+}
+
+.featureSvgIcon {
+    width: 24px;
+    height: 24px;
+    color: rgb(16, 185, 129);
+}
+
+.featureSvgIconUpcoming {
+    width: 24px;
+    height: 24px;
+    color: rgb(245, 158, 11);
+}
+
+.versionBadge {
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-primary-alpha);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
+}
+
+.featureTitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.featureDescription {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.completedStatus {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgb(16, 185, 129);
+}
+
+.checkIcon {
+    width: 18px;
+    height: 18px;
+}
+
+.upcomingStatus {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgb(245, 158, 11);
+}
+
+.clockIcon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Suggestions */
+.suggestions {
+    padding: var(--space-20) 0;
+    background: white;
+}
+
+.suggestionsCard {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-10);
+    background: var(--gradient-card);
+    border-radius: var(--radius-3xl);
+    border: 1px solid var(--color-border-light);
+}
+
+.suggestionsTitle {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-3);
+}
+
+.suggestionsText {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+.suggestionsButton {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    background: var(--gradient-primary);
+    color: white;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-fast);
+}
+
+.suggestionsButton:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}

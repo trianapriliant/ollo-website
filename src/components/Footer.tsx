@@ -27,6 +27,8 @@ export default function Footer() {
             { href: "/about", label: t.footer.about },
             { href: "/faq", label: t.footer.faq },
             { href: "/credits", label: t.footer.credits },
+            { href: "/roadmap", label: t.footer.roadmap },
+            { href: "/beta", label: t.footer.joinBeta },
         ],
         legal: [
             { href: "/privacy", label: t.footer.privacyPolicy },
@@ -134,7 +136,7 @@ export default function Footer() {
                         </div>
 
                         <p className={styles.version}>
-                            Beta v0.6.6
+                            Beta v0.7.0
                         </p>
                     </div>
                 </div>

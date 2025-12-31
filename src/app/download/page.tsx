@@ -8,8 +8,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
 
 const appInfo = {
-    version: "Beta 0.6.6",
-    build: "9",
+    version: "Beta 0.7.0",
+    build: "13",
     minAndroid: "Android 5.0 (Lollipop)",
     targetAndroid: "Android 15",
     size: "~25 MB",

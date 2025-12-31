@@ -111,6 +111,10 @@ export default function AboutPage() {
                         <div className={styles.developerInfo}>
                             <span className={styles.developerLabel}>{t.about.createdBy}</span>
                             <h3 className={styles.developerName}>Trian Aprilianto</h3>
+                            <div className={styles.agencyBadge}>
+                                <span className={styles.agencyAt}>{t.about.at}</span>
+                                <span className={styles.agencyName}>Low Orbit Labs</span>
+                            </div>
                             <p className={styles.developerBio}>
                                 {t.about.developerBio}
                             </p>

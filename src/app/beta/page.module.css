@@ -1,0 +1,475 @@
+.page {
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0 60px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(0, 191, 165, 0.05) 0%, transparent 100%);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.15) 0%, rgba(0, 150, 136, 0.15) 100%);
+    border: 1px solid rgba(0, 191, 165, 0.3);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 24px;
+}
+
+.badgeIcon {
+    width: 18px;
+    height: 18px;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.gradient {
+    background: linear-gradient(135deg, #00796B 0%, #004D40 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+}
+
+/* Hero Benefits - inline list */
+.heroBenefits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.heroBenefitItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: white;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.heroBenefitIcon {
+    width: 18px;
+    height: 18px;
+    color: var(--primary);
+}
+
+/* Hero CTA Buttons */
+.heroCta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.primaryButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #00796B 0%, #004D40 100%);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0, 121, 107, 0.3);
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 191, 165, 0.4);
+}
+
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: white;
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.secondaryButton:hover {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.secondaryButton svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Section Titles */
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 60px 0;
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.benefitCard {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefitCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 191, 165, 0.12);
+}
+
+.benefitIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(0, 191, 165, 0.15) 0%, rgba(0, 150, 136, 0.1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--primary);
+}
+
+.benefitIcon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.benefitTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.benefitDesc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Requirements Section */
+.requirements {
+    padding: 40px 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, transparent 100%);
+}
+
+.requirementsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.requirementItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.requirementIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, #00897B 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.requirementIcon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Notice Section */
+.notice {
+    padding: 40px 0;
+}
+
+.noticeCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.noticeIcon {
+    width: 28px;
+    height: 28px;
+    color: #F57C00;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.noticeContent {
+    flex: 1;
+}
+
+.noticeTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #E65100;
+    margin-bottom: 8px;
+}
+
+.noticeText {
+    font-size: 0.9rem;
+    color: #BF360C;
+    line-height: 1.6;
+}
+
+/* Form Section */
+.formSection {
+    padding: 60px 0 80px;
+}
+
+.formSubtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    margin-top: -24px;
+}
+
+.formWrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    background: white;
+}
+
+.googleForm {
+    width: 100%;
+    height: 1200px;
+    border: none;
+}
+
+.formAlternative {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.formAlternative p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+.formButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #00796B 0%, #004D40 100%);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 191, 165, 0.3);
+}
+
+.formButton svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Next Steps Section */
+.nextSteps {
+    padding: 60px 0 80px;
+    background: linear-gradient(180deg, rgba(0, 191, 165, 0.03) 0%, rgba(0, 191, 165, 0.08) 100%);
+}
+
+.stepsList {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stepItem {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.stepNumber {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, #00897B 100%);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stepContent {
+    flex: 1;
+    padding-top: 4px;
+}
+
+.stepContent h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.stepContent p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0 32px;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
+
+    .heroBenefits {
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+
+    .heroBenefitItem {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .heroCta {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+
+    .benefitsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .requirements {
+        padding: 32px 0;
+    }
+
+    .requirementsList {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .noticeCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .noticeIcon {
+        margin: 0 auto;
+    }
+
+    .googleForm {
+        height: 1400px;
+    }
+
+    .stepItem {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
