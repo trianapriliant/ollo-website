@@ -392,6 +392,25 @@ export const translations: Record<Language, {
         keyboardAutoCapitalizationDesc: string;
         appRestartBackupRestore: string;
         appRestartBackupRestoreDesc: string;
+        // New features v0.7.1 - v0.9.7
+        billDebtReminders: string;
+        billDebtRemindersDesc: string;
+        globalCurrencySupport: string;
+        globalCurrencySupportDesc: string;
+        onboardingGateway: string;
+        onboardingGatewayDesc: string;
+        themeSelectionScreen: string;
+        themeSelectionScreenDesc: string;
+        darkModeCardThemes: string;
+        darkModeCardThemesDesc: string;
+        menuAppearanceSystem: string;
+        menuAppearanceSystemDesc: string;
+        performanceOptimizations: string;
+        performanceOptimizationsDesc: string;
+        backupSystemRedesign: string;
+        backupSystemRedesignDesc: string;
+        categoryReorder: string;
+        categoryReorderDesc: string;
         // Upcoming features
         cloudBackup: string;
         cloudBackupDesc: string;
@@ -688,13 +707,13 @@ export const translations: Record<Language, {
             q3: "Does Ollo work offline?",
             a3: "Yes! Ollo works completely offline. You don't need an internet connection to track expenses, view statistics, or use any core features. The app is designed to work anywhere, anytime.",
             q4: "What happens if I change my phone?",
-            a4: "You can backup your data using the built-in backup feature. Export your data as a JSON file and save it to your preferred location (Google Drive, local storage, etc.). Then import it on your new device. We're also working on cloud backup for easier migration.",
+            a4: "You can easily migrate using our redesigned Backup System (v0.9.5). It uses the system share sheet to let you save your data directly to Google Drive, Telegram, or local storage without needing special permissions. Simply share it back to Ollo on your new device to restore.",
             q5: "How does Premium subscription work?",
             a5: "Premium is available as Monthly, 6-Month, Annual, or Lifetime plans. Subscriptions are processed through Google Play Store. Monthly plans include a 7-day free trial. You can cancel anytime, and your premium features remain active until the end of your billing period.",
             q6: "Does Ollo support multiple currencies?",
-            a6: "Currently, Ollo supports setting your preferred currency for display purposes. Full multi-currency support with automatic conversion is on our roadmap and coming soon.",
+            a6: "Yes! Ollo now features Global Currency Support (v0.7.2) with over 160+ currencies and real-time exchange rates. You can easily switch your preferred currency in the settings.",
             q7: "Is cloud backup available?",
-            a7: "Cloud backup (Google Drive sync) is currently in development. For now, you can manually backup your data as a JSON file and store it in your preferred cloud storage.",
+            a7: "While fully automatic Cloud Sync is in development, our new Backup System allows you to save your backup files directly to your cloud storage apps (like Google Drive) via the system share sheet.",
             q8: "Can I use voice input in my language?",
             a8: "Yes! Voice Quick Record supports 7 languages: English, Indonesian, Spanish, Hindi, Japanese, Mandarin Chinese, and Korean. The app uses natural language processing to understand your spoken transactions.",
             q9: "How accurate is the receipt scanner?",
@@ -792,7 +811,7 @@ export const translations: Record<Language, {
             title1: "What's next for",
             title2: "Ollo",
             subtitle: "Follow our journey as we build the future of personal finance tracking. See what's done and what's coming next.",
-            lastUpdated: "Last updated: December 30, 2025",
+            lastUpdated: "Last updated: January 11, 2026",
             completedBadge: "Recently Shipped",
             completedTitle: "Completed Features",
             completedSubtitle: "Features we've recently added to Ollo",
@@ -812,6 +831,24 @@ export const translations: Record<Language, {
             keyboardAutoCapitalizationDesc: "Smart text capitalization for names and sentences in input fields.",
             appRestartBackupRestore: "App Restart on Backup Restore",
             appRestartBackupRestoreDesc: "Automatic app restart after restoring backup for seamless data recovery.",
+            billDebtReminders: "Smart Reminders",
+            billDebtRemindersDesc: "Never miss a payment with custom date/time reminders for bills and debts.",
+            globalCurrencySupport: "Global Currency Support",
+            globalCurrencySupportDesc: "Support for 160+ currencies with real-time exchange rates and smart sorting.",
+            onboardingGateway: "Onboarding Gateway",
+            onboardingGatewayDesc: "Redesigned welcome experience with integrated backup restoration for returning users.",
+            themeSelectionScreen: "Advanced Theme Control",
+            themeSelectionScreenDesc: "Dedicated theme selection with separate preferences for Light/Dark mode card styles.",
+            darkModeCardThemes: "Dark Mode Card Themes",
+            darkModeCardThemesDesc: "10 stunning new dark mode card themes including Nova, Eclipse, and Aurora.",
+            menuAppearanceSystem: "Menu Appearance System",
+            menuAppearanceSystemDesc: "Personalize your experience with 28 new preset color themes for dashboard menu icons.",
+            performanceOptimizations: "Performance & Polish",
+            performanceOptimizationsDesc: "Faster startup, optimized database queries, and over 138+ UI refinements for a smoother experience.",
+            backupSystemRedesign: "Backup System Redesign",
+            backupSystemRedesignDesc: "Seamless backup experience using system share sheet without requiring special storage permissions.",
+            categoryReorder: "Category Reorder",
+            categoryReorderDesc: "Customizable category order with drag & drop support in Category Management.",
             cloudBackup: "Cloud Backup",
             cloudBackupDesc: "Sync your data securely across devices with Google Drive integration.",
             multiCurrency: "Multi-Currency Support",
@@ -1208,7 +1245,7 @@ export const translations: Record<Language, {
             title1: "Apa selanjutnya untuk",
             title2: "Ollo",
             subtitle: "Ikuti perjalanan kami membangun masa depan pelacakan keuangan pribadi. Lihat apa yang sudah selesai dan apa yang akan datang.",
-            lastUpdated: "Terakhir diperbarui: 30 Desember 2025",
+            lastUpdated: "Terakhir diperbarui: 11 Januari 2026",
             completedBadge: "Baru Dirilis",
             completedTitle: "Fitur Selesai",
             completedSubtitle: "Fitur yang baru kami tambahkan ke Ollo",
@@ -1228,6 +1265,24 @@ export const translations: Record<Language, {
             keyboardAutoCapitalizationDesc: "Kapitalisasi teks cerdas untuk nama dan kalimat di kolom input.",
             appRestartBackupRestore: "Restart Aplikasi saat Restore",
             appRestartBackupRestoreDesc: "Restart aplikasi otomatis setelah memulihkan backup untuk pemulihan data yang mulus.",
+            billDebtReminders: "Pengingat Cerdas",
+            billDebtRemindersDesc: "Jangan lewatkan pembayaran dengan pengingat tanggal/waktu khusus untuk tagihan dan hutang.",
+            globalCurrencySupport: "Dukungan Mata Uang Global",
+            globalCurrencySupportDesc: "Dukungan untuk 160+ mata uang dengan nilai tukar real-time dan penyortiran cerdas.",
+            onboardingGateway: "Gateway Onboarding",
+            onboardingGatewayDesc: "Pengalaman sambutan baru dengan pemulihan backup terintegrasi untuk pengguna yang kembali.",
+            themeSelectionScreen: "Kontrol Tema Lanjutan",
+            themeSelectionScreenDesc: "Pemilihan tema khusus dengan preferensi terpisah untuk gaya kartu Mode Terang/Gelap.",
+            darkModeCardThemes: "Tema Kartu Mode Gelap",
+            darkModeCardThemesDesc: "10 tema kartu mode gelap baru yang memukau termasuk Nova, Eclipse, dan Aurora.",
+            menuAppearanceSystem: "Tampilan Menu",
+            menuAppearanceSystemDesc: "Personalisasi pengalamanmu dengan 28 tema warna preset baru untuk ikon menu dashboard.",
+            performanceOptimizations: "Performa & Pemolesan",
+            performanceOptimizationsDesc: "Startup lebih cepat, query database optimal, dan 138+ perbaikan UI untuk pengalaman yang lebih mulus.",
+            backupSystemRedesign: "Sistem Backup Baru",
+            backupSystemRedesignDesc: "Pengalaman backup yang lebih mudah menggunakan share sheet sistem tanpa izin penyimpanan khusus.",
+            categoryReorder: "Atur Ulang Kategori",
+            categoryReorderDesc: "Kustomisasi urutan kategori dengan drag & drop di Manajemen Kategori.",
             cloudBackup: "Backup Cloud",
             cloudBackupDesc: "Sinkronkan data Anda dengan aman di berbagai perangkat dengan integrasi Google Drive.",
             multiCurrency: "Dukungan Multi-Mata Uang",

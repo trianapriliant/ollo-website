@@ -36,7 +36,6 @@ export default function FAQPage() {
             <section className={styles.hero}>
                 <div className={styles.container}>
                     <span className={styles.badge}>
-                        <HelpCircle className={styles.badgeIcon} />
                         {t.faq.badge}
                     </span>
                     <h1 className={styles.title}>

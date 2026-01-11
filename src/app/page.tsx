@@ -244,7 +244,6 @@ export default function Home() {
           <div className={styles.spotlightGrid}>
             <div className={styles.spotlightContent}>
               <span className={styles.spotlightBadge}>
-                <Star className={styles.spotlightBadgeIcon} />
                 {t.home.spotlightBadge}
               </span>
               <h2 className={styles.spotlightTitle}>
@@ -324,7 +323,6 @@ export default function Home() {
 
             <div className={styles.spotlightLanguages}>
               <h3 className={styles.languagesTitle}>
-                <Language className={styles.langTitleIcon} />
                 {t.home.speakInYourLanguage}
               </h3>
               <div className={styles.languagesList}>

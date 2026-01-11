@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     title: "Ollo - Track Smart, Spend Wise, Live Better",
     description: "The modern personal finance app for smart money management.",
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

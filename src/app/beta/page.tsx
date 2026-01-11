@@ -62,7 +62,6 @@ export default function BetaPage() {
             <section className={styles.hero}>
                 <div className={styles.container}>
                     <span className={styles.badge}>
-                        <Rocket className={styles.badgeIcon} />
                         {t.beta.badge}
                     </span>
                     <h1 className={styles.title}>
@@ -76,7 +75,7 @@ export default function BetaPage() {
                     <div className={styles.heroBenefits}>
                         {benefits.map((benefit, index) => (
                             <div key={index} className={styles.heroBenefitItem}>
-                                <benefit.icon className={styles.heroBenefitIcon} />
+                                {/* Icon removed as per request */}
                                 <span>{benefit.title}</span>
                             </div>
                         ))}

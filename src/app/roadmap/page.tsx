@@ -15,6 +15,12 @@ import {
     Gift,
     Globe,
     Cloud,
+    Bell,
+    Coins,
+    HalfMoon,
+    Flash,
+    ShareAndroid,
+    List,
 } from "iconoir-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
@@ -24,6 +30,60 @@ export default function RoadmapPage() {
     const t = getTranslations(language);
 
     const completedFeatures = [
+        {
+            icon: List,
+            title: t.roadmap.categoryReorder,
+            description: t.roadmap.categoryReorderDesc,
+            version: "0.9.7",
+        },
+        {
+            icon: ShareAndroid,
+            title: t.roadmap.backupSystemRedesign,
+            description: t.roadmap.backupSystemRedesignDesc,
+            version: "0.9.5",
+        },
+        {
+            icon: Flash,
+            title: t.roadmap.performanceOptimizations,
+            description: t.roadmap.performanceOptimizationsDesc,
+            version: "0.9.2",
+        },
+        {
+            icon: Palette,
+            title: t.roadmap.menuAppearanceSystem,
+            description: t.roadmap.menuAppearanceSystemDesc,
+            version: "0.9.0",
+        },
+        {
+            icon: Palette,
+            title: t.roadmap.darkModeCardThemes,
+            description: t.roadmap.darkModeCardThemesDesc,
+            version: "0.8.3",
+        },
+        {
+            icon: HalfMoon,
+            title: t.roadmap.themeSelectionScreen,
+            description: t.roadmap.themeSelectionScreenDesc,
+            version: "0.8.0",
+        },
+        {
+            icon: Spark,
+            title: t.roadmap.onboardingGateway,
+            description: t.roadmap.onboardingGatewayDesc,
+            version: "0.7.5",
+        },
+        {
+            icon: Coins,
+            title: t.roadmap.globalCurrencySupport,
+            description: t.roadmap.globalCurrencySupportDesc,
+            version: "0.7.2",
+        },
+        {
+            icon: Bell,
+            title: t.roadmap.billDebtReminders,
+            description: t.roadmap.billDebtRemindersDesc,
+            version: "0.7.1",
+        },
         {
             icon: Code,
             title: t.roadmap.vipCodeSystem,
@@ -62,12 +122,6 @@ export default function RoadmapPage() {
             title: t.roadmap.cloudBackup,
             description: t.roadmap.cloudBackupDesc,
             status: t.roadmap.inDevelopment,
-        },
-        {
-            icon: Globe,
-            title: t.roadmap.multiCurrency,
-            description: t.roadmap.multiCurrencyDesc,
-            status: t.roadmap.planned,
         },
         {
             icon: Gift,
