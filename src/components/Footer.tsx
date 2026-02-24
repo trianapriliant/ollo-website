@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Footer.module.css";
-import { FaInstagram, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaTiktok, FaXTwitter, FaThreads } from "react-icons/fa6";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
 
@@ -11,6 +11,7 @@ const socialLinks = [
     { href: "https://instagram.com/ollowithyou", label: "Instagram", Icon: FaInstagram },
     { href: "https://tiktok.com/@ollowithyou", label: "TikTok", Icon: FaTiktok },
     { href: "https://twitter.com/ollowithyou", label: "X/Twitter", Icon: FaXTwitter },
+    { href: "https://threads.net/@ollowithyou", label: "Threads", Icon: FaThreads },
 ];
 
 export default function Footer() {
@@ -28,7 +29,6 @@ export default function Footer() {
             { href: "/faq", label: t.footer.faq },
             { href: "/credits", label: t.footer.credits },
             { href: "/roadmap", label: t.footer.roadmap },
-            { href: "/beta", label: t.footer.joinBeta },
         ],
         legal: [
             { href: "/privacy", label: t.footer.privacyPolicy },
@@ -136,7 +136,7 @@ export default function Footer() {
                         </div>
 
                         <p className={styles.version}>
-                            Beta v0.9.7
+                            v1.2.2+57
                         </p>
                     </div>
                 </div>

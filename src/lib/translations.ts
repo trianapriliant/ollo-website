@@ -10,7 +10,6 @@ export const translations: Record<Language, {
         download: string;
         faq: string;
         about: string;
-        beta: string;
         downloadApp: string;
     };
     // Footer
@@ -27,7 +26,6 @@ export const translations: Record<Language, {
         faq: string;
         credits: string;
         roadmap: string;
-        joinBeta: string;
         privacyPolicy: string;
         termsOfService: string;
         copyright: string;
@@ -362,6 +360,11 @@ export const translations: Record<Language, {
         iconoirDesc: string;
         googleFontsDesc: string;
         materialIconsDesc: string;
+        revenueCatDesc: string;
+        mlKitDesc: string;
+        googleDriveDesc: string;
+        biometricsDesc: string;
+        sqliteDesc: string;
     };
     // Roadmap Page
     roadmap: {
@@ -411,6 +414,24 @@ export const translations: Record<Language, {
         backupSystemRedesignDesc: string;
         categoryReorder: string;
         categoryReorderDesc: string;
+        // v1.2.x
+        nullSafety: string;
+        nullSafetyDesc: string;
+        performancePro: string;
+        performanceProDesc: string;
+        multiPhoto: string;
+        multiPhotoDesc: string;
+        repaymentModule: string;
+        repaymentModuleDesc: string;
+        import2: string;
+        import2Desc: string;
+        // v1.1.x
+        edgeToEdge: string;
+        edgeToEdgeDesc: string;
+        glassmorphism: string;
+        glassmorphismDesc: string;
+        safetyFeatures: string;
+        safetyFeaturesDesc: string;
         // Upcoming features
         cloudBackup: string;
         cloudBackupDesc: string;
@@ -470,7 +491,6 @@ export const translations: Record<Language, {
             download: "Download",
             faq: "FAQ",
             about: "About",
-            beta: "Beta",
             downloadApp: "Download App",
         },
         footer: {
@@ -486,7 +506,6 @@ export const translations: Record<Language, {
             faq: "FAQ",
             credits: "Credits",
             roadmap: "Roadmap",
-            joinBeta: "Join Beta",
             privacyPolicy: "Privacy Policy",
             termsOfService: "Terms of Service",
             copyright: "Ollo. Made with ❤️ by Low Orbit Labs - Trian Aprilianto",
@@ -721,7 +740,7 @@ export const translations: Record<Language, {
             q10: "Can I export my data?",
             a10: "Yes! Premium users can export transactions to CSV format with filters for date range, wallet, and category. You can also do a full backup as JSON which includes all your data (transactions, wallets, budgets, goals, etc.).",
             q11: "What if I need help or have feedback?",
-            a11: "We'd love to hear from you! You can reach us at contact@ollowithyou.com or through our social media channels @ollowithyou. Premium users get priority support.",
+            a11: "We'd love to hear from you! You can reach us at ollowithyou@gmail.com or through our social media channels @ollowithyou. Premium users get priority support.",
             q12: "Is there a web or desktop version?",
             a12: "Currently, Ollo is available only for Android. iOS is in development. A web version may come in the future based on user demand.",
             stillHaveQuestions: "Still have questions?",
@@ -798,8 +817,13 @@ export const translations: Record<Language, {
             thanks: "And a special thanks to all the contributors of these projects.",
             flutterDesc: "Hybrid App Framework",
             dartDesc: "Programming Language",
-            isarDesc: "High-performance Local DB",
+            isarDesc: "High Performance Local DB",
             riverpodDesc: "State Management",
+            sqliteDesc: "Local SQLite Database",
+            revenueCatDesc: "Subscription Management",
+            mlKitDesc: "Text Recognition (OCR)",
+            googleDriveDesc: "Cloud Backup & Restore",
+            biometricsDesc: "Biometric Authentication",
             nextjsDesc: "React Framework",
             reactDesc: "UI Library",
             iconoirDesc: "Open Source Icons",
@@ -848,7 +872,23 @@ export const translations: Record<Language, {
             backupSystemRedesign: "Backup System Redesign",
             backupSystemRedesignDesc: "Seamless backup experience using system share sheet without requiring special storage permissions.",
             categoryReorder: "Category Reorder",
-            categoryReorderDesc: "Customizable category order with drag & drop support in Category Management.",
+            categoryReorderDesc: "Customize category order with drag & drop in Category Management.",
+            nullSafety: "ID Null-Safety",
+            nullSafetyDesc: "Global enforcement of ID validation to prevent data anomalies.",
+            performancePro: "Performance Pro",
+            performanceProDesc: "Major overhaul for 60fps scrolling on heavy lists using RepaintBoundary.",
+            multiPhoto: "Multi-Photo Attachments",
+            multiPhotoDesc: "Support for multiple photo attachments per transaction (Premium).",
+            repaymentModule: "Repayment Module",
+            repaymentModuleDesc: "Specialized UI for credit card repayments and tracking.",
+            import2: "Import 2.0",
+            import2Desc: "Smarter CSV processing with pre-import category mapping.",
+            edgeToEdge: "Edge-to-Edge Support",
+            edgeToEdgeDesc: "Native Android 15 UI support with bottom-to-top transparency.",
+            glassmorphism: "Glassmorphism UI",
+            glassmorphismDesc: "Complete redesign of Dashboard and Popups for a premium look.",
+            safetyFeatures: "Safety Features",
+            safetyFeaturesDesc: "Force delete protection and safe history reset logic.",
             cloudBackup: "Cloud Backup",
             cloudBackupDesc: "Sync your data securely across devices with Google Drive integration.",
             multiCurrency: "Multi-Currency Support",
@@ -904,7 +944,6 @@ export const translations: Record<Language, {
             download: "Unduh",
             faq: "FAQ",
             about: "Tentang",
-            beta: "Beta",
             downloadApp: "Unduh Aplikasi",
         },
         footer: {
@@ -920,7 +959,6 @@ export const translations: Record<Language, {
             faq: "FAQ",
             credits: "Kredit",
             roadmap: "Roadmap",
-            joinBeta: "Gabung Beta",
             privacyPolicy: "Kebijakan Privasi",
             termsOfService: "Ketentuan Layanan",
             copyright: "Ollo. Dibuat dengan ❤️ oleh Low Orbit Labs - Trian Aprilianto",
@@ -1134,28 +1172,28 @@ export const translations: Record<Language, {
             title1: "Pertanyaan yang",
             title2: "Sering Diajukan",
             subtitle: "Temukan jawaban untuk pertanyaan umum tentang Ollo. Tidak menemukan yang kamu cari? Hubungi kami!",
-            q1: "Apakah Ollo gratis?",
+            q1: "Is Ollo free to use?",
             a1: "Ya! Fitur inti Ollo benar-benar gratis. Kamu bisa melacak transaksi, mengelola hingga 7 dompet, menetapkan target tabungan, melacak hutang, dan lainnya tanpa biaya. Premium membuka fitur lanjutan seperti dompet tak terbatas, pemindai struk, input suara, dan ekspor data.",
-            q2: "Apakah data keuangan saya aman?",
+            q2: "Is my financial data safe?",
             a2: "Tentu saja. Datamu disimpan secara lokal di perangkatmu menggunakan database Isar. Kami tidak mengunggah informasi keuanganmu ke server cloud mana pun. Kamu memiliki kendali penuh atas datamu.",
-            q3: "Apakah Ollo bekerja offline?",
+            q3: "Does Ollo work offline?",
             a3: "Ya! Ollo bekerja sepenuhnya offline. Kamu tidak memerlukan koneksi internet untuk melacak pengeluaran, melihat statistik, atau menggunakan fitur inti lainnya.",
-            q4: "Apa yang terjadi jika saya ganti ponsel?",
+            q4: "What happens if I change my phone?",
             a4: "Kamu bisa mencadangkan datamu menggunakan fitur backup bawaan. Ekspor datamu sebagai file JSON dan simpan ke lokasi pilihanmu. Kemudian impor di perangkat barumu.",
             q5: "Bagaimana cara kerja langganan Premium?",
             a5: "Premium tersedia sebagai paket Bulanan, 6-Bulan, Tahunan, atau Seumur Hidup. Langganan diproses melalui Google Play Store. Paket bulanan termasuk uji coba gratis 7 hari.",
-            q6: "Apakah Ollo mendukung banyak mata uang?",
+            q6: "Does Ollo support multiple currencies?",
             a6: "Saat ini, Ollo mendukung pengaturan mata uang pilihanmu untuk tujuan tampilan. Dukungan multi-mata uang penuh dengan konversi otomatis akan segera hadir.",
-            q7: "Apakah backup cloud tersedia?",
+            q7: "Is cloud backup available?",
             a7: "Backup cloud (sinkronisasi Google Drive) saat ini dalam pengembangan. Untuk saat ini, kamu bisa mencadangkan datamu secara manual sebagai file JSON.",
-            q8: "Bisakah saya menggunakan input suara dalam bahasa saya?",
+            q8: "Can I use voice input in my language?",
             a8: "Ya! Rekam Cepat Suara mendukung 7 bahasa: Inggris, Indonesia, Spanyol, Hindi, Jepang, Mandarin, dan Korea.",
             q9: "Seberapa akurat pemindai struk?",
             a9: "Pemindai struk berbasis OCR kami bekerja dengan baik dengan struk yang jelas dan pencahayaan yang baik. Hasil mungkin bervariasi tergantung kualitas struk.",
             q10: "Bisakah saya mengekspor data saya?",
             a10: "Ya! Pengguna Premium dapat mengekspor transaksi ke format CSV dengan filter untuk rentang tanggal, dompet, dan kategori.",
             q11: "Bagaimana jika saya butuh bantuan atau punya masukan?",
-            a11: "Kami senang mendengar darimu! Kamu bisa menghubungi kami di contact@ollowithyou.com atau melalui @ollowithyou. Pengguna Premium mendapat dukungan prioritas.",
+            a11: "Kami senang mendengar darimu! Kamu bisa menghubungi kami di ollowithyou@gmail.com atau melalui @ollowithyou. Pengguna Premium mendapat dukungan prioritas.",
             q12: "Apakah ada versi web atau desktop?",
             a12: "Saat ini, Ollo hanya tersedia untuk Android. iOS sedang dalam pengembangan. Versi web mungkin akan hadir di masa depan.",
             stillHaveQuestions: "Masih punya pertanyaan?",
@@ -1234,6 +1272,11 @@ export const translations: Record<Language, {
             dartDesc: "Bahasa Pemrograman",
             isarDesc: "DB Lokal Performa Tinggi",
             riverpodDesc: "Manajemen State",
+            sqliteDesc: "Database SQLite Lokal",
+            revenueCatDesc: "Manajemen Langganan",
+            mlKitDesc: "Pengenalan Teks (OCR)",
+            googleDriveDesc: "Cloud Backup & Restore",
+            biometricsDesc: "Autentikasi Biometrik",
             nextjsDesc: "Framework React",
             reactDesc: "Library UI",
             iconoirDesc: "Ikon Open Source",
@@ -1283,6 +1326,22 @@ export const translations: Record<Language, {
             backupSystemRedesignDesc: "Pengalaman backup yang lebih mudah menggunakan share sheet sistem tanpa izin penyimpanan khusus.",
             categoryReorder: "Atur Ulang Kategori",
             categoryReorderDesc: "Kustomisasi urutan kategori dengan drag & drop di Manajemen Kategori.",
+            nullSafety: "ID Null-Safety",
+            nullSafetyDesc: "Penegakan validasi ID global untuk mencegah anomali data.",
+            performancePro: "Performa Pro",
+            performanceProDesc: "Peningkatan besar untuk scrolling 60fps pada daftar panjang menggunakan RepaintBoundary.",
+            multiPhoto: "Multi-Foto Lampiran",
+            multiPhotoDesc: "Dukungan untuk beberapa lampiran foto per transaksi (Premium).",
+            repaymentModule: "Modul Pembayaran Kembali",
+            repaymentModuleDesc: "UI khusus untuk pembayaran kartu kredit dan pelacakan.",
+            import2: "Impor 2.0",
+            import2Desc: "Pemrosesan CSV lebih cerdas dengan mapping kategori sebelum impor.",
+            edgeToEdge: "Dukungan Edge-to-Edge",
+            edgeToEdgeDesc: "Dukungan UI Android 15 native dengan transparansi bottom-to-top.",
+            glassmorphism: "UI Glassmorphism",
+            glassmorphismDesc: "Redesain total Dashboard dan Popup untuk tampilan premium.",
+            safetyFeatures: "Fitur Keamanan",
+            safetyFeaturesDesc: "Perlindungan force delete dan logika reset riwayat yang aman.",
             cloudBackup: "Backup Cloud",
             cloudBackupDesc: "Sinkronkan data Anda dengan aman di berbagai perangkat dengan integrasi Google Drive.",
             multiCurrency: "Dukungan Multi-Mata Uang",

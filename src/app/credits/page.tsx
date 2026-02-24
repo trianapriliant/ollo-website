@@ -6,6 +6,10 @@ import {
     Atom,
     Page,
     Heart,
+    Fingerprint,
+    Cloud,
+    Camera,
+    CreditCard,
 } from "iconoir-react";
 import { FaFlutter, FaReact, FaGoogle } from "react-icons/fa6";
 import { SiNextdotjs, SiDart } from "react-icons/si";
@@ -31,8 +35,8 @@ export default function CreditsPage() {
                 colorClass: "cyanAlpha"
             },
             {
-                name: "Isar Database",
-                desc: t.credits.isarDesc,
+                name: "SQLite",
+                desc: t.credits.sqliteDesc,
                 icon: Database,
                 colorClass: "purpleAlpha"
             },
@@ -41,6 +45,30 @@ export default function CreditsPage() {
                 desc: t.credits.riverpodDesc,
                 icon: Atom,
                 colorClass: "tealAlpha"
+            },
+            {
+                name: "RevenueCat",
+                desc: t.credits.revenueCatDesc,
+                icon: CreditCard,
+                colorClass: "orangeAlpha"
+            },
+            {
+                name: "Google MLKit",
+                desc: t.credits.mlKitDesc,
+                icon: Camera,
+                colorClass: "redAlpha"
+            },
+            {
+                name: "Google Drive API",
+                desc: t.credits.googleDriveDesc,
+                icon: Cloud,
+                colorClass: "blueAlpha"
+            },
+            {
+                name: "Biometrics",
+                desc: t.credits.biometricsDesc,
+                icon: Fingerprint,
+                colorClass: "greenAlpha"
             }
         ],
         web: [

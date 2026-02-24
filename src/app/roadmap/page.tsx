@@ -21,6 +21,14 @@ import {
     Flash,
     ShareAndroid,
     List,
+    ShieldCheck,
+    Cpu,
+    MultiplePages,
+    CreditCard,
+    Import,
+    Box,
+    Frame,
+    PrivacyPolicy,
 } from "iconoir-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
@@ -30,6 +38,54 @@ export default function RoadmapPage() {
     const t = getTranslations(language);
 
     const completedFeatures = [
+        {
+            icon: ShieldCheck,
+            title: t.roadmap.nullSafety,
+            description: t.roadmap.nullSafetyDesc,
+            version: "1.2.2",
+        },
+        {
+            icon: Cpu,
+            title: t.roadmap.performancePro,
+            description: t.roadmap.performanceProDesc,
+            version: "1.2.1",
+        },
+        {
+            icon: MultiplePages,
+            title: t.roadmap.multiPhoto,
+            description: t.roadmap.multiPhotoDesc,
+            version: "1.2.0+",
+        },
+        {
+            icon: CreditCard,
+            title: t.roadmap.repaymentModule,
+            description: t.roadmap.repaymentModuleDesc,
+            version: "1.2.0+",
+        },
+        {
+            icon: Import,
+            title: t.roadmap.import2,
+            description: t.roadmap.import2Desc,
+            version: "1.2.0",
+        },
+        {
+            icon: Frame,
+            title: t.roadmap.edgeToEdge,
+            description: t.roadmap.edgeToEdgeDesc,
+            version: "1.1.x",
+        },
+        {
+            icon: Box,
+            title: t.roadmap.glassmorphism,
+            description: t.roadmap.glassmorphismDesc,
+            version: "1.1.x",
+        },
+        {
+            icon: PrivacyPolicy,
+            title: t.roadmap.safetyFeatures,
+            description: t.roadmap.safetyFeaturesDesc,
+            version: "1.1.x",
+        },
         {
             icon: List,
             title: t.roadmap.categoryReorder,
@@ -226,7 +282,7 @@ export default function RoadmapPage() {
                     <div className={styles.suggestionsCard}>
                         <h2 className={styles.suggestionsTitle}>{t.roadmap.suggestionsTitle}</h2>
                         <p className={styles.suggestionsText}>{t.roadmap.suggestionsText}</p>
-                        <a href="mailto:contact@ollowithyou.com" className={styles.suggestionsButton}>
+                        <a href="mailto:ollowithyou@gmail.com" className={styles.suggestionsButton}>
                             {t.roadmap.suggestFeature}
                         </a>
                     </div>

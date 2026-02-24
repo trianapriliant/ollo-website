@@ -8,11 +8,11 @@ import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
 
 const appInfo = {
-    version: "Beta 0.9.7",
-    build: "26",
+    version: "1.2.2+57",
+    build: "57",
     minAndroid: "Android 5.0 (Lollipop)",
     targetAndroid: "Android 15",
-    size: "~25 MB",
+    size: "~26 MB",
 };
 
 export default function DownloadPage() {
@@ -62,7 +62,9 @@ export default function DownloadPage() {
                     {/* Play Store Button */}
                     <div className={styles.downloadSection}>
                         <a
-                            href="/beta"
+                            href="https://play.google.com/store/apps/details?id=com.ollo.ollo"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={styles.playStoreButton}
                         >
                             <div className={styles.playIcon}>

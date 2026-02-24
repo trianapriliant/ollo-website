@@ -84,7 +84,7 @@ export default function FAQPage() {
                         <p className={styles.contactText}>
                             {t.faq.hereToHelp}
                         </p>
-                        <a href="mailto:contact@ollowithyou.com" className={styles.contactButton}>
+                        <a href="mailto:ollowithyou@gmail.com" className={styles.contactButton}>
                             {t.faq.contactUs}
                         </a>
                     </div>

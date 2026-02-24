@@ -11,7 +11,7 @@ import {
     Mail,
     Globe,
 } from "iconoir-react";
-import { FaInstagram, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaTiktok, FaXTwitter, FaThreads } from "react-icons/fa6";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
 
@@ -19,6 +19,7 @@ const socialLinks = [
     { platform: "Instagram", handle: "@ollowithyou", url: "https://instagram.com/ollowithyou", icon: FaInstagram },
     { platform: "TikTok", handle: "@ollowithyou", url: "https://tiktok.com/@ollowithyou", icon: FaTiktok },
     { platform: "X / Twitter", handle: "@ollowithyou", url: "https://twitter.com/ollowithyou", icon: FaXTwitter },
+    { platform: "Threads", handle: "@ollowithyou", url: "https://threads.net/@ollowithyou", icon: FaThreads },
 ];
 
 export default function AboutPage() {
@@ -137,8 +138,8 @@ export default function AboutPage() {
                                 <Mail className={styles.contactSvgIcon} />
                             </div>
                             <h3 className={styles.contactTitle}>{t.about.email}</h3>
-                            <a href="mailto:contact@ollowithyou.com" className={styles.contactLink}>
-                                contact@ollowithyou.com
+                            <a href="mailto:ollowithyou@gmail.com" className={styles.contactLink}>
+                                ollowithyou@gmail.com
                             </a>
                         </div>
                         <div className={styles.contactCard}>
@@ -147,7 +148,7 @@ export default function AboutPage() {
                             </div>
                             <h3 className={styles.contactTitle}>{t.about.website}</h3>
                             <span className={styles.contactText}>
-                                ollowithyou.com
+                                ollowithyou.xyz
                             </span>
                         </div>
                     </div>

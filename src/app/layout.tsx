@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ollo - Track Smart, Spend Wise, Live Better",
     description: "The modern personal finance app for smart money management.",
-    url: "https://ollowithyou.com",
+    url: "https://ollowithyou.xyz",
     siteName: "Ollo",
     type: "website",
   },

@@ -186,7 +186,7 @@ export default function TermsPage() {
                             </p>
                             <p>
                                 <strong>Email:</strong>{" "}
-                                <a href="mailto:contact@ollowithyou.com">contact@ollowithyou.com</a>
+                                <a href="mailto:ollowithyou@gmail.com">ollowithyou@gmail.com</a>
                             </p>
                         </section>
                     </div>

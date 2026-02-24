@@ -19,7 +19,6 @@ export default function Navigation() {
         { href: "/download", label: t.nav.download },
         { href: "/faq", label: t.nav.faq },
         { href: "/about", label: t.nav.about },
-        { href: "/beta", label: t.nav.beta, isBeta: true },
     ];
 
     useEffect(() => {
@@ -45,9 +44,8 @@ export default function Navigation() {
                 <ul className={styles.navLinks}>
                     {navLinks.map((link) => (
                         <li key={link.href}>
-                            <Link href={link.href} className={`${styles.navLink} ${link.isBeta ? styles.navLinkBeta : ""}`}>
+                            <Link href={link.href} className={styles.navLink}>
                                 {link.label}
-                                {link.isBeta && <span className={styles.betaBadge}>New</span>}
                             </Link>
                         </li>
                     ))}
@@ -72,11 +70,7 @@ export default function Navigation() {
                     {t.nav.downloadApp}
                 </Link>
 
-                {/* Mobile Beta Link - Always visible on mobile */}
-                <Link href="/beta" className={styles.mobileBetaLink}>
-                    {t.nav.beta}
-                    <span className={styles.mobileBetaLinkBadge}>New</span>
-                </Link>
+
 
                 {/* Mobile Menu Button */}
                 <button
@@ -98,11 +92,10 @@ export default function Navigation() {
                             <li key={link.href}>
                                 <Link
                                     href={link.href}
-                                    className={`${styles.mobileNavLink} ${link.isBeta ? styles.mobileNavLinkBeta : ""}`}
+                                    className={styles.mobileNavLink}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {link.label}
-                                    {link.isBeta && <span className={styles.mobileBetaBadge}>New</span>}
                                 </Link>
                             </li>
                         ))}
