@@ -1,0 +1,542 @@
+/* ============================================= */
+/* Testimonials Section                          */
+/* ============================================= */
+
+.section {
+    position: relative;
+    padding: var(--space-20) 0;
+    background-color: var(--color-background);
+    overflow: hidden;
+}
+
+/* ── Decorative Background Blobs ── */
+.blobLeft {
+    position: absolute;
+    top: -120px;
+    left: -180px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle,
+            rgba(0, 191, 165, 0.09) 0%,
+            transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blobRight {
+    position: absolute;
+    bottom: -100px;
+    right: -150px;
+    width: 440px;
+    height: 440px;
+    background: radial-gradient(circle,
+            rgba(0, 229, 204, 0.07) 0%,
+            transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================= */
+/* Section Header                                */
+/* ============================================= */
+
+.header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    background-color: var(--color-primary-alpha);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+}
+
+.labelStar {
+    color: #f59e0b;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+.gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 520px;
+    margin: 0 auto var(--space-6);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ── Stats Bar ── */
+.statsBar {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-5);
+    box-shadow: var(--shadow-sm);
+}
+
+.ratingStars {
+    display: flex;
+    gap: 1px;
+    line-height: 1;
+}
+
+.starFilled {
+    color: #f59e0b;
+    font-size: 1rem;
+}
+
+.starHalf {
+    color: #f59e0b;
+    font-size: 1rem;
+    opacity: 0.55;
+}
+
+.starEmpty {
+    color: #d1d5db;
+    font-size: 1rem;
+}
+
+.avgNumber {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+.statsDivider {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    line-height: 1;
+}
+
+.totalText {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+/* ============================================= */
+/* Marquee Section                               */
+/* ============================================= */
+
+.marqueeSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Keyframes ── */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-33.333%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ── Marquee Wrapper (handles overflow + edge fade) ── */
+.marqueeWrapper {
+    overflow: hidden;
+    width: 100%;
+    /* Fade edges left and right */
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 8%,
+            black 92%,
+            transparent 100%);
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 8%,
+            black 92%,
+            transparent 100%);
+}
+
+/* ── Marquee Track ── */
+.marqueeTrack {
+    display: flex;
+    gap: var(--space-5);
+    width: max-content;
+    padding: var(--space-3) 0;
+    /* Pause on hover */
+    will-change: transform;
+}
+
+.marqueeWrapper:hover .marqueeTrack {
+    animation-play-state: paused !important;
+}
+
+.trackLeft {
+    animation: scrollLeft 60s linear infinite;
+}
+
+.trackRight {
+    animation: scrollRight 60s linear infinite;
+}
+
+/* ============================================= */
+/* Review Card                                   */
+/* ============================================= */
+
+.card {
+    /* Fixed width for consistent marquee rhythm */
+    flex: 0 0 300px;
+    width: 300px;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    box-shadow: var(--shadow-card);
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+    cursor: default;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ── Card Header ── */
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+}
+
+.stars {
+    display: flex;
+    gap: 1px;
+    line-height: 1;
+}
+
+/* ── Google Play Badge ── */
+.playBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.625rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: 2px 8px 2px 5px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+}
+
+/* ── Quote Icon ── */
+.quoteIcon {
+    width: 18px;
+    height: 18px;
+    color: var(--color-primary);
+    opacity: 0.25;
+    flex-shrink: 0;
+}
+
+/* ── Review Text ── */
+.reviewText {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    flex: 1;
+    margin: 0;
+    /* Clamp to keep card heights uniform */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* When expanded, remove clamp */
+.reviewText.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+.expandBtn {
+    align-self: flex-start;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: calc(var(--space-1) * -1);
+    transition: opacity var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.expandBtn:hover {
+    opacity: 0.7;
+}
+
+/* ── Card Footer ── */
+.cardFooter {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+    margin-top: auto;
+    border-top: 1px solid var(--color-border-light);
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+}
+
+.authorMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+}
+
+.authorName {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.reviewDate {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+/* ============================================= */
+/* Skeleton Loading                              */
+/* ============================================= */
+
+@keyframes shimmer {
+    0% {
+        background-position: -600px 0;
+    }
+
+    100% {
+        background-position: 600px 0;
+    }
+}
+
+.skeletonBase {
+    background: linear-gradient(90deg,
+            var(--color-border-light) 25%,
+            #e8e8ee 50%,
+            var(--color-border-light) 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.6s infinite linear;
+    border-radius: var(--radius-sm);
+}
+
+.skeletonStars {
+    height: 16px;
+    width: 90px;
+    background: linear-gradient(90deg,
+            var(--color-border-light) 25%,
+            #e8e8ee 50%,
+            var(--color-border-light) 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.6s infinite linear;
+    border-radius: var(--radius-sm);
+}
+
+.skeletonLine {
+    height: 13px;
+    background: linear-gradient(90deg,
+            var(--color-border-light) 25%,
+            #e8e8ee 50%,
+            var(--color-border-light) 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.6s infinite linear;
+    border-radius: var(--radius-sm);
+}
+
+.skeletonFooter {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-light);
+    margin-top: var(--space-2);
+}
+
+.skeletonAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: linear-gradient(90deg,
+            var(--color-border-light) 25%,
+            #e8e8ee 50%,
+            var(--color-border-light) 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.6s infinite linear;
+}
+
+.skeletonMeta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    flex: 1;
+}
+
+/* ============================================= */
+/* Section Footer (CTA link)                     */
+/* ============================================= */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-10);
+    padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
+}
+
+.playStoreLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: var(--space-3) var(--space-6);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition:
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.playStoreLink:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* ============================================= */
+/* Responsive                                    */
+/* ============================================= */
+
+@media (max-width: 768px) {
+    .section {
+        padding: var(--space-16) 0;
+    }
+
+    .title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .statsBar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-4);
+    }
+
+    .card {
+        flex: 0 0 260px;
+        width: 260px;
+    }
+
+    .trackLeft,
+    .trackRight {
+        animation-duration: 45s;
+    }
+
+    /* Tighter edge fade on mobile */
+    .marqueeWrapper {
+        -webkit-mask-image: linear-gradient(to right,
+                transparent 0%,
+                black 5%,
+                black 95%,
+                transparent 100%);
+        mask-image: linear-gradient(to right,
+                transparent 0%,
+                black 5%,
+                black 95%,
+                transparent 100%);
+    }
+}

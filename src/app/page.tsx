@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
+import Testimonials from "@/components/Testimonials";
 import { FaGooglePlay } from "react-icons/fa6";
 import {
   Wallet,
@@ -19,7 +20,6 @@ import {
   Cpu,
   Spark,
   Gift,
-  Star,
   Coins,
   DataTransferBoth,
 } from "iconoir-react";
@@ -41,32 +41,135 @@ const voiceFormats = {
     Icon: Wallet,
     format: "[description] [amount] paid with [wallet]",
     examples: [
-      { flag: "🇺🇸", text: "Lunch $20 paid with Chase", result: { title: "Lunch", category: "Food & Drinks", amount: "-$20.00", wallet: "Chase" } },
-      { flag: "🇮🇩", text: "Makan siang 20rb bayar BCA", result: { title: "Makan siang", category: "Makanan", amount: "-Rp 20.000", wallet: "BCA" } },
-      { flag: "🇯🇵", text: "ランチ 2000円 現金で", result: { title: "ランチ", category: "食費", amount: "-¥2,000", wallet: "現金" } },
-      { flag: "🇪🇸", text: "Almuerzo €15 con Santander", result: { title: "Almuerzo", category: "Comida", amount: "-€15.00", wallet: "Santander" } },
-    ]
+      {
+        flag: "🇺🇸",
+        text: "Lunch $20 paid with Chase",
+        result: {
+          title: "Lunch",
+          category: "Food & Drinks",
+          amount: "-$20.00",
+          wallet: "Chase",
+        },
+      },
+      {
+        flag: "🇮🇩",
+        text: "Makan siang 20rb bayar BCA",
+        result: {
+          title: "Makan siang",
+          category: "Makanan",
+          amount: "-Rp 20.000",
+          wallet: "BCA",
+        },
+      },
+      {
+        flag: "🇯🇵",
+        text: "ランチ 2000円 現金で",
+        result: {
+          title: "ランチ",
+          category: "食費",
+          amount: "-¥2,000",
+          wallet: "現金",
+        },
+      },
+      {
+        flag: "🇪🇸",
+        text: "Almuerzo €15 con Santander",
+        result: {
+          title: "Almuerzo",
+          category: "Comida",
+          amount: "-€15.00",
+          wallet: "Santander",
+        },
+      },
+    ],
   },
   income: {
     Icon: Coins,
     format: "[source] [amount] to [wallet]",
     examples: [
-      { flag: "🇺🇸", text: "Monthly salary $4000 to Savings", result: { title: "Monthly salary", category: "Salary", amount: "+$4,000.00", wallet: "Savings" } },
-      { flag: "🇮🇩", text: "Gaji bulanan 4jt masuk BCA", result: { title: "Gaji bulanan", category: "Gaji", amount: "+Rp 4.000.000", wallet: "BCA" } },
-      { flag: "🇯🇵", text: "給料 30万円 三菱UFJへ", result: { title: "給料", category: "給与", amount: "+¥300,000", wallet: "三菱UFJ" } },
-      { flag: "🇪🇸", text: "Sueldo €2500 a BBVA", result: { title: "Sueldo", category: "Salario", amount: "+€2,500.00", wallet: "BBVA" } },
-    ]
+      {
+        flag: "🇺🇸",
+        text: "Monthly salary $4000 to Savings",
+        result: {
+          title: "Monthly salary",
+          category: "Salary",
+          amount: "+$4,000.00",
+          wallet: "Savings",
+        },
+      },
+      {
+        flag: "🇮🇩",
+        text: "Gaji bulanan 4jt masuk BCA",
+        result: {
+          title: "Gaji bulanan",
+          category: "Gaji",
+          amount: "+Rp 4.000.000",
+          wallet: "BCA",
+        },
+      },
+      {
+        flag: "🇯🇵",
+        text: "給料 30万円 三菱UFJへ",
+        result: {
+          title: "給料",
+          category: "給与",
+          amount: "+¥300,000",
+          wallet: "三菱UFJ",
+        },
+      },
+      {
+        flag: "🇪🇸",
+        text: "Sueldo €2500 a BBVA",
+        result: {
+          title: "Sueldo",
+          category: "Salario",
+          amount: "+€2,500.00",
+          wallet: "BBVA",
+        },
+      },
+    ],
   },
   transfer: {
     Icon: DataTransferBoth,
     format: "transfer [amount] from [wallet A] to [wallet B] fee [amount]",
     examples: [
-      { flag: "🇺🇸", text: "Transfer $500 from Checking to Savings", result: { from: "Checking", to: "Savings", amount: "$500.00", fee: "$0" } },
-      { flag: "🇮🇩", text: "Transfer 100rb dari BCA ke Mandiri admin 2500", result: { from: "BCA", to: "Mandiri", amount: "Rp 100.000", fee: "Rp 2.500" } },
-      { flag: "🇯🇵", text: "振込 5万円 三菱UFJからみずほへ 手数料220円", result: { from: "三菱UFJ", to: "みずほ", amount: "¥50,000", fee: "¥220" } },
-      { flag: "🇪🇸", text: "Transferir €200 de BBVA a Santander", result: { from: "BBVA", to: "Santander", amount: "€200.00", fee: "€0" } },
-    ]
-  }
+      {
+        flag: "🇺🇸",
+        text: "Transfer $500 from Checking to Savings",
+        result: {
+          from: "Checking",
+          to: "Savings",
+          amount: "$500.00",
+          fee: "$0",
+        },
+      },
+      {
+        flag: "🇮🇩",
+        text: "Transfer 100rb dari BCA ke Mandiri admin 2500",
+        result: {
+          from: "BCA",
+          to: "Mandiri",
+          amount: "Rp 100.000",
+          fee: "Rp 2.500",
+        },
+      },
+      {
+        flag: "🇯🇵",
+        text: "振込 5万円 三菱UFJからみずほへ 手数料220円",
+        result: {
+          from: "三菱UFJ",
+          to: "みずほ",
+          amount: "¥50,000",
+          fee: "¥220",
+        },
+      },
+      {
+        flag: "🇪🇸",
+        text: "Transferir €200 de BBVA a Santander",
+        result: { from: "BBVA", to: "Santander", amount: "€200.00", fee: "€0" },
+      },
+    ],
+  },
 };
 
 const screenshots = [
@@ -77,7 +180,9 @@ const screenshots = [
 
 export default function Home() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
-  const [activeVoiceTab, setActiveVoiceTab] = useState<'expense' | 'income' | 'transfer'>('expense');
+  const [activeVoiceTab, setActiveVoiceTab] = useState<
+    "expense" | "income" | "transfer"
+  >("expense");
   const { language } = useLanguage();
   const t = getTranslations(language);
 
@@ -170,12 +275,18 @@ export default function Home() {
               {t.home.heroBadge}
             </span>
             <h1 className={styles.heroTitle}>
-              {t.home.heroTitle1}<br />
-              <span className={styles.gradient}>{t.home.heroTitle2}</span><br />
+              {t.home.heroTitle1}
+              <br />
+              <span className={styles.gradient}>{t.home.heroTitle2}</span>
+              <br />
               {t.home.heroTitle3}
             </h1>
             <p className={styles.heroSubtitle}>
-              {t.home.heroSubtitle.split(',')[0]}, <span className={styles.voiceExample}>&quot;{t.home.heroVoiceExample}&quot;</span>, {t.home.heroSubtitle.split(',').slice(1).join(',')}
+              {t.home.heroSubtitle.split(",")[0]},{" "}
+              <span className={styles.voiceExample}>
+                &quot;{t.home.heroVoiceExample}&quot;
+              </span>
+              , {t.home.heroSubtitle.split(",").slice(1).join(",")}
             </p>
             <div className={styles.heroCta}>
               <Link href="/download" className={styles.primaryButton}>
@@ -187,6 +298,14 @@ export default function Home() {
               <Link href="/features" className={styles.secondaryButton}>
                 {t.home.seeAllFeatures}
               </Link>
+            </div>
+            <div className={styles.heroSocialProof}>
+              <div className={styles.heroStars}>
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className={styles.heroStar}>★</span>
+                ))}
+              </div>
+              <span className={styles.heroSocialText}>{t.home.heroSocialProof}</span>
             </div>
             <div className={styles.trustSignals}>
               <div className={styles.trustItem}>
@@ -219,7 +338,7 @@ export default function Home() {
                           src={src}
                           alt={`Ollo App Screen ${index + 1}`}
                           fill
-                          style={{ objectFit: 'cover' }}
+                          style={{ objectFit: "cover" }}
                           priority
                         />
                       </div>
@@ -232,8 +351,15 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.heroWave}>
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white" />
+          <svg
+            viewBox="0 0 1440 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+              fill="white"
+            />
           </svg>
         </div>
       </section>
@@ -246,9 +372,7 @@ export default function Home() {
               <span className={styles.spotlightBadge}>
                 {t.home.spotlightBadge}
               </span>
-              <h2 className={styles.spotlightTitle}>
-                {t.home.spotlightTitle}
-              </h2>
+              <h2 className={styles.spotlightTitle}>{t.home.spotlightTitle}</h2>
               <p className={styles.spotlightSubtitle}>
                 {t.home.spotlightSubtitle}
               </p>
@@ -256,17 +380,23 @@ export default function Home() {
               {/* Interactive Voice Format Tabs */}
               <div className={styles.voiceFormatSection}>
                 <div className={styles.voiceFormatTabs}>
-                  {(Object.keys(voiceFormats) as Array<keyof typeof voiceFormats>).map((key) => {
+                  {(
+                    Object.keys(voiceFormats) as Array<
+                      keyof typeof voiceFormats
+                    >
+                  ).map((key) => {
                     const TabIcon = voiceFormats[key].Icon;
                     return (
                       <button
                         key={key}
-                        className={`${styles.voiceFormatTab} ${activeVoiceTab === key ? styles.voiceFormatTabActive : ''}`}
+                        className={`${styles.voiceFormatTab} ${activeVoiceTab === key ? styles.voiceFormatTabActive : ""}`}
                         onMouseEnter={() => setActiveVoiceTab(key)}
                         onClick={() => setActiveVoiceTab(key)}
                       >
                         <TabIcon className={styles.tabIcon} />
-                        <span className={styles.tabLabel}>{voiceTabLabels[key]}</span>
+                        <span className={styles.tabLabel}>
+                          {voiceTabLabels[key]}
+                        </span>
                       </button>
                     );
                   })}
@@ -274,33 +404,51 @@ export default function Home() {
 
                 <div className={styles.voiceFormatContent}>
                   <div className={styles.formatPattern}>
-                    <span className={styles.formatLabel}>{t.home.voiceFormatLabel}</span>
-                    <code className={styles.formatCode}>{voiceFormats[activeVoiceTab].format}</code>
+                    <span className={styles.formatLabel}>
+                      {t.home.voiceFormatLabel}
+                    </span>
+                    <code className={styles.formatCode}>
+                      {voiceFormats[activeVoiceTab].format}
+                    </code>
                   </div>
 
                   <div className={styles.formatExamples}>
-                    {voiceFormats[activeVoiceTab].examples.map((example, index) => (
-                      <div key={index} className={styles.formatExampleCard}>
-                        <div className={styles.exampleVoice}>
-                          <span className={styles.exampleFlag}>{example.flag}</span>
-                          <span className={styles.exampleVoiceText}>&quot;{example.text}&quot;</span>
+                    {voiceFormats[activeVoiceTab].examples.map(
+                      (example, index) => (
+                        <div key={index} className={styles.formatExampleCard}>
+                          <div className={styles.exampleVoice}>
+                            <span className={styles.exampleFlag}>
+                              {example.flag}
+                            </span>
+                            <span className={styles.exampleVoiceText}>
+                              &quot;{example.text}&quot;
+                            </span>
+                          </div>
+                          <div className={styles.exampleArrow}>→</div>
+                          <div className={styles.exampleResult}>
+                            {"title" in example.result ? (
+                              <>
+                                <span className={styles.exampleResultTitle}>
+                                  {example.result.title}
+                                </span>
+                                <span className={styles.exampleResultAmount}>
+                                  {example.result.amount}
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                <span className={styles.exampleResultTitle}>
+                                  {example.result.from} → {example.result.to}
+                                </span>
+                                <span className={styles.exampleResultAmount}>
+                                  {example.result.amount}
+                                </span>
+                              </>
+                            )}
+                          </div>
                         </div>
-                        <div className={styles.exampleArrow}>→</div>
-                        <div className={styles.exampleResult}>
-                          {'title' in example.result ? (
-                            <>
-                              <span className={styles.exampleResultTitle}>{example.result.title}</span>
-                              <span className={styles.exampleResultAmount}>{example.result.amount}</span>
-                            </>
-                          ) : (
-                            <>
-                              <span className={styles.exampleResultTitle}>{example.result.from} → {example.result.to}</span>
-                              <span className={styles.exampleResultAmount}>{example.result.amount}</span>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    ))}
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
@@ -308,15 +456,21 @@ export default function Home() {
               <div className={styles.voiceStats}>
                 <div className={styles.statItem}>
                   <span className={styles.statNumber}>3s</span>
-                  <span className={styles.statLabel}>{t.home.avgRecordTime}</span>
+                  <span className={styles.statLabel}>
+                    {t.home.avgRecordTime}
+                  </span>
                 </div>
                 <div className={styles.statItem}>
                   <span className={styles.statNumber}>95%</span>
-                  <span className={styles.statLabel}>{t.home.accuracyRate}</span>
+                  <span className={styles.statLabel}>
+                    {t.home.accuracyRate}
+                  </span>
                 </div>
                 <div className={styles.statItem}>
                   <span className={styles.statNumber}>7</span>
-                  <span className={styles.statLabel}>{t.home.languagesSupported}</span>
+                  <span className={styles.statLabel}>
+                    {t.home.languagesSupported}
+                  </span>
                 </div>
               </div>
             </div>
@@ -336,15 +490,21 @@ export default function Home() {
               <div className={styles.voiceExamples}>
                 <div className={styles.exampleItem}>
                   <span className={styles.exampleFlag}>🇮🇩</span>
-                  <span className={styles.exampleText}>&quot;Bayar grab 25 ribu&quot;</span>
+                  <span className={styles.exampleText}>
+                    &quot;Bayar grab 25 ribu&quot;
+                  </span>
                 </div>
                 <div className={styles.exampleItem}>
                   <span className={styles.exampleFlag}>🇺🇸</span>
-                  <span className={styles.exampleText}>&quot;Coffee at Starbucks $5&quot;</span>
+                  <span className={styles.exampleText}>
+                    &quot;Coffee at Starbucks $5&quot;
+                  </span>
                 </div>
                 <div className={styles.exampleItem}>
                   <span className={styles.exampleFlag}>🇯🇵</span>
-                  <span className={styles.exampleText}>&quot;ランチ 1000円&quot;</span>
+                  <span className={styles.exampleText}>
+                    &quot;ランチ 1000円&quot;
+                  </span>
                 </div>
               </div>
             </div>
@@ -358,12 +518,11 @@ export default function Home() {
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>{t.home.featuresLabel}</span>
             <h2 className={styles.sectionTitle}>
-              {t.home.featuresTitle1}<br />
+              {t.home.featuresTitle1}
+              <br />
               <span className={styles.gradient}>{t.home.featuresTitle2}</span>
             </h2>
-            <p className={styles.sectionSubtitle}>
-              {t.home.featuresSubtitle}
-            </p>
+            <p className={styles.sectionSubtitle}>{t.home.featuresSubtitle}</p>
           </div>
           <div className={styles.featuresGrid}>
             {features.map((feature, index) => (
@@ -378,7 +537,7 @@ export default function Home() {
                       src={feature.image}
                       alt={feature.title}
                       fill
-                      style={{ objectFit: 'contain' }}
+                      style={{ objectFit: "contain" }}
                     />
                   </div>
                 )}
@@ -387,7 +546,9 @@ export default function Home() {
                     <feature.icon className={styles.featureSvgIcon} />
                   </div>
                   <h3 className={styles.featureTitle}>{feature.title}</h3>
-                  <p className={styles.featureDescription}>{feature.description}</p>
+                  <p className={styles.featureDescription}>
+                    {feature.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -406,7 +567,8 @@ export default function Home() {
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>{t.home.whyOlloLabel}</span>
             <h2 className={styles.sectionTitle}>
-              {t.home.whyOlloTitle1}<br />
+              {t.home.whyOlloTitle1}
+              <br />
               <span className={styles.gradient}>{t.home.whyOlloTitle2}</span>
             </h2>
           </div>
@@ -421,33 +583,59 @@ export default function Home() {
                   <benefit.icon className={styles.benefitSvgIcon} />
                 </div>
                 <h3 className={styles.benefitTitle}>{benefit.title}</h3>
-                <p className={styles.benefitDescription}>{benefit.description}</p>
+                <p className={styles.benefitDescription}>
+                  {benefit.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Testimonials */}
+      <Testimonials />
+
       {/* Final CTA */}
       <section className={styles.cta}>
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaContent}>
-              <h2 className={styles.ctaTitle}>
-                {t.home.ctaTitle}
-              </h2>
-              <p className={styles.ctaSubtitle}>
-                {t.home.ctaSubtitle}
-              </p>
+              <div className={styles.ctaSocialProof}>
+                <div className={styles.avatarStack}>
+                  <div className={styles.avatarMini} style={{ backgroundColor: "#E0F7F4" }}>T</div>
+                  <div className={styles.avatarMini} style={{ backgroundColor: "#E3F2FD" }}>A</div>
+                  <div className={styles.avatarMini} style={{ backgroundColor: "#F3E5F5" }}>R</div>
+                  <div className={styles.avatarMini} style={{ backgroundColor: "#FFF3E0" }}>S</div>
+                  <div className={styles.avatarPlus}>+</div>
+                </div>
+                <div className={styles.socialProofText}>
+                  <div className={styles.ratingStars}>
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className={styles.star}>★</span>
+                    ))}
+                  </div>
+                  <p>
+                    <strong>{t.home.socialProofRating}</strong> {t.home.socialProofUsers}
+                  </p>
+                </div>
+              </div>
+
+              <h2 className={styles.ctaTitle}>{t.home.ctaTitle}</h2>
+              <p className={styles.ctaSubtitle}>{t.home.ctaSubtitle}</p>
+
               <div className={styles.ctaButtons}>
                 <Link href="/download" className={styles.primaryButton}>
-                  <span className={styles.playIcon}><FaGooglePlay size={16} /></span>
+                  <span className={styles.playIcon}>
+                    <FaGooglePlay size={16} />
+                  </span>
                   {t.home.getOlloFree}
                 </Link>
                 <Link href="/pricing" className={styles.ghostButton}>
                   {t.home.viewPricing}
                 </Link>
               </div>
+
+              <p className={styles.ctaTrustText}>{t.home.socialProofTrust}</p>
             </div>
             <div className={styles.ctaDecor}>
               <Wallet className={styles.ctaDecoIcon} />
