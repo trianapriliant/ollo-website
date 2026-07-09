@@ -136,7 +136,7 @@ export default function Footer() {
                         </div>
 
                         <p className={styles.version}>
-                            v1.2.2+57
+                            v1.4.3+140
                         </p>
                     </div>
                 </div>

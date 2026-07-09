@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Testimonials from "@/components/Testimonials";
-import { FaGooglePlay } from "react-icons/fa6";
+import { FaGooglePlay, FaApple } from "react-icons/fa6";
 import {
   Wallet,
   CreditCard,
@@ -22,6 +22,7 @@ import {
   Gift,
   Coins,
   DataTransferBoth,
+  Cloud,
 } from "iconoir-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
@@ -224,6 +225,18 @@ export default function Home() {
       description: t.home.billsRemindersDesc,
       image: "/feature-bills-reminders.jpg",
     },
+    {
+      icon: Cloud,
+      title: t.home.cloudSyncTitle,
+      description: t.home.cloudSyncDesc,
+      image: "/feature-cloud-sync.png",
+    },
+    {
+      icon: Spark,
+      title: t.home.olloAssistantTitle,
+      description: t.home.olloAssistantDesc,
+      image: "/feature-ollo-assistant.png",
+    },
   ];
 
   // Benefits with translations
@@ -289,12 +302,28 @@ export default function Home() {
               , {t.home.heroSubtitle.split(",").slice(1).join(",")}
             </p>
             <div className={styles.heroCta}>
-              <Link href="/download" className={styles.primaryButton}>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.ollo.ollo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.primaryButton}
+              >
                 <span className={styles.playIcon}>
                   <FaGooglePlay size={16} />
                 </span>
                 {t.home.downloadPlayStore}
-              </Link>
+              </a>
+              <a
+                href="https://apps.apple.com/us/app/ollo-budget-money-manager/id6763823803"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.appStoreButton}
+              >
+                <span className={styles.playIcon}>
+                  <FaApple size={16} />
+                </span>
+                {t.home.downloadAppStore}
+              </a>
               <Link href="/features" className={styles.secondaryButton}>
                 {t.home.seeAllFeatures}
               </Link>
@@ -349,18 +378,6 @@ export default function Home() {
               <div className={styles.phoneGlow}></div>
             </div>
           </div>
-        </div>
-        <div className={styles.heroWave}>
-          <svg
-            viewBox="0 0 1440 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-              fill="white"
-            />
-          </svg>
         </div>
       </section>
 
@@ -624,12 +641,28 @@ export default function Home() {
               <p className={styles.ctaSubtitle}>{t.home.ctaSubtitle}</p>
 
               <div className={styles.ctaButtons}>
-                <Link href="/download" className={styles.primaryButton}>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.ollo.ollo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.primaryButton}
+                >
                   <span className={styles.playIcon}>
                     <FaGooglePlay size={16} />
                   </span>
                   {t.home.getOlloFree}
-                </Link>
+                </a>
+                <a
+                  href="https://apps.apple.com/us/app/ollo-budget-money-manager/id6763823803"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.appStoreButton}
+                >
+                  <span className={styles.playIcon}>
+                    <FaApple size={16} />
+                  </span>
+                  {t.home.downloadAppStore}
+                </a>
                 <Link href="/pricing" className={styles.ghostButton}>
                   {t.home.viewPricing}
                 </Link>

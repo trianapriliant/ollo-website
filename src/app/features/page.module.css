@@ -12,7 +12,7 @@
 .hero {
     padding: var(--space-20) 0;
     text-align: center;
-    background: var(--gradient-hero);
+    background: var(--color-background-alt);
 }
 
 .badge {
@@ -112,9 +112,9 @@
 }
 
 .featureCard:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--color-border);
 }
 
 .featureHeader {

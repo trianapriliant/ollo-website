@@ -86,14 +86,14 @@
 }
 
 .pricingCard:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--color-border);
 }
 
 .pricingCard.popular {
     background: white;
     border-color: var(--color-primary);
-    box-shadow: var(--shadow-glow);
+    box-shadow: var(--shadow-md);
 }
 
 .popularBadge {
@@ -102,7 +102,7 @@
     left: 50%;
     transform: translateX(-50%);
     padding: var(--space-1) var(--space-4);
-    background: var(--gradient-primary);
+    background: var(--color-primary);
     color: white;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
@@ -210,14 +210,12 @@
 }
 
 .ctaPrimary {
-    background: var(--gradient-primary);
+    background: var(--color-primary);
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 191, 165, 0.3);
 }
 
 .ctaPrimary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 191, 165, 0.4);
+    background: var(--color-primary-dark);
 }
 
 .ctaSecondary {

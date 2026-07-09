@@ -35,7 +35,7 @@ export default function PricingPage() {
         },
         {
             name: t.pricing.monthly,
-            price: "IDR 15,000",
+            price: "IDR 17,000",
             period: t.pricing.perMonth,
             description: t.pricing.monthlyDesc,
             features: [
@@ -56,7 +56,7 @@ export default function PricingPage() {
         },
         {
             name: t.pricing.sixMonth,
-            price: "IDR 75,000",
+            price: "IDR 88,000",
             period: t.pricing.perSixMonths,
             description: t.pricing.sixMonthDesc,
             features: [
@@ -72,7 +72,7 @@ export default function PricingPage() {
         },
         {
             name: t.pricing.annual,
-            price: "IDR 120,000",
+            price: "IDR 125,000",
             period: t.pricing.perYear,
             description: t.pricing.annualDesc,
             features: [
@@ -88,7 +88,7 @@ export default function PricingPage() {
         },
         {
             name: t.pricing.lifetime,
-            price: "IDR 199,000",
+            price: "IDR 205,000",
             period: t.pricing.oneTime,
             description: t.pricing.lifetimeDesc,
             features: [

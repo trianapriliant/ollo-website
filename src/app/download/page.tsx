@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import styles from "./page.module.css";
-import { Lock, OffTag, Database, Flash, Apple, Download, Globe } from "iconoir-react";
-import { FaGooglePlay } from "react-icons/fa6";
+import { Lock, OffTag, Database, Flash, Download, Globe } from "iconoir-react";
+import { FaGooglePlay, FaApple } from "react-icons/fa6";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
 
 const appInfo = {
-    version: "1.2.2+57",
-    build: "57",
-    minAndroid: "Android 5.0 (Lollipop)",
-    targetAndroid: "Android 15",
+    version: "1.4.3+140",
+    build: "140",
     size: "~26 MB",
+    platforms: ["Android", "iOS"],
 };
 
 export default function DownloadPage() {
@@ -59,7 +58,7 @@ export default function DownloadPage() {
                         {t.download.subtitle}
                     </p>
 
-                    {/* Play Store Button */}
+                    {/* Download Buttons */}
                     <div className={styles.downloadSection}>
                         <a
                             href="https://play.google.com/store/apps/details?id=com.ollo.ollo"
@@ -73,6 +72,20 @@ export default function DownloadPage() {
                             <div className={styles.playText}>
                                 <span className={styles.playLabel}>{t.download.getItOn}</span>
                                 <span className={styles.playStore}>{t.download.googlePlay}</span>
+                            </div>
+                        </a>
+                        <a
+                            href="https://apps.apple.com/us/app/ollo-budget-money-manager/id6763823803"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.appStoreButton}
+                        >
+                            <div className={styles.playIcon}>
+                                <FaApple size={32} />
+                            </div>
+                            <div className={styles.playText}>
+                                <span className={styles.playLabel}>{t.download.downloadOn}</span>
+                                <span className={styles.playStore}>{t.download.appStore}</span>
                             </div>
                         </a>
                     </div>
@@ -91,7 +104,7 @@ export default function DownloadPage() {
                         <div className={styles.infoDivider}></div>
                         <div className={styles.infoItem}>
                             <span className={styles.infoLabel}>{t.download.requires}</span>
-                            <span className={styles.infoValue}>{appInfo.minAndroid}+</span>
+                            <span className={styles.infoValue}>Android 5.0+ / iOS 15+</span>
                         </div>
                     </div>
                 </div>
@@ -159,20 +172,6 @@ export default function DownloadPage() {
             <section className={styles.comingSoon}>
                 <div className={styles.container}>
                     <div className={styles.comingSoonGrid}>
-                        {/* iOS Coming Soon */}
-                        <div className={styles.comingSoonCard}>
-                            <div className={styles.comingSoonIconWrapper}>
-                                <Apple className={styles.comingSoonSvgIcon} />
-                            </div>
-                            <h3 className={styles.comingSoonTitle}>{t.download.iosComingSoon}</h3>
-                            <p className={styles.comingSoonText}>
-                                {t.download.iosComingSoonDesc}
-                            </p>
-                            <Link href="/about" className={styles.followLink}>
-                                {t.download.followUs}
-                            </Link>
-                        </div>
-
                         {/* Web Coming Soon */}
                         <div className={styles.comingSoonCard}>
                             <div className={styles.comingSoonIconWrapper}>
@@ -181,6 +180,20 @@ export default function DownloadPage() {
                             <h3 className={styles.comingSoonTitle}>{t.download.webComingSoon}</h3>
                             <p className={styles.comingSoonText}>
                                 {t.download.webComingSoonDesc}
+                            </p>
+                            <Link href="/about" className={styles.followLink}>
+                                {t.download.followUs}
+                            </Link>
+                        </div>
+
+                        {/* Desktop Coming Soon */}
+                        <div className={styles.comingSoonCard}>
+                            <div className={styles.comingSoonIconWrapper}>
+                                <Download className={styles.comingSoonSvgIcon} />
+                            </div>
+                            <h3 className={styles.comingSoonTitle}>{t.download.desktopComingSoon}</h3>
+                            <p className={styles.comingSoonText}>
+                                {t.download.desktopComingSoonDesc}
                             </p>
                             <Link href="/about" className={styles.followLink}>
                                 {t.download.followUs}

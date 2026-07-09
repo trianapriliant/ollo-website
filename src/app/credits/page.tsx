@@ -36,7 +36,7 @@ export default function CreditsPage() {
             },
             {
                 name: "SQLite",
-                desc: t.credits.sqliteDesc,
+                desc: t.credits.driftDesc,
                 icon: Database,
                 colorClass: "purpleAlpha"
             },

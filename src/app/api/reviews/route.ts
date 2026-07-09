@@ -40,6 +40,25 @@ function hasMeaningfulText(text: string | null | undefined): boolean {
   return (text ?? "").trim().length > 0;
 }
 
+interface ScraperReview {
+  id?: string;
+  userName?: string;
+  score?: number;
+  text?: string;
+  date?: string | number | Date;
+}
+
+interface ScraperReviewsResult {
+  data: ScraperReview[];
+}
+
+interface GPlayScraper {
+  reviews: (options: { appId: string; sort: number; num: number }) => Promise<ScraperReviewsResult>;
+  sort: {
+    NEWEST: number;
+  };
+}
+
 // ─── Route Handler ───────────────────────────────────────────────────────────
 export async function GET() {
   const packageName = process.env.GOOGLE_PLAY_PACKAGE_NAME || "com.ollo.ollo";
@@ -47,9 +66,9 @@ export async function GET() {
   try {
     // Fetch reviews using google-play-scraper
     // This library scrapes the public Play Store page, so it's not limited to 1 week.
-    const scraperReviews = await (gplay as any).reviews({
+    const scraperReviews = await (gplay as unknown as GPlayScraper).reviews({
       appId: packageName,
-      sort: (gplay as any).sort.NEWEST,
+      sort: (gplay as unknown as GPlayScraper).sort.NEWEST,
       num: 100, // Fetch up to 100 reviews
     });
 
@@ -58,7 +77,7 @@ export async function GET() {
 
     // ── Filter & Map ──────────────────────────────────────────────────────
     const filtered: Review[] = scraperReviews.data
-      .map((rev: any) => {
+      .map((rev: ScraperReview) => {
         const rating = rev.score ?? 0;
         const text = (rev.text ?? "").trim();
 
@@ -73,7 +92,7 @@ export async function GET() {
           language: "id", // Scraper doesn't always provide language reliably, defaulting to 'id' or detecting would be complex
         };
       })
-      .filter((review: any): review is Review => Boolean(review));
+      .filter((review: Review | null): review is Review => Boolean(review));
 
     // ── Sort: 5★ first (shuffled within each tier), then 4★ ──────────────
     const fiveStars = shuffleArray(filtered.filter((r) => r.rating === 5));

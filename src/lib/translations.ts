@@ -75,6 +75,10 @@ export const translations: Record<
       receiptScannerDesc: string;
       billsRemindersTitle: string;
       billsRemindersDesc: string;
+      cloudSyncTitle: string;
+      cloudSyncDesc: string;
+      olloAssistantTitle: string;
+      olloAssistantDesc: string;
       whyOlloLabel: string;
       whyOlloTitle1: string;
       whyOlloTitle2: string;
@@ -89,6 +93,7 @@ export const translations: Record<
       ctaTitle: string;
       ctaSubtitle: string;
       getOlloFree: string;
+      downloadAppStore: string;
       viewPricing: string;
       socialProofRating: string;
       socialProofUsers: string;
@@ -144,6 +149,10 @@ export const translations: Record<
       smartNotificationsDesc: string;
       gamification: string;
       gamificationDesc: string;
+      cloudSync: string;
+      cloudSyncDesc: string;
+      olloAssistant: string;
+      olloAssistantDesc: string;
       // Languages section
       localization: string;
       speakYourLanguage: string;
@@ -258,7 +267,12 @@ export const translations: Record<
       iosComingSoonDesc: string;
       webComingSoon: string;
       webComingSoonDesc: string;
+      desktopComingSoon: string;
+      desktopComingSoonDesc: string;
       followUs: string;
+      // App Store
+      downloadOn: string;
+      appStore: string;
     };
     // FAQ Page
     faq: {
@@ -371,7 +385,7 @@ export const translations: Record<
       // Tech descriptions
       flutterDesc: string;
       dartDesc: string;
-      isarDesc: string;
+      driftDesc: string;
       riverpodDesc: string;
       nextjsDesc: string;
       reactDesc: string;
@@ -585,18 +599,24 @@ export const translations: Record<
       savingsGoalsTitle: "Savings Goals",
       savingsGoalsDesc:
         "Set goals, track progress, and celebrate when you reach your targets.",
-      receiptScannerTitle: "Receipt Scanner",
+      receiptScannerTitle: "AI Receipt Scanner (Beta)",
       receiptScannerDesc:
-        "Snap a receipt and let AI extract the amount and category for you.",
+        "Snap receipts, payment proofs, or transfer screenshots. AI automatically extracts total, merchant, date, and maps categories.",
       billsRemindersTitle: "Bills & Reminders",
       billsRemindersDesc:
         "Never miss a payment with smart bill tracking and timely reminders.",
+      cloudSyncTitle: "Secure Cloud Sync",
+      cloudSyncDesc:
+        "Synchronize your financial data across multiple devices seamlessly with secure background auto-recovery and remote sign-out.",
+      olloAssistantTitle: "AI Ollo Assistant (Beta)",
+      olloAssistantDesc:
+        "Have a natural conversation with your personal finance assistant. Privacy-first design uses secure aggregated account summaries.",
       whyOlloLabel: "Why Ollo?",
       whyOlloTitle1: "Designed for",
       whyOlloTitle2: "daily money clarity",
       privacyFirstTitle: "Privacy First",
       privacyFirstDesc:
-        "Your data stays on your device. No cloud uploads, no tracking.",
+        "Your data stays on-device, and optional cloud sync is fully secure, end-to-end encrypted, and private.",
       worksOfflineTitle: "Works Offline",
       worksOfflineDesc:
         "No internet? No problem. Ollo works completely offline.",
@@ -610,11 +630,12 @@ export const translations: Record<
       ctaSubtitle:
         "Join thousands of users who are building better money habits with Ollo. Free to download, powerful to use.",
       getOlloFree: "Get Ollo Free",
+      downloadAppStore: "Download on App Store",
       viewPricing: "View Pricing",
       socialProofRating: "4.9/5 Rating",
       socialProofUsers: "from 5k+ users",
       socialProofTrust: "Trusted by thousands of users worldwide",
-      heroSocialProof: "5,000+ Downloads",
+      heroSocialProof: "10,000+ Downloads",
     },
     features: {
       badge: "All Features",
@@ -662,21 +683,27 @@ export const translations: Record<
       voiceQuickRecord: "Voice Quick Record",
       voiceQuickRecordDesc:
         "Voice-to-transaction in 7 languages: English, Indonesian, Spanish, Hindi, Japanese, Mandarin, and Korean. Natural language parsing like 'spent 50k for lunch at cafe'.",
-      receiptScanner: "Receipt Scanner (OCR)",
+      receiptScanner: "AI Scan (Receipts & Invoices)",
       receiptScannerDesc:
-        "Camera-based receipt scanning with auto-extract amount. Smart category suggestion based on merchant keywords with multi-line total detection.",
+        "AI-powered scanning for receipts, payment proofs, screenshots, and digital invoices. Automatically detects currency, merchants, totals, dates, suggests categories, and attaches photos.",
       dataExportImport: "Data Export/Import",
       dataExportImportDesc:
         "Export to CSV format with date range, wallet, and category filters. Import transactions from CSV. Full data backup and restore as JSON.",
       homeScreenWidgets: "Home Screen Widgets",
       homeScreenWidgetsDesc:
-        "Monthly Summary Widget for budget overview. Today's Expense Widget for daily spending. Quick Record shortcut right from your home screen.",
+        "Polished iOS and Android widgets including Budget Pulse, Today Spending, and Balance charts, with direct entry shortcuts.",
       smartNotifications: "Smart Notifications",
       smartNotificationsDesc:
         "Daily reminder at customizable time (default 8 PM). Bill due date reminders scheduled at 9 AM. Weekly and monthly evaluation reminders.",
       gamification: "Gamification",
       gamificationDesc:
         "Daily streak tracking to build habits. Badges and achievements for milestones. Total active days counter with celebration animations.",
+      cloudSync: "Secure Cloud Sync",
+      cloudSyncDesc:
+        "Sync data across devices securely. Sync Hub shows conflict resolution, connected status, background recovery, and remote sign-out.",
+      olloAssistant: "AI Ollo Assistant (Beta)",
+      olloAssistantDesc:
+        "Chat with an intelligent assistant about your net worth, trends, projections, debts, and bills. Features on-device local chat history.",
       localization: "Localization",
       speakYourLanguage: "Speak your language",
       languagesSupportedDesc:
@@ -746,12 +773,12 @@ export const translations: Record<
       advanced: "Advanced",
       limited: "Limited",
       disclaimer:
-        "* Prices shown are in Indonesian Rupiah (IDR). Actual prices may vary slightly based on your region and Google Play Store policies. All subscriptions are processed through Google Play and subject to their billing terms.",
+        "* Prices shown are in Indonesian Rupiah (IDR). Android subscriptions are processed through Google Play. iOS subscriptions are processed through Apple App Store. Actual prices may vary slightly based on your region and store policies.",
     },
     download: {
       badge: "Download",
       title1: "Get Ollo for",
-      title2: "Android",
+      title2: "Android & iOS",
       subtitle:
         "Start tracking your finances today. Free to download, easy to use, powerful features.",
       getItOn: "GET IT ON",
@@ -769,7 +796,7 @@ export const translations: Record<
         "No internet required. Track expenses anywhere, anytime, even without connection.",
       localStorage: "Local Storage",
       localStorageDesc:
-        "All data is stored locally using Isar database. You own your data completely.",
+        "All data is stored locally using Drift (SQLite) database. You own your data completely.",
       fastLight: "Fast & Light",
       fastLightDesc:
         "Optimized for performance. Quick startup and smooth animations on any device.",
@@ -790,7 +817,12 @@ export const translations: Record<
       webComingSoon: "Ollo Web Coming Soon",
       webComingSoonDesc:
         "Access your finances from any browser. We're building a web version for seamless sync.",
+      desktopComingSoon: "Desktop Coming Soon",
+      desktopComingSoonDesc:
+        "Ollo is also coming to Windows, macOS, and Linux. Stay tuned for desktop releases.",
       followUs: "Follow @ollowithyou →",
+      downloadOn: "Download on the",
+      appStore: "App Store",
     },
     faq: {
       badge: "FAQ",
@@ -801,7 +833,7 @@ export const translations: Record<
       q1: "Is Ollo free to use?",
       a1: "Yes! Ollo's core features are completely free. You can track transactions, manage up to 7 wallets, set savings goals, track debts, and more at no cost. Premium unlocks advanced features like unlimited wallets, receipt scanning, voice input, and data export.",
       q2: "Is my financial data safe?",
-      a2: "Absolutely. Your data is stored locally on your device using Isar database. We don't upload your financial information to any cloud server. You have complete control over your data. The only time data leaves your device is if you choose to export it yourself.",
+      a2: "Absolutely. Your data is stored locally on your device using Drift (SQLite) database. We don't upload your financial information to any cloud server. You have complete control over your data. The only time data leaves your device is if you choose to export it yourself or enable cloud sync.",
       q3: "Does Ollo work offline?",
       a3: "Yes! Ollo works completely offline. You don't need an internet connection to track expenses, view statistics, or use any core features. The app is designed to work anywhere, anytime.",
       q4: "What happens if I change my phone?",
@@ -811,7 +843,7 @@ export const translations: Record<
       q6: "Does Ollo support multiple currencies?",
       a6: "Yes! Ollo now features Global Currency Support (v0.7.2) with over 160+ currencies and real-time exchange rates. You can easily switch your preferred currency in the settings.",
       q7: "Is cloud backup available?",
-      a7: "While fully automatic Cloud Sync is in development, our new Backup System allows you to save your backup files directly to your cloud storage apps (like Google Drive) via the system share sheet.",
+      a7: "Yes! Ollo features cloud sync via Google Sign-In. Your data is securely synced across devices through encrypted backend. You can also export backups manually as JSON or ZIP files.",
       q8: "Can I use voice input in my language?",
       a8: "Yes! Voice Quick Record supports 7 languages: English, Indonesian, Spanish, Hindi, Japanese, Mandarin Chinese, and Korean. The app uses natural language processing to understand your spoken transactions.",
       q9: "How accurate is the receipt scanner?",
@@ -821,7 +853,7 @@ export const translations: Record<
       q11: "What if I need help or have feedback?",
       a11: "We'd love to hear from you! You can reach us at ollowithyou@gmail.com or through our social media channels @ollowithyou. Premium users get priority support.",
       q12: "Is there a web or desktop version?",
-      a12: "Currently, Ollo is available only for Android. iOS is in development. A web version may come in the future based on user demand.",
+      a12: "Ollo is available for Android and iOS. A web version and desktop apps (Windows, macOS, Linux) are in development.",
       stillHaveQuestions: "Still have questions?",
       hereToHelp:
         "We're here to help. Reach out to us and we'll get back to you as soon as possible.",
@@ -906,7 +938,7 @@ export const translations: Record<
       thanks: "And a special thanks to all the contributors of these projects.",
       flutterDesc: "Hybrid App Framework",
       dartDesc: "Programming Language",
-      isarDesc: "High Performance Local DB",
+      driftDesc: "Type-safe SQL ORM for Dart/Flutter. Primary database with code generation and migration support.",
       riverpodDesc: "State Management",
       sqliteDesc: "Local SQLite Database",
       revenueCatDesc: "Subscription Management",
@@ -925,7 +957,7 @@ export const translations: Record<
       title2: "Ollo",
       subtitle:
         "Follow our journey as we build the future of personal finance tracking. See what's done and what's coming next.",
-      lastUpdated: "Last updated: January 11, 2026",
+      lastUpdated: "Last updated: July 9, 2026",
       completedBadge: "Recently Shipped",
       completedTitle: "Completed Features",
       completedSubtitle: "Features we've recently added to Ollo",
@@ -1143,18 +1175,24 @@ export const translations: Record<
       savingsGoalsTitle: "Target Tabungan",
       savingsGoalsDesc:
         "Tetapkan target, pantau progress, dan rayakan saat mencapai targetmu.",
-      receiptScannerTitle: "Pemindai Struk",
+      receiptScannerTitle: "Pemindai Struk AI (Beta)",
       receiptScannerDesc:
-        "Foto struk dan biarkan AI mengekstrak jumlah dan kategori untukmu.",
+        "Foto struk, bukti pembayaran, atau screenshot transfer. AI otomatis mengekstrak total, merchant, tanggal, dan memetakan kategori.",
       billsRemindersTitle: "Tagihan & Pengingat",
       billsRemindersDesc:
         "Jangan lewatkan pembayaran dengan pelacakan tagihan cerdas dan pengingat tepat waktu.",
+      cloudSyncTitle: "Sinkronisasi Cloud Aman",
+      cloudSyncDesc:
+        "Sinkronisasikan data keuangan Anda di berbagai perangkat secara mulus dengan auto-recovery latar belakang yang aman dan remote sign-out.",
+      olloAssistantTitle: "Asisten AI Ollo (Beta)",
+      olloAssistantDesc:
+        "Lakukan percakapan natural dengan asisten keuangan pribadi Anda. Desain privat menggunakan ringkasan akun teragregasi yang aman.",
       whyOlloLabel: "Mengapa Ollo?",
       whyOlloTitle1: "Dirancang untuk",
       whyOlloTitle2: "kejelasan uang harian",
       privacyFirstTitle: "Privasi Utama",
       privacyFirstDesc:
-        "Datamu tetap di perangkatmu. Tanpa upload cloud, tanpa pelacakan.",
+        "Data tetap di perangkat, dan sinkronisasi cloud opsional sangat aman, terenkripsi end-to-end, serta privat.",
       worksOfflineTitle: "Bekerja Offline",
       worksOfflineDesc:
         "Tidak ada internet? Tidak masalah. Ollo bekerja sepenuhnya offline.",
@@ -1168,11 +1206,12 @@ export const translations: Record<
       ctaSubtitle:
         "Bergabung dengan ribuan pengguna yang membangun kebiasaan uang lebih baik dengan Ollo. Gratis diunduh, powerful digunakan.",
       getOlloFree: "Dapatkan Ollo Gratis",
+      downloadAppStore: "Unduh di App Store",
       viewPricing: "Lihat Harga",
       socialProofRating: "Rating 4.9/5",
       socialProofUsers: "dari 5rb+ pengguna",
       socialProofTrust: "Dipercaya oleh ribuan pengguna di seluruh dunia",
-      heroSocialProof: "5.000+ Unduhan",
+      heroSocialProof: "10.000+ Unduhan",
     },
     features: {
       badge: "Semua Fitur",
@@ -1220,21 +1259,27 @@ export const translations: Record<
       voiceQuickRecord: "Rekam Cepat Suara",
       voiceQuickRecordDesc:
         "Suara ke transaksi dalam 7 bahasa: Inggris, Indonesia, Spanyol, Hindi, Jepang, Mandarin, dan Korea. Parsing bahasa natural seperti 'makan siang 50rb di kafe'.",
-      receiptScanner: "Pemindai Struk (OCR)",
+      receiptScanner: "Pemindai AI (Struk & Invoice)",
       receiptScannerDesc:
-        "Pemindaian struk berbasis kamera dengan ekstrak otomatis jumlah. Saran kategori cerdas berdasarkan kata kunci merchant dengan deteksi total multi-baris.",
+        "Pemindaian bertenaga AI untuk struk, bukti pembayaran, screenshot transfer, dan invoice digital. Otomatis mendeteksi mata uang, merchant, total, tanggal, menyarankan kategori, dan melampirkan foto.",
       dataExportImport: "Ekspor/Impor Data",
       dataExportImportDesc:
         "Ekspor ke format CSV dengan filter rentang tanggal, dompet, dan kategori. Impor transaksi dari CSV. Backup dan restore data lengkap sebagai JSON.",
       homeScreenWidgets: "Widget Layar Utama",
       homeScreenWidgetsDesc:
-        "Widget Ringkasan Bulanan untuk overview anggaran. Widget Pengeluaran Hari Ini untuk belanja harian. Shortcut Rekam Cepat langsung dari layar utama.",
+        "Widget layar utama iOS & Android yang didesain ulang seperti Budget Pulse, Pengeluaran Hari Ini, dan grafik Saldo, lengkap dengan shortcut pencatatan langsung.",
       smartNotifications: "Notifikasi Cerdas",
       smartNotificationsDesc:
         "Pengingat harian pada waktu yang dapat dikustomisasi (default 8 PM). Pengingat jatuh tempo tagihan dijadwalkan jam 9 AM. Pengingat evaluasi mingguan dan bulanan.",
       gamification: "Gamifikasi",
       gamificationDesc:
         "Pelacakan streak harian untuk membangun kebiasaan. Badge dan achievement untuk milestone. Penghitung total hari aktif dengan animasi selebrasi.",
+      cloudSync: "Sinkronisasi Cloud Aman",
+      cloudSyncDesc:
+        "Sinkronkan data di berbagai perangkat dengan aman. Sync Hub menampilkan resolusi konflik, status koneksi, auto-recovery latar belakang, dan remote sign-out.",
+      olloAssistant: "Asisten AI Ollo (Beta)",
+      olloAssistantDesc:
+        "Bicaralah dengan asisten cerdas mengenai kekayaan bersih, tren, proyeksi, utang, dan tagihan. Dilengkapi riwayat chat lokal di perangkat.",
       localization: "Lokalisasi",
       speakYourLanguage: "Bicara dalam bahasamu",
       languagesSupportedDesc:
@@ -1304,12 +1349,12 @@ export const translations: Record<
       advanced: "Lanjutan",
       limited: "Terbatas",
       disclaimer:
-        "* Harga ditampilkan dalam Rupiah Indonesia (IDR). Harga aktual mungkin sedikit berbeda berdasarkan wilayahmu dan kebijakan Google Play Store. Semua langganan diproses melalui Google Play dan tunduk pada ketentuan penagihan mereka.",
+        "* Harga ditampilkan dalam Rupiah Indonesia (IDR). Langganan Android diproses melalui Google Play. Langganan iOS diproses melalui Apple App Store. Harga aktual mungkin sedikit berbeda berdasarkan wilayah dan kebijakan toko masing-masing.",
     },
     download: {
       badge: "Unduh",
       title1: "Dapatkan Ollo untuk",
-      title2: "Android",
+      title2: "Android & iOS",
       subtitle:
         "Mulai lacak keuanganmu hari ini. Gratis diunduh, mudah digunakan, fitur powerful.",
       getItOn: "DAPATKAN DI",
@@ -1327,7 +1372,7 @@ export const translations: Record<
         "Tidak perlu internet. Lacak pengeluaran di mana saja, kapan saja, tanpa koneksi.",
       localStorage: "Penyimpanan Lokal",
       localStorageDesc:
-        "Semua data disimpan secara lokal menggunakan database Isar. Kamu memiliki datamu sepenuhnya.",
+        "Semua data disimpan secara lokal menggunakan database Drift (SQLite). Kamu memiliki datamu sepenuhnya.",
       fastLight: "Cepat & Ringan",
       fastLightDesc:
         "Dioptimalkan untuk performa. Startup cepat dan animasi halus di perangkat apa pun.",
@@ -1348,7 +1393,12 @@ export const translations: Record<
       webComingSoon: "Ollo Web Segera Hadir",
       webComingSoonDesc:
         "Akses keuanganmu dari browser mana pun. Kami sedang membangun versi web untuk sinkronisasi seamless.",
+      desktopComingSoon: "Desktop Segera Hadir",
+      desktopComingSoonDesc:
+        "Ollo juga akan hadir untuk Windows, macOS, dan Linux. Pantau terus rilis versi desktop.",
       followUs: "Ikuti @ollowithyou →",
+      downloadOn: "Unduh di",
+      appStore: "App Store",
     },
     faq: {
       badge: "FAQ",
@@ -1359,7 +1409,7 @@ export const translations: Record<
       q1: "Is Ollo free to use?",
       a1: "Ya! Fitur inti Ollo benar-benar gratis. Kamu bisa melacak transaksi, mengelola hingga 7 dompet, menetapkan target tabungan, melacak hutang, dan lainnya tanpa biaya. Premium membuka fitur lanjutan seperti dompet tak terbatas, pemindai struk, input suara, dan ekspor data.",
       q2: "Is my financial data safe?",
-      a2: "Tentu saja. Datamu disimpan secara lokal di perangkatmu menggunakan database Isar. Kami tidak mengunggah informasi keuanganmu ke server cloud mana pun. Kamu memiliki kendali penuh atas datamu.",
+      a2: "Tentu saja. Datamu disimpan secara lokal di perangkatmu menggunakan database Drift (SQLite). Kami tidak mengunggah informasi keuanganmu ke server cloud mana pun. Kamu memiliki kendali penuh atas datamu.",
       q3: "Does Ollo work offline?",
       a3: "Ya! Ollo bekerja sepenuhnya offline. Kamu tidak memerlukan koneksi internet untuk melacak pengeluaran, melihat statistik, atau menggunakan fitur inti lainnya.",
       q4: "What happens if I change my phone?",
@@ -1368,8 +1418,8 @@ export const translations: Record<
       a5: "Premium tersedia sebagai paket Bulanan, 6-Bulan, Tahunan, atau Seumur Hidup. Langganan diproses melalui Google Play Store. Paket bulanan termasuk uji coba gratis 7 hari.",
       q6: "Does Ollo support multiple currencies?",
       a6: "Saat ini, Ollo mendukung pengaturan mata uang pilihanmu untuk tujuan tampilan. Dukungan multi-mata uang penuh dengan konversi otomatis akan segera hadir.",
-      q7: "Is cloud backup available?",
-      a7: "Backup cloud (sinkronisasi Google Drive) saat ini dalam pengembangan. Untuk saat ini, kamu bisa mencadangkan datamu secara manual sebagai file JSON.",
+      q7: "Apakah backup cloud tersedia?",
+      a7: "Ya! Ollo memiliki cloud sync via Google Sign-In. Data kamu disinkronkan secara aman antar perangkat melalui backend terenkripsi. Kamu juga bisa mengekspor backup manual sebagai file JSON atau ZIP.",
       q8: "Can I use voice input in my language?",
       a8: "Ya! Rekam Cepat Suara mendukung 7 bahasa: Inggris, Indonesia, Spanyol, Hindi, Jepang, Mandarin, dan Korea.",
       q9: "Seberapa akurat pemindai struk?",
@@ -1379,7 +1429,7 @@ export const translations: Record<
       q11: "Bagaimana jika saya butuh bantuan atau punya masukan?",
       a11: "Kami senang mendengar darimu! Kamu bisa menghubungi kami di ollowithyou@gmail.com atau melalui @ollowithyou. Pengguna Premium mendapat dukungan prioritas.",
       q12: "Apakah ada versi web atau desktop?",
-      a12: "Saat ini, Ollo hanya tersedia untuk Android. iOS sedang dalam pengembangan. Versi web mungkin akan hadir di masa depan.",
+      a12: "Ollo tersedia untuk Android dan iOS. Versi web dan aplikasi desktop (Windows, macOS, Linux) sedang dalam pengembangan.",
       stillHaveQuestions: "Masih punya pertanyaan?",
       hereToHelp:
         "Kami di sini untuk membantu. Hubungi kami dan kami akan membalasmu secepat mungkin.",
@@ -1465,7 +1515,7 @@ export const translations: Record<
         "Dan terima kasih khusus kepada semua kontributor proyek-proyek ini.",
       flutterDesc: "Framework Aplikasi Hybrid",
       dartDesc: "Bahasa Pemrograman",
-      isarDesc: "DB Lokal Performa Tinggi",
+      driftDesc: "ORM SQL type-safe untuk Dart/Flutter. Database utama dengan code generation dan migration support.",
       riverpodDesc: "Manajemen State",
       sqliteDesc: "Database SQLite Lokal",
       revenueCatDesc: "Manajemen Langganan",
@@ -1484,7 +1534,7 @@ export const translations: Record<
       title2: "Ollo",
       subtitle:
         "Ikuti perjalanan kami membangun masa depan pelacakan keuangan pribadi. Lihat apa yang sudah selesai dan apa yang akan datang.",
-      lastUpdated: "Terakhir diperbarui: 11 Januari 2026",
+      lastUpdated: "Terakhir diperbarui: 9 Juli 2026",
       completedBadge: "Baru Dirilis",
       completedTitle: "Fitur Selesai",
       completedSubtitle: "Fitur yang baru kami tambahkan ke Ollo",

@@ -147,17 +147,17 @@
     padding: var(--space-6);
     background: white;
     border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border-light);
     transition: all var(--transition-base);
 }
 
 .featureCard:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .upcomingCard {
-    background: linear-gradient(135deg, #fefce8 0%, #fff7ed 100%);
+    background: #FFFBEB;
     border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
@@ -261,7 +261,7 @@
     margin: 0 auto;
     text-align: center;
     padding: var(--space-10);
-    background: var(--gradient-card);
+    background: var(--color-surface);
     border-radius: var(--radius-3xl);
     border: 1px solid var(--color-border-light);
 }

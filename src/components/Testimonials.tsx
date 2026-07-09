@@ -284,6 +284,8 @@ export default function Testimonials() {
     Number(process.env.NEXT_PUBLIC_GOOGLE_PLAY_TOTAL_RATINGS ?? "0") ||
     data?.totalRatings ||
     0;
+  const appStoreDownloads =
+    Number(process.env.NEXT_PUBLIC_APP_STORE_DOWNLOADS ?? "1000");
   const statsLabel =
     (Number(process.env.NEXT_PUBLIC_GOOGLE_PLAY_TOTAL_RATINGS ?? "0") > 0 || (data?.totalRatings ?? 0) > 0)
       ? tl.totalRatings
@@ -302,7 +304,7 @@ export default function Testimonials() {
       ? totalRatings
       : data?.featuredReviewCount || reviews.length;
 
-  const statsCount = rawStatsCount >= 5000 ? "5k" : rawStatsCount.toString();
+  const statsCount = rawStatsCount >= 10000 ? "10k" : rawStatsCount >= 5000 ? "5k" : rawStatsCount.toString();
 
   const mid = Math.ceil(reviews.length / 2);
   const row1 = reviews.slice(0, mid);
@@ -346,6 +348,10 @@ export default function Testimonials() {
             <span className={styles.statsDivider}>·</span>
             <span className={styles.totalText}>
               {statsCount}+ {statsLabel}
+            </span>
+            <span className={styles.statsDivider}>·</span>
+            <span className={styles.totalText}>
+              {appStoreDownloads >= 1000 ? `${Math.floor(appStoreDownloads / 1000)}k+` : `${appStoreDownloads}+`} App Store
             </span>
           </div>
         )}

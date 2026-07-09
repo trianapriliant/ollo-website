@@ -19,6 +19,8 @@ import {
     Bell,
     Trophy,
     Language,
+    Cloud,
+    Spark,
 } from "iconoir-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getTranslations } from "@/lib/translations";
@@ -126,6 +128,18 @@ export default function FeaturesPage() {
                     icon: Trophy,
                     title: t.features.gamification,
                     description: t.features.gamificationDesc,
+                },
+                {
+                    icon: Cloud,
+                    title: t.features.cloudSync,
+                    description: t.features.cloudSyncDesc,
+                    premium: true,
+                },
+                {
+                    icon: Spark,
+                    title: t.features.olloAssistant,
+                    description: t.features.olloAssistantDesc,
+                    premium: true,
                 },
             ],
         },
