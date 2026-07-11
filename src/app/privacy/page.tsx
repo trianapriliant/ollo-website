@@ -51,6 +51,7 @@ const content: Record<"en" | "id", { title: string; updated: string; sections: S
                     "When you use Ollo Assistant, messages you type, recent turns needed for context, optional tone preferences, and financial summaries prepared on your device are sent through Ollo's server to DeepSeek. Summaries may include totals, trends, budgets, wallet balances, savings, bills, or debt.",
                     "Ollo does not send raw individual transaction titles, notes, merchants, or attachments as Assistant context. Assistant chat history is stored locally on your device. If you explicitly submit feedback, the selected conversation, rating, issue tags, optional note, app version, platform, and language are stored on Ollo's server for product improvement.",
                     "Assistant output is informational and is not professional financial, investment, tax, legal, or medical advice. Usage counts are stored to enforce quotas and prevent abuse.",
+                    "AI features run only with your explicit consent: before first use, the app shows a consent dialog naming the actual providers, and your acceptance is recorded per account and feature with a timestamp. You can revoke all AI consent at any time from Profile → Account → Account Management; revoking stops AI processing without deleting your transactions, account, local chat history, subscription, or cloud data.",
                 ],
             },
             {
@@ -148,6 +149,7 @@ const content: Record<"en" | "id", { title: string; updated: string; sections: S
                     "Saat kamu menggunakan Ollo Assistant, pesan yang kamu ketik, percakapan terbaru yang diperlukan sebagai konteks, preferensi gaya opsional, dan ringkasan keuangan yang disiapkan di perangkat dikirim melalui server Ollo ke DeepSeek. Ringkasan dapat mencakup total, tren, budget, saldo dompet, tabungan, tagihan, atau utang.",
                     "Ollo tidak mengirim judul, catatan, merchant, atau lampiran transaksi mentah satu per satu sebagai konteks Assistant. Riwayat chat disimpan lokal di perangkat. Jika kamu secara eksplisit mengirim feedback, percakapan yang dipilih, rating, tag masalah, catatan opsional, versi aplikasi, platform, dan bahasa disimpan di server Ollo untuk perbaikan produk.",
                     "Keluaran Assistant hanya bersifat informasional dan bukan nasihat profesional keuangan, investasi, pajak, hukum, atau medis. Jumlah penggunaan disimpan untuk menerapkan kuota dan mencegah penyalahgunaan.",
+                    "Fitur AI hanya berjalan dengan persetujuan (consent) eksplisitmu: sebelum pemakaian pertama, aplikasi menampilkan dialog persetujuan yang menyebut provider aktual, dan persetujuanmu dicatat per akun dan fitur beserta stempel waktu. Kamu dapat mencabut (revoke) seluruh persetujuan AI kapan saja lewat Profil → Akun → Manajemen Akun; pencabutan menghentikan pemrosesan AI tanpa menghapus transaksi, akun, riwayat chat lokal, langganan, maupun data cloud-mu.",
                 ],
             },
             {
