@@ -790,13 +790,13 @@ export const translations: Record<
       trustSubtitle: "Your privacy and security are our top priorities",
       privacyFirst: "Privacy First",
       privacyFirstDesc:
-        "Your financial data stays on your device. No cloud uploads unless you choose to backup.",
+        "Core data stays on your device. Cloud Sync and AI processing are used only when you choose those online features.",
       worksOffline: "Works Offline",
       worksOfflineDesc:
         "No internet required. Track expenses anywhere, anytime, even without connection.",
       localStorage: "Local Storage",
       localStorageDesc:
-        "All data is stored locally using Drift (SQLite) database. You own your data completely.",
+        "Core data is stored locally using Drift (SQLite). You control optional Cloud Sync, AI features, and exports.",
       fastLight: "Fast & Light",
       fastLightDesc:
         "Optimized for performance. Quick startup and smooth animations on any device.",
@@ -833,7 +833,7 @@ export const translations: Record<
       q1: "Is Ollo free to use?",
       a1: "Yes! Ollo's core features are completely free. You can track transactions, manage up to 7 wallets, set savings goals, track debts, and more at no cost. Premium unlocks advanced features like unlimited wallets, receipt scanning, voice input, and data export.",
       q2: "Is my financial data safe?",
-      a2: "Absolutely. Your data is stored locally on your device using Drift (SQLite) database. We don't upload your financial information to any cloud server. You have complete control over your data. The only time data leaves your device is if you choose to export it yourself or enable cloud sync.",
+      a2: "Ollo is offline-first and stores core data locally using Drift (SQLite). Data leaves your device only when you choose an online feature such as Cloud Sync, AI Scan, Ollo Assistant, or an export destination. See the Privacy Policy for the exact data and providers involved.",
       q3: "Does Ollo work offline?",
       a3: "Yes! Ollo works completely offline. You don't need an internet connection to track expenses, view statistics, or use any core features. The app is designed to work anywhere, anytime.",
       q4: "What happens if I change my phone?",
@@ -873,7 +873,7 @@ export const translations: Record<
       valuesTitle: "Our Values",
       privacyFirst: "Privacy First",
       privacyFirstDesc:
-        "Your financial data belongs to you. We store everything locally on your device and never upload your information to our servers.",
+        "Your financial data belongs to you. Core features are offline-first, and online processing occurs only when you choose Cloud Sync, AI, or account services.",
       simplicity: "Simplicity",
       simplicityDesc:
         "Powerful features don't have to be complicated. We design every feature to be intuitive and easy to use from day one.",
@@ -1366,13 +1366,13 @@ export const translations: Record<
       trustSubtitle: "Privasi dan keamananmu adalah prioritas utama kami",
       privacyFirst: "Privasi Utama",
       privacyFirstDesc:
-        "Data keuanganmu tetap di perangkatmu. Tidak ada upload cloud kecuali kamu memilih backup.",
+        "Data inti tetap di perangkatmu. Cloud Sync dan pemrosesan AI hanya digunakan saat kamu memilih fitur online tersebut.",
       worksOffline: "Bekerja Offline",
       worksOfflineDesc:
         "Tidak perlu internet. Lacak pengeluaran di mana saja, kapan saja, tanpa koneksi.",
       localStorage: "Penyimpanan Lokal",
       localStorageDesc:
-        "Semua data disimpan secara lokal menggunakan database Drift (SQLite). Kamu memiliki datamu sepenuhnya.",
+        "Data inti disimpan lokal menggunakan Drift (SQLite). Kamu mengendalikan Cloud Sync, fitur AI, dan ekspor yang bersifat opsional.",
       fastLight: "Cepat & Ringan",
       fastLightDesc:
         "Dioptimalkan untuk performa. Startup cepat dan animasi halus di perangkat apa pun.",
@@ -1409,7 +1409,7 @@ export const translations: Record<
       q1: "Is Ollo free to use?",
       a1: "Ya! Fitur inti Ollo benar-benar gratis. Kamu bisa melacak transaksi, mengelola hingga 7 dompet, menetapkan target tabungan, melacak hutang, dan lainnya tanpa biaya. Premium membuka fitur lanjutan seperti dompet tak terbatas, pemindai struk, input suara, dan ekspor data.",
       q2: "Is my financial data safe?",
-      a2: "Tentu saja. Datamu disimpan secara lokal di perangkatmu menggunakan database Drift (SQLite). Kami tidak mengunggah informasi keuanganmu ke server cloud mana pun. Kamu memiliki kendali penuh atas datamu.",
+      a2: "Ollo mengutamakan penggunaan offline dan menyimpan data inti secara lokal dengan Drift (SQLite). Data keluar dari perangkat hanya saat kamu memilih fitur online seperti Cloud Sync, AI Scan, Ollo Assistant, atau tujuan ekspor. Lihat Kebijakan Privasi untuk rincian data dan provider.",
       q3: "Does Ollo work offline?",
       a3: "Ya! Ollo bekerja sepenuhnya offline. Kamu tidak memerlukan koneksi internet untuk melacak pengeluaran, melihat statistik, atau menggunakan fitur inti lainnya.",
       q4: "What happens if I change my phone?",
@@ -1449,7 +1449,7 @@ export const translations: Record<
       valuesTitle: "Nilai-Nilai Kami",
       privacyFirst: "Privasi Utama",
       privacyFirstDesc:
-        "Data keuanganmu milikmu. Kami menyimpan semuanya secara lokal di perangkatmu dan tidak pernah mengunggah informasimu ke server kami.",
+        "Data keuanganmu milikmu. Fitur inti mengutamakan offline, dan pemrosesan online hanya terjadi saat kamu memilih Cloud Sync, AI, atau layanan akun.",
       simplicity: "Kesederhanaan",
       simplicityDesc:
         "Fitur powerful tidak harus rumit. Kami merancang setiap fitur agar intuitif dan mudah digunakan sejak hari pertama.",

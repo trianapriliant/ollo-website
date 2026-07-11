@@ -58,6 +58,17 @@ src/lib/
 
 ## Riwayat Update
 
+### 2026-07-11: Privacy policy security-hardening update
+
+- `/privacy` diganti dengan policy bilingual EN/ID yang akurat untuk arsitektur offline-first,
+  Drift/SQLite, akun Ollo, Cloud Sync opsional, AI Scan (OpenRouter/Google Gemini), Ollo Assistant
+  (DeepSeek), RevenueCat/store purchase, diagnostik, retention, dan permintaan penghapusan data.
+- Copy FAQ, About, Download, dan Terms yang sebelumnya mengklaim semua data selalu lokal/tidak
+  pernah ke server diselaraskan dengan fitur online opsional.
+- Tidak mengklaim in-app deletion sudah publik: sampai fitur tersebut aktif, policy mengarahkan
+  permintaan deletion melalui email akun. Menghapus akun tidak membatalkan subscription store.
+- Branch `codex/security-privacy-policy`; `npm run build` lulus 15 static pages. Belum push/deploy.
+
 ### 2026-07-09: Update Website for App Changes (v1.2.88 to v1.4.3+140)
 
 - Diperbarui `translations.ts` menambahkan terjemahan untuk fitur baru: **Secure Cloud Sync** dan **AI Ollo Assistant (Beta)**, serta memperbarui deskripsi **AI Scan** dan **HomeScreen Widgets**.

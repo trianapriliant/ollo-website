@@ -99,9 +99,9 @@ export default function TermsPage() {
                                 you acknowledge that:
                             </p>
                             <ul>
-                                <li>Your data is stored locally on your device</li>
-                                <li>We do not have access to your financial information</li>
-                                <li>You are responsible for backing up your data</li>
+                                <li>Core data is stored locally on your device</li>
+                                <li>Optional Cloud Sync and AI features process the data described in the Privacy Policy</li>
+                                <li>You control whether to enable online features and where to save exported backups</li>
                                 <li>Data loss due to device issues is not our responsibility</li>
                             </ul>
                         </section>
