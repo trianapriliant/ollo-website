@@ -12,7 +12,7 @@
     "google-play-scraper": "^10.1.2",
     "googleapis": "^171.4.0",
     "iconoir-react": "^7.11.0",
-    "next": "16.1.1",
+    "next": "16.2.10",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0"
@@ -24,5 +24,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
   }
 }
